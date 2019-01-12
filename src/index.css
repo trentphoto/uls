@@ -1,10 +1,18 @@
+@font-face {
+  font-family: "Minion";
+  src: url('./assets/fonts/MinionPro-Bold.otf');
+}
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'roboto mono', sans-serif;
+  font-family: 'open sans', sans-serif;
   /* height: 100%; */
   scroll-behavior: smooth;
   --pure-white: #fff;
+  --primary-blue: #444F69;
+  --primary-gold: #F7941D
 }
 
 input:-webkit-autofill,
@@ -31,19 +39,9 @@ textarea:-webkit-autofill {
   margin: 0 auto;
   max-width: 1200px;
   position: relative;
+}
+
+.page-wrapper.flex {
   display: flex;
   justify-content: space-between;
-}
-
-.transition-wrapper {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 130px);
-}
-
-.transition-wrapper .page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 }

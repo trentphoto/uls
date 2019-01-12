@@ -1,0 +1,60 @@
+p.text {
+  margin: 0;
+}
+
+p.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+p.italic {
+  font-style: italic;
+}
+
+p.extra-small {
+  font-size: 14px;
+}
+
+p.small {
+  font-size: 16px;
+}
+
+p.medium {
+  font-size: 18px;
+}
+
+p.large {
+  font-size: 21px;
+}
+
+p._300 {
+  font-weight: 300;
+}
+
+p._400 {
+  font-weight: 400;
+}
+
+p._500 {
+  font-weight: 500;
+}
+
+p._700 {
+  font-weight: 600;
+}
+
+p.white {
+  color: var(--pure-white);
+}
+
+p.black {
+  color: black;
+}
+
+p.colored {
+  color: var(--primary-blue);
+}
+
+p.grey {
+  color: #4d4d4d;
+}
