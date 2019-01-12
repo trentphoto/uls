@@ -1,0 +1,41 @@
+.floating-tabs {
+  border-radius: 4px;
+  box-shadow: 0 3px 34px rgba(0, 0, 0, 0.25);
+  background-color: var(--pure-white);
+  margin-top: -100px !important;
+  margin-bottom: 120px !important;
+}
+
+.floating-tabs .content-container {
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 80px);
+}
+
+.floating-tabs .divider {
+  background-color: #444f69;
+  width: 1px;
+  height: 100px;
+  opacity: 0.3;
+  margin: 0 45px;
+}
+
+.floating-tabs .tab {
+  width: calc(100% / 3 - 30px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.floating-tabs .tab img {
+  width: 33px;
+  height: 48px;
+  object-fit: contain;
+  margin-right: 14px;
+}
+
+.floating-tabs .tab p {
+  margin-top: 8px;
+}

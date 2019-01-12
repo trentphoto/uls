@@ -1,5 +1,6 @@
 import React from 'react'
 import { Header, Text } from '..'
+import './floating-tabs.css'
 
 interface FloatingTabProps {
   tabOne: TabProps
@@ -17,7 +18,9 @@ const FloatingTabs = ({ tabOne, tabTwo, tabThree }: FloatingTabProps) => {
     <div className="page-wrapper floating-tabs">
       <div className="content-container">
         <Tab {...tabOne} />
+        <div className="divider" />
         <Tab {...tabTwo} />
+        <div className="divider" />
         <Tab {...tabThree} />
       </div>
     </div>
@@ -28,7 +31,9 @@ const Tab = ({ header, desc }: TabProps) => (
   <div className="tab">
     <img src={require('../../assets/svgs/location.svg')} alt="Marker" />
     <div className="content">
-      <Header type="h4">{header}</Header>
+      <Header type="h4" colored>
+        {header}
+      </Header>
       <Text size="small" color="grey">
         {desc}
       </Text>

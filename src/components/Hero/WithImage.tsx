@@ -10,15 +10,17 @@ interface Props {
 
 const WithImage = ({ header, subHeader, image }: Props) => {
   return (
-    <div className="hero">
+    <div className="hero with-image">
       <div className="bg-image">
         <div className="overlay" />
         <img src={image} alt={header} />
       </div>
       <div className="content-container">
-        <Header type="h1">{header}</Header>
+        <Header centered type="h1">
+          {header}
+        </Header>
         {subHeader && (
-          <Text size="large" color="white">
+          <Text centered size="large" color="white">
             {subHeader}
           </Text>
         )}

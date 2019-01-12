@@ -1,6 +1,6 @@
 export const metaData = {
   hero: {
-    header: 'Unifying, Learning, Serving',
+    header: 'Unifying, Learning, and Serving',
     subHeader:
       'Welcome to United Lutheran Seminary, a School for Church and World',
     image: require('../../assets/images/home-bg.jpg')
