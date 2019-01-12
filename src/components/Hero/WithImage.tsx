@@ -5,7 +5,7 @@ import './hero.css'
 interface Props {
   header: string
   subHeader?: string
-  image?: string
+  image: string
 }
 
 const WithImage = ({ header, subHeader, image }: Props) => {
