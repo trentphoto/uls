@@ -1,0 +1,8 @@
+.home.page .grey-bg {
+  background-color: #f7f8f8;
+}
+
+.home.page .grey-bg.top {
+  padding: 300px 0 75px;
+  margin-top: -280px;
+}

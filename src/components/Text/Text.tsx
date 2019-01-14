@@ -15,6 +15,7 @@ interface TextProps {
   weight?: 'light' | 'normal' | 'bold' | 'semi-bold'
   style?: 'italic' | 'normal'
   centered?: boolean
+  className?: string
   children: any
 }
 
@@ -24,7 +25,8 @@ const Text = ({
   weight,
   color,
   style,
-  centered
+  centered,
+  className
 }: TextProps) => {
   const determineTextType = () => {
     const classes = ['text']
@@ -89,6 +91,10 @@ const Text = ({
       classList += ' '
       classList += item
     })
+    if (className) {
+      classList += ' '
+      classList += className
+    }
     return classList
   }
   return <p className={determineTextType()}>{children}</p>
