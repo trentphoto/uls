@@ -1,0 +1,21 @@
+.upcoming-slider .slider {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.upcoming-slider .slider .left.col {
+  width: calc(100% / 12 * 5);
+}
+
+.upcoming-slider .slider .left.col img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.upcoming-slider .slider .right.col {
+  width: calc(100% / 12 * 7);
+  background-color: var(--primary-blue);
+}

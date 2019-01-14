@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import * as Hero from './Hero'
 import * as Articles from './Articles'
 import * as Buttons from './Buttons'
+import * as Events from './Events'
 import FloatingTabs from './FloatingTabs'
 import FactsCard from './Facts'
 
@@ -15,5 +16,6 @@ export {
   FloatingTabs,
   Articles,
   Buttons,
-  FactsCard
+  FactsCard,
+  Events
 }

@@ -24,6 +24,7 @@ interface MetaData {
     desc: string
     facts: TFactTypes[]
   }
+  events: EventSlide[]
 }
 
 export const metaData: MetaData = {
@@ -101,5 +102,23 @@ export const metaData: MetaData = {
         image: require('../../assets/svgs/facts/degrees.svg')
       }
     ]
-  }
+  },
+  events: [
+    {
+      title: 'Campus Soccer Tournament',
+      startDate: 'SAT. OCTOBER 21ST',
+      endDate: 'SUN. OCTOBER 22ND',
+      img: require('../../assets/placeholders/article-1.jpg'),
+      desc:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue mauris.'
+    },
+    {
+      title: 'Campus Soccer Tournament 2',
+      startDate: 'SAT. OCTOBER 21ST',
+      endDate: 'SUN. OCTOBER 22ND',
+      img: require('../../assets/placeholders/article-2.jpg'),
+      desc:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue mauris.'
+    }
+  ]
 }

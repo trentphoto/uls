@@ -14,7 +14,7 @@ const ArticleGrid = ({ data, pageAmount }: Props) => {
   return (
     <div className="articles">
       {data.slice(0, pageAmount).map((article: IArticle) => (
-        <Article data={article} />
+        <Article key={article.title} data={article} />
       ))}
     </div>
   )

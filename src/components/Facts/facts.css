@@ -1,4 +1,9 @@
-.facts-card.page-wrapper {
+.facts-card {
+  overflow: hidden;
+  width: 100%;
+}
+
+.facts-card .page-wrapper {
   margin: 100px auto;
   position: relative;
 }

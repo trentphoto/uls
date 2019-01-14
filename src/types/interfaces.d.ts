@@ -5,6 +5,14 @@ declare interface IArticle {
   url: string
 }
 
+declare interface EventSlide {
+  title: string
+  img: string
+  startDate: string
+  endDate: string
+  desc: string
+}
+
 declare interface Fact {
   color: FactColor
 }
