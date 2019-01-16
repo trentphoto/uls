@@ -5,7 +5,9 @@ import {
   FloatingTabs,
   Articles,
   FactsCard,
-  Events
+  Events,
+  CampusesSection,
+  Footer
 } from '../../components'
 import { metaData } from './metaData'
 
@@ -22,6 +24,8 @@ const Home = () => (
     <div className="grey-bg middle">
       <Events.UpcomingSlider slides={metaData.events} />
     </div>
+    <CampusesSection data={metaData.campuses} />
+    <Footer />
   </div>
 )
 

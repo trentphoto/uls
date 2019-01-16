@@ -2,9 +2,35 @@ a.btn {
   text-decoration: none;
 }
 
+.btn {
+  cursor: pointer;
+  transform: translateY(0px);
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(2px);
+}
+
 .btn.no-outline {
   color: var(--primary-gold);
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.btn.outline {
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #fff;
+  display: inline-block;
+  padding: 8px 25px;
+}
+
+.btn.outline.large {
+  border-width: 2px;
+  padding: 14px 35px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
 }

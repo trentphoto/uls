@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Header } from '..'
+import { Text, Header, Buttons } from '..'
 
 import './events.css'
 
@@ -22,7 +22,7 @@ const SlideContent = ({ data }: SlideProps) => (
       {`${data.startDate} - ${data.endDate}`}
     </Text>
     <div className="divider" />
-    <Text size="medium" color="white">
+    <Text size="small" color="white" className="desc">
       {data.desc}
     </Text>
   </div>
@@ -64,25 +64,32 @@ export default class UpcomingSlider extends Component<
             <img src={slides[currentIndex].img} alt="" className="main" />
           </div>
           <div className="right col">
-            <Text
-              style="italic"
-              color="white"
-              className="upcoming-tag"
-              size="extra-small"
-            >
-              Upcoming Events
-            </Text>
-            <SlideContent data={slides[currentIndex]} />
-
+            <div className="container">
+              <Text
+                style="italic"
+                color="white"
+                className="upcoming-tag"
+                size="extra-small"
+              >
+                Upcoming Events
+              </Text>
+              <SlideContent data={slides[currentIndex]} />
+              <Buttons.Outline size="medium">View All Events</Buttons.Outline>
+              <Text size="extra-small" color="white" className="counter">
+                {`${currentIndex + 1} / ${slides.length}`}
+              </Text>
+            </div>
             <img
               src={require('../../assets/svgs/arrow.svg')}
               alt="Arrow"
               onClick={this.countDown}
+              className="arrow left"
             />
             <img
               src={require('../../assets/svgs/arrow.svg')}
               alt="Arrow"
               onClick={this.countUp}
+              className="arrow right"
             />
           </div>
         </div>

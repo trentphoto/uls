@@ -2,25 +2,40 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './buttons.css'
 
+type ButtonSizes = 'large' | 'medium'
 interface Props {
+  size: ButtonSizes
   isLink?: boolean
+  to?: string
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement>
   ) => void
   children: any
 }
 
-const Outline = ({ isLink, children, onClick }: Props) => {
+const Outline = ({ isLink, children, onClick, size, to }: Props) => {
+  const setClasses = () => {
+    let classList = 'btn outline'
+    switch (size) {
+      case 'medium':
+        classList += ' medium'
+        break
+      default:
+        classList += ' large'
+        break
+    }
+    return classList
+  }
   const buttonType = () => {
-    if (isLink) {
+    if (isLink && to) {
       return (
-        <Link onClick={onClick} className="btn outline" to="/">
+        <Link to={to} onClick={onClick} className={setClasses()}>
           {children}
         </Link>
       )
     }
     return (
-      <div onClick={onClick} className="btn outline">
+      <div onClick={onClick} className={setClasses()}>
         {children}
       </div>
     )

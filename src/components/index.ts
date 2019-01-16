@@ -7,6 +7,8 @@ import * as Buttons from './Buttons'
 import * as Events from './Events'
 import FloatingTabs from './FloatingTabs'
 import FactsCard from './Facts'
+import CampusesSection from './Campuses'
+import Footer from './Footer'
 
 export {
   Header,
@@ -17,5 +19,7 @@ export {
   Articles,
   Buttons,
   FactsCard,
-  Events
+  Events,
+  CampusesSection,
+  Footer
 }

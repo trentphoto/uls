@@ -25,6 +25,7 @@ interface MetaData {
     facts: TFactTypes[]
   }
   events: EventSlide[]
+  campuses: ICampus[]
 }
 
 export const metaData: MetaData = {
@@ -119,6 +120,24 @@ export const metaData: MetaData = {
       img: require('../../assets/placeholders/article-2.jpg'),
       desc:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue mauris.'
+    }
+  ],
+  campuses: [
+    {
+      header: 'Gettysburg Campus',
+      description:
+        'Located within two hours of Baltimore and Washington D.C., the Gettysburg campus of United Lutheran Seminary is situated in the heart of one of our country’s most charming and historically important towns.',
+      image: require('../../assets/images/gettysburg.jpg'),
+      path: '/gettsyburg',
+      alignment: 'right'
+    },
+    {
+      header: 'Philadelphia Campus',
+      description:
+        'Located in the historic Mt. Airy neighborhood, students love not only the picturesque campus, but also the wide-variety of opportunities that are available right in the neighborhood. You can also get right into the heart of Philadelphia and beyond using one of the two train stations or public transportation that are blocks from campus.',
+      image: require('../../assets/images/philadelphia.jpg'),
+      path: '/philadelphia',
+      alignment: 'left'
     }
   ]
 }

@@ -1,3 +1,11 @@
+declare interface ICampus {
+  alignment: 'left' | 'right'
+  header: string
+  description: string
+  path: string
+  image: string
+}
+
 declare interface IArticle {
   image: string
   date: string

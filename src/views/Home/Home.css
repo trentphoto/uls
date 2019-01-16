@@ -6,3 +6,11 @@
   padding: 300px 0 75px;
   margin-top: -280px;
 }
+
+.home.page .grey-bg.middle {
+  padding: 100px 0;
+}
+
+.home.page footer {
+  margin-top: 150px;
+}
