@@ -11,7 +11,7 @@ import {
 } from '../../components'
 import { metaData } from './metaData'
 
-import './home.css'
+import './Home.css'
 
 const Home = () => (
   <div className="home page">
