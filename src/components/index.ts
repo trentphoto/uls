@@ -10,6 +10,7 @@ import FactsCard from './Facts'
 import CampusesSection from './Campuses'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
+import Loader from './Loader'
 
 export {
   Header,
@@ -23,5 +24,6 @@ export {
   Events,
   CampusesSection,
   Footer,
-  Sidebar
+  Sidebar,
+  Loader
 }

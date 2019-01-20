@@ -1,11 +1,11 @@
-.about.page .content {
+.third-level.page #content {
   width: 65%;
 }
 
-.about.page .page-wrapper.top {
+.third-level.page .page-wrapper.top {
   margin-top: 75px;
 }
 
-.about.page .facts-card {
+.third-level.page .facts-card {
   margin-top: 75px;
 }

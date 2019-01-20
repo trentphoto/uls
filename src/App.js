@@ -1,7 +1,7 @@
 // defaults
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { About, Home, NotFound, ThirdLevel } from './views'
+import { Home, NotFound, AboutRoutes } from './views'
 import { Navbar } from './components'
 
 import './theme/block-theme.css'
@@ -12,8 +12,7 @@ const App = () => (
     <Navbar />
     <Switch>
       <Route exact={true} path="/" component={Home} />
-      <Route exact={true} path="/about" component={About} />
-      <Route path="/about/:slug" component={ThirdLevel} />
+      <Route path="/about" component={AboutRoutes} />
       <Route component={NotFound} />
     </Switch>
   </div>

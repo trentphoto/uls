@@ -1,14 +1,14 @@
-.content {
+#content {
   margin-bottom: 100px;
 }
 
-.content p {
+#content p {
   font-size: 18px;
   line-height: 27px;
   color: #444;
 }
 
-.content h4 {
+#content h4 {
   font-size: 21px;
   color: var(--primary-blue);
   font-weight: bold;
