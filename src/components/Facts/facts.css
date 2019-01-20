@@ -1,6 +1,12 @@
 .facts-card {
   overflow: hidden;
   width: 100%;
+  z-index: -1;
+  position: relative;
+}
+
+.facts-card.colored {
+  background-color: #f7f8f8;
 }
 
 .facts-card .page-wrapper {

@@ -1,19 +1,39 @@
 import React from 'react'
 import './About.css'
-import Helmet from 'react-helmet'
+import { withSEO } from '../../utils/hocs'
+import {
+  Hero,
+  Sidebar,
+  Header,
+  Text,
+  FactsCard,
+  CampusesSection,
+  Footer
+} from '../../components'
+import { metaData } from './metaData'
 
 class About extends React.Component {
   public render() {
     return (
       <div className="about page">
-        <Helmet>
-          <title>About</title>
-        </Helmet>
-        <h1>About Page</h1>
-        <p>I'm the about page.</p>
+        <Hero.WithImage {...metaData.hero} />
+        <div className="page-wrapper flex top">
+          <Sidebar data={metaData.sidebar} />
+          <div className="content">
+            <Header colored type="h2">
+              {metaData.content.header}
+            </Header>
+            <Text size="medium" color="black">
+              {metaData.content.text}
+            </Text>
+          </div>
+        </div>
+        <FactsCard {...metaData.facts} colored />
+        <CampusesSection data={metaData.campuses} />
+        <Footer />
       </div>
     )
   }
 }
 
-export default About
+export default withSEO(About, { title: 'About' })

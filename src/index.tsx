@@ -9,6 +9,7 @@ import createStore from './modules/store'
 import App from './App'
 
 import './index.css'
+import ScrollToTop from './utils/ScrollToTop'
 
 // create a store and get back itself and its history object
 const { store, history } = createStore()
@@ -23,7 +24,9 @@ const Application = (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Frontload noServerRender>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </Frontload>
     </ConnectedRouter>
   </Provider>

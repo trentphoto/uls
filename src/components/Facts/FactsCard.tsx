@@ -7,11 +7,12 @@ interface Props {
   header: string
   desc: string
   facts: TFactTypes[]
+  colored?: boolean
 }
 
-const FactsCard = ({ facts, header, desc }: Props) => {
+const FactsCard = ({ facts, header, desc, colored }: Props) => {
   return (
-    <div className="facts-card">
+    <div className={colored ? 'facts-card colored' : 'facts-card'}>
       <div className="page-wrapper">
         <Header colored type="h1">
           {header}
