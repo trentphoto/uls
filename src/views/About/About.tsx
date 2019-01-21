@@ -9,7 +9,10 @@ import {
   FactsCard,
   CampusesSection,
   Footer,
-  Loader
+  Loader,
+  Departments,
+  President,
+  Buttons
 } from '../../components'
 import { metaData } from './metaData'
 import { RouteComponentProps } from 'react-router'
@@ -73,6 +76,17 @@ class About extends React.Component<Props> {
             </div>
             <FactsCard {...metaData.facts} colored />
             <CampusesSection data={metaData.campuses} />
+            <Departments data={metaData.departments} />
+            <President data={metaData.president} />
+            <div className="block">
+              <img src={metaData.tradition.image} alt="Tradition" />
+              <div className="content">
+                <Header type="h2">{metaData.tradition.header}</Header>
+                <Buttons.Outline isLink size="large">
+                  READ MORE
+                </Buttons.Outline>
+              </div>
+            </div>
             <Footer />
           </React.Fragment>
         ) : (

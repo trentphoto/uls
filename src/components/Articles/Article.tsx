@@ -1,16 +1,27 @@
 import React from 'react'
 import { Header, Text, Buttons } from '..'
 import './articles.css'
+import { withRouter, RouteComponentProps } from 'react-router'
 
-interface Props {
-  data: IArticle
+interface Props extends RouteComponentProps {
+  data: WPPost
 }
-
-const Article = ({ data }: Props) => {
+const placeholder = require('../../assets/placeholders/blog/blog-2.jpg')
+const Article = ({ data, history }: Props) => {
   return (
-    <div className="article">
+    <div
+      className="article"
+      onClick={() => history.push(`/united-media/${data.slug}`)}
+    >
       <div className="img-wrapper">
-        <img src={data.image} alt={data.url} />
+        {data.acf.thumbnail_image ? (
+          <img
+            src={data.acf.thumbnail_image.sizes.large}
+            alt={data.acf.thumbnail_image.name}
+          />
+        ) : (
+          <img src={placeholder} alt="Placeholder" />
+        )}
       </div>
       <div className="content-container">
         <div className="upper">
@@ -19,7 +30,7 @@ const Article = ({ data }: Props) => {
           </Text>
           <div className="divider" />
           <Header colored type="h3">
-            {data.title}
+            {data.title.rendered}
           </Header>
         </div>
         <Buttons.NoOutline>Read More</Buttons.NoOutline>
@@ -28,4 +39,4 @@ const Article = ({ data }: Props) => {
   )
 }
 
-export default Article
+export default withRouter(Article)

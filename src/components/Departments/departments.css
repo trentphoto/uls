@@ -1,0 +1,83 @@
+.departments {
+  margin-top: 150px;
+}
+
+.departments .flex-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  height: 400px;
+  margin-top: 40px;
+}
+
+.departments .flex-container .bg-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+.departments .flex-container .department {
+  width: calc(100% / 5);
+  position: relative;
+  z-index: 10;
+  background-color: rgba(10, 10, 10, 0.7);
+  height: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.departments .department .content {
+  padding: 40px 15px;
+}
+
+.departments .department .header {
+  opacity: 0.5;
+  margin-bottom: 15px;
+  transition: all 0.2s;
+}
+
+.departments .department .divider {
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 25px;
+  opacity: 0;
+  transition: all 0.2s;
+  transform: translateY(6px);
+  transition-delay: 0.04s;
+}
+
+.departments .department .desc {
+  line-height: 24px;
+  opacity: 0;
+  transition: all 0.4s;
+  transform: translateY(6px);
+  transition-delay: 0.08s;
+}
+
+.departments .btn {
+  opacity: 0;
+  transition: all 0.4s;
+  transform: translateY(6px);
+  transition-delay: 0.16s;
+  margin-top: 25px;
+}
+
+.departments .flex-container .department:hover .header,
+.departments .flex-container .department:hover .desc,
+.departments .flex-container .department:hover .divider,
+.departments .flex-container .department:hover .btn {
+  opacity: 1;
+}
+
+.departments .flex-container .department:hover .desc,
+.departments .flex-container .department:hover .divider,
+.departments .flex-container .department:hover .btn {
+  transform: translateY(0px);
+}

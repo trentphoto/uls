@@ -19,6 +19,10 @@ a.btn {
   text-transform: uppercase;
 }
 
+.btn.no-outline.blue {
+  color: var(--primary-blue);
+}
+
 .btn.outline {
   color: #fff;
   font-size: 16px;
@@ -33,4 +37,17 @@ a.btn {
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.btn.outline.white {
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+}
+
+.btn.filled {
+  color: #222;
+  background-color: #fff;
+  padding: 8px 25px;
+  display: inline-block;
+  font-size: 14px;
 }

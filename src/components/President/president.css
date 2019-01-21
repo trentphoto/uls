@@ -1,0 +1,72 @@
+.president {
+  position: relative;
+  width: 100%;
+  margin: 180px 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.president .page-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.president .content {
+  background-color: var(--primary-blue);
+  margin-bottom: -350px;
+  width: 100%;
+  max-width: 716px;
+  position: relative;
+}
+
+.president .content .padding {
+  padding: 75px 60px 100px 5px;
+}
+
+.president .content .extender {
+  position: absolute;
+  width: 4000px;
+  height: 100%;
+  top: 0;
+  left: -4000px;
+  background-color: var(--primary-blue);
+}
+
+.president .divider {
+  width: 75px;
+  height: 4px;
+  background-color: var(--primary-gold);
+  margin: 20px 0 50px;
+}
+
+.president .desc {
+  line-height: 32px;
+}
+
+.president .bg-img {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.president .btn-wrapper {
+  position: absolute;
+  left: 85px;
+  bottom: -200px;
+}
+
+.president .btn-wrapper .btn-line {
+  width: 2px;
+  height: 200px;
+  background-color: var(--primary-blue);
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.president .bg-img img {
+  object-fit: cover;
+  object-position: center;
+  width: 90%;
+  max-width: 600px;
+  height: 100%;
+}

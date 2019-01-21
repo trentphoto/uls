@@ -23,7 +23,8 @@ declare interface WPPost {
   format: string
   meta: any[]
   categories: number[]
-  tags: number[]
+  tags: any[]
+  acf: AcfPost
   _links: Links
 }
 
@@ -33,8 +34,8 @@ declare interface Links {
   about: About[]
   author: Author[]
   replies: Author[]
-  'version-history': About[]
-  'wp:featuredmedia': Author[]
+  'version-history': VersionHistory[]
+  'predecessor-version': PredecessorVersion[]
   'wp:attachment': About[]
   'wp:term': WpTerm[]
   curies: Cury[]
@@ -55,10 +56,69 @@ declare interface Cury {
   templated: boolean
 }
 
+declare interface PredecessorVersion {
+  id: number
+  href: string
+}
+
+declare interface VersionHistory {
+  count: number
+  href: string
+}
+
 declare interface WpTerm {
   taxonomy: string
   embeddable: boolean
   href: string
+}
+
+declare interface AcfPost {
+  thumbnail_image: ThumbnailImage | false
+}
+
+declare interface ThumbnailImage {
+  ID: number
+  id: number
+  title: string
+  filename: string
+  filesize: number
+  url: string
+  link: string
+  alt: string
+  author: string
+  description: string
+  caption: string
+  name: string
+  status: string
+  uploaded_to: number
+  date: string
+  modified: string
+  menu_order: number
+  mime_type: string
+  type: string
+  subtype: string
+  icon: string
+  width: number
+  height: number
+  sizes: Sizes
+}
+
+declare interface Sizes {
+  thumbnail: string
+  'thumbnail-width': number
+  'thumbnail-height': number
+  medium: string
+  'medium-width': number
+  'medium-height': number
+  medium_large: string
+  'medium_large-width': number
+  'medium_large-height': number
+  large: string
+  'large-width': number
+  'large-height': number
+  'post-thumbnail': string
+  'post-thumbnail-width': number
+  'post-thumbnail-height': number
 }
 
 declare interface Content {

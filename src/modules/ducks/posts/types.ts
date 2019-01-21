@@ -3,10 +3,9 @@ export const FETCH_ALL_POSTS_FAIL = '@@posts/FETCH_ALL_POSTS_FAIL'
 export const FETCH_ALL_POSTS_SUCCESS = '@@posts/FETCH_ALL_POSTS_SUCCESS'
 
 export interface PostState {
-  allPosts: {
+  all: {
     error: string | null
     loading: boolean
-    data: WPPost[]
+    data: { [key: string]: WPPost }
   }
-  post?: WPPost
 }

@@ -11,6 +11,8 @@ import CampusesSection from './Campuses'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Loader from './Loader'
+import President from './President'
+import Departments from './Departments'
 
 export {
   Header,
@@ -25,5 +27,7 @@ export {
   CampusesSection,
   Footer,
   Sidebar,
-  Loader
+  Loader,
+  President,
+  Departments
 }
