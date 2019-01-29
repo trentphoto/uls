@@ -55,19 +55,22 @@ export const metaData: MetaData = {
   articles: [
     {
       title: 'Wittel Farm: Growing Vegetables for God and Neighbors',
-      image: require('../../assets/placeholders/blog/wittel.jpg'),
+      image:
+        'https://unitedlutheranseminary.edu/wp-content/uploads/2019/01/Wittel-Farm.jpg',
       date: 'October 21st, 2018',
       url: ''
     },
     {
       title: "Home from Germany: ULS Student's Semester Abroad",
-      image: require('../../assets/placeholders/blog/bridget.jpg'),
+      image:
+        'https://unitedlutheranseminary.edu/wp-content/uploads/2019/01/study-abroad-germany-1.jpeg',
       date: 'October 21st, 2018',
       url: ''
     },
     {
       title: "Following Her Calling: Anna Mercedes' Call to Ministry",
-      image: require('../../assets/placeholders/blog/anna.jpg'),
+      image:
+        'https://unitedlutheranseminary.edu/wp-content/uploads/2019/01/Anna-Mercedes-United-Lutheran-Seminary.jpg',
       date: 'October 21st, 2018',
       url: ''
     },
@@ -117,7 +120,7 @@ export const metaData: MetaData = {
   },
   events: [
     {
-      title: 'Campus Soccer Tournament',
+      title: 'Sample Campus Event',
       startDate: 'SAT. OCTOBER 21ST',
       endDate: 'SUN. OCTOBER 22ND',
       img: require('../../assets/placeholders/article-1.jpg'),
@@ -125,7 +128,7 @@ export const metaData: MetaData = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue mauris.'
     },
     {
-      title: 'Campus Soccer Tournament 2',
+      title: 'Lutherbowl',
       startDate: 'SAT. OCTOBER 21ST',
       endDate: 'SUN. OCTOBER 22ND',
       img: require('../../assets/placeholders/article-2.jpg'),
