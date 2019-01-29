@@ -27,10 +27,21 @@ a.btn {
   padding: 8px 25px;
 }
 
+.btn.outline:hover {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
 .btn.outline.large {
   border-width: 2px;
   padding: 14px 35px;
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.btn.filled {
+  background-color: #fff;
+  padding: 18px 35px;
 }

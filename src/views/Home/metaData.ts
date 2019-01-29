@@ -54,9 +54,20 @@ export const metaData: MetaData = {
   },
   articles: [
     {
-      title:
-        'Joint Statement from United Lutheran Seminary Board of Trustees and Dr. Theresa F. Latini',
-      image: require('../../assets/placeholders/blog/blog-1.jpg'),
+      title: 'Wittel Farm: Growing Vegetables for God and Neighbors',
+      image: require('../../assets/placeholders/blog/wittel.jpg'),
+      date: 'October 21st, 2018',
+      url: ''
+    },
+    {
+      title: "Home from Germany: ULS Student's Semester Abroad",
+      image: require('../../assets/placeholders/blog/bridget.jpg'),
+      date: 'October 21st, 2018',
+      url: ''
+    },
+    {
+      title: "Following Her Calling: Anna Mercedes' Call to Ministry",
+      image: require('../../assets/placeholders/blog/anna.jpg'),
       date: 'October 21st, 2018',
       url: ''
     },

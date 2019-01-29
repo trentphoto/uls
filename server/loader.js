@@ -61,6 +61,8 @@ export default (req, res) => {
       const posts = await api.wp.getAllPosts()
       store.dispatch(fetchAllPostsSuccess(posts))
 
+      console.log(App)
+
       const context = {}
       const modules = []
 
