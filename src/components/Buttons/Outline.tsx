@@ -5,6 +5,7 @@ import './buttons.css'
 type ButtonSizes = 'large' | 'medium'
 interface Props {
   size: ButtonSizes
+  color?: 'white' | 'dark'
   isLink?: boolean
   to?: string
   onClick?: (
@@ -13,7 +14,7 @@ interface Props {
   children: any
 }
 
-const Outline = ({ isLink, children, onClick, size, to }: Props) => {
+const Outline = ({ isLink, children, onClick, size, to, color }: Props) => {
   const setClasses = () => {
     let classList = 'btn outline'
     switch (size) {
@@ -22,6 +23,13 @@ const Outline = ({ isLink, children, onClick, size, to }: Props) => {
         break
       default:
         classList += ' large'
+        break
+    }
+    switch (color) {
+      case 'white':
+        classList += ' white'
+        break
+      default:
         break
     }
     return classList

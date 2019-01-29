@@ -1,3 +1,3 @@
-import About from './About'
+import AboutRoutes from './Routes'
 
-export default About
+export default AboutRoutes

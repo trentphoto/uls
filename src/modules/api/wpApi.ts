@@ -9,6 +9,22 @@ const wpApiEndpoints = {
     } catch (error) {
       throw error.response.data
     }
+  },
+  getPage: async (slug: string) => {
+    try {
+      const result = await axios.get(`${wpApiBase}/pages?slug=${slug}`)
+      return result.data[0] as WPPage
+    } catch (error) {
+      throw error.response.data
+    }
+  },
+  getSubPages: async (id: number) => {
+    try {
+      const result = await axios.get(`${wpApiBase}/pages?parent=${id}`)
+      return result.data as WPThirdLevel[]
+    } catch (error) {
+      throw error.response.data
+    }
   }
 }
 

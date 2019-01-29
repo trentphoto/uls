@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import './navbar.css'
 
 const Navbar = () => (
@@ -16,13 +16,13 @@ const Navbar = () => (
       </div>
       <div className="divider" />
       <div className="lower-container">
-        <div className="logo">
+        <Link to="/" className="logo">
           <img src={require('../../assets/svgs/logo-colored.svg')} alt="logo" />
           <div className="text-container">
             <div className="school">United Lutheran Seminary</div>
             <div className="locations">Gettysburg + Philadelphia</div>
           </div>
-        </div>
+        </Link>
         <div className="links">
           <NavLink exact to="/">
             Home

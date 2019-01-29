@@ -1,0 +1,16 @@
+.media.page .grey-bg {
+  background-color: #f7f8f8;
+}
+
+.media.page .grey-bg.top {
+  padding: 300px 0 75px;
+  margin-top: -280px;
+}
+
+.media.page .grey-bg.middle {
+  padding: 100px 0;
+}
+
+.media.page footer {
+  margin-top: 150px;
+}

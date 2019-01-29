@@ -8,7 +8,7 @@ interface Props {
    * -1 for all articles
    * */
   pageAmount: number
-  data: IArticle[]
+  data: { [key: string]: WPPost }
 }
 
 const Preview = ({ pageAmount, data }: Props) => {

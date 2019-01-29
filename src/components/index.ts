@@ -9,6 +9,10 @@ import FloatingTabs from './FloatingTabs'
 import FactsCard from './Facts'
 import CampusesSection from './Campuses'
 import Footer from './Footer'
+import Sidebar from './Sidebar'
+import Loader from './Loader'
+import President from './President'
+import Departments from './Departments'
 
 export {
   Header,
@@ -21,5 +25,9 @@ export {
   FactsCard,
   Events,
   CampusesSection,
-  Footer
+  Footer,
+  Sidebar,
+  Loader,
+  President,
+  Departments
 }

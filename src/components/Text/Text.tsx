@@ -1,4 +1,5 @@
 import React from 'react'
+import renderHTML from 'react-render-html'
 import './text.css'
 
 type TextSizes = 'extra-small' /** 14px */ | 'small' | 'medium' | 'large'
@@ -97,7 +98,7 @@ const Text = ({
     }
     return classList
   }
-  return <p className={determineTextType()}>{children}</p>
+  return <p className={determineTextType()}>{renderHTML(children)}</p>
 }
 
 export default Text

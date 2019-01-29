@@ -4,17 +4,30 @@ import './buttons.css'
 
 interface Props {
   isLink?: boolean
+  color?: 'blue' | 'orange'
+  to?: string
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement>
   ) => void
   children: any
 }
 
-const NoOutline = ({ isLink, children, onClick }: Props) => {
+const NoOutline = ({ isLink, children, onClick, color, to }: Props) => {
+  const setClasses = () => {
+    let classList = 'btn no-outline'
+    switch (color) {
+      case 'blue':
+        classList += ' blue'
+        break
+      default:
+        break
+    }
+    return classList
+  }
   const buttonType = () => {
     if (isLink) {
       return (
-        <Link onClick={onClick} className="btn no-outline" to="/">
+        <Link onClick={onClick} to={to ? to : '/'} className={setClasses()}>
           {children}
         </Link>
       )

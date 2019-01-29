@@ -7,15 +7,26 @@ interface Props {
    * -1 for all articles
    * */
   pageAmount: number
-  data: IArticle[]
+  data: { [key: string]: WPPost }
 }
 
 const ArticleGrid = ({ data, pageAmount }: Props) => {
+  const renderArticles = () => {
+    const array: WPPost[] = []
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        array.push(data[key])
+      }
+    }
+    return array
+  }
   return (
     <div className="articles">
-      {data.slice(0, pageAmount).map((article: IArticle) => (
-        <Article key={article.title} data={article} />
-      ))}
+      {renderArticles()
+        .slice(0, pageAmount)
+        .map((article: WPPost) => (
+          <Article key={article.slug} data={article} />
+        ))}
     </div>
   )
 }

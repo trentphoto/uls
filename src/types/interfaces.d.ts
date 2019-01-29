@@ -1,3 +1,10 @@
+declare interface IDepartment {
+  title: string
+  desc: string
+  path: string
+  image: string
+  id: string
+}
 declare interface ICampus {
   alignment: 'left' | 'right'
   header: string

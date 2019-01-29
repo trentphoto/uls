@@ -1,5 +1,5 @@
 import React from 'react'
-import { withSEO } from '../../utils/hocs'
+import { withSEO, withPosts } from '../../utils/hocs'
 import {
   Hero,
   FloatingTabs,
@@ -10,15 +10,19 @@ import {
   Footer
 } from '../../components'
 import { metaData } from './metaData'
-
+import { ReduxState } from '../../types/redux'
 import './Home.css'
 
-const Home = () => (
+interface Props {
+  posts: ReduxState['posts']['all']
+}
+
+const Home = ({ posts }: Props) => (
   <div className="home page">
     <Hero.WithImage {...metaData.hero} />
     <FloatingTabs {...metaData.tabs} />
     <div className="grey-bg top">
-      <Articles.Preview data={metaData.articles} pageAmount={3} />
+      <Articles.Preview data={posts.data} pageAmount={3} />
     </div>
     <FactsCard {...metaData.facts} />
     <div className="grey-bg middle">
@@ -29,4 +33,4 @@ const Home = () => (
   </div>
 )
 
-export default withSEO(Home, { title: 'Home' })
+export default withPosts(withSEO(Home, { title: 'Home' }))

@@ -58,8 +58,16 @@ export default (req, res) => {
       const { store } = createStore(req.url)
 
       // async redux actions go here
-      const posts = await api.wp.getAllPosts()
-      store.dispatch(fetchAllPostsSuccess(posts))
+      // const posts = await api.wp.getAllPosts()
+      // store.dispatch(fetchAllPostsSuccess(posts))
+      const setTime = () =>
+        new Promise(resolve => {
+          setTimeout(() => {
+            resolve()
+          }, 1000)
+        })
+
+      await setTime()
 
       console.log(App)
 

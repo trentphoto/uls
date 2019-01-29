@@ -8,11 +8,17 @@
   z-index: 1;
 }
 
+.hero.no-image {
+  height: 375px;
+  background-color: #444f69;
+}
+
 .hero.with-image {
   height: 575px;
 }
 
 .hero .bg-image,
+.hero.no-image .bg-stripes,
 .hero .bg-image .overlay {
   position: absolute;
   top: 0;
@@ -32,12 +38,32 @@
   object-position: center;
 }
 
+.hero.no-image .content-container p {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.hero.no-image .bg-stripes img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
 .hero .bg-image .overlay {
   background-color: #1e1e1e;
   opacity: 0.5;
 }
 
 .hero.with-image .content-container {
+  display: flex;
+  width: 90%;
+  max-width: 610px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero.no-image .content-container {
   display: flex;
   width: 90%;
   max-width: 610px;

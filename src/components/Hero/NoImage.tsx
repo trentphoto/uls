@@ -1,4 +1,5 @@
 import React from 'react'
+import renderHTML from 'react-render-html'
 import { Header, Text } from '..'
 import './hero.css'
 
@@ -20,7 +21,7 @@ const NoImage = ({ header, subHeader }: Props) => {
         <Header type="h1">{header}</Header>
         {subHeader && (
           <Text size="large" color="white">
-            {subHeader}
+            {renderHTML(subHeader)}
           </Text>
         )}
       </div>

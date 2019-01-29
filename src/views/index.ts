@@ -1,5 +1,6 @@
 import NotFound from './404'
-import About from './About'
+import AboutRoutes from './About'
 import Home from './Home'
+import MediaRoutes from './Media'
 
-export { NotFound, About, Home }
+export { NotFound, AboutRoutes, Home, MediaRoutes }
