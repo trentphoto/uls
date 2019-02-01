@@ -33,7 +33,8 @@ export const metaData: MetaData = {
     header: 'Unifying, Learning, and Serving',
     subHeader:
       'Welcome to United Lutheran Seminary, a School for Church and World',
-    image: require('../../assets/images/home-bg.jpg')
+    image:
+      'https://unitedlutheranseminary.edu/wp-content/uploads/2018/08/United-Lutheran-Seminary-Gettysburg-Philadelphia.jpg'
   },
   tabs: {
     tabOne: {

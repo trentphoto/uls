@@ -12,7 +12,9 @@ const wpApiEndpoints = {
   },
   getPage: async (slug: string) => {
     try {
+      console.log(slug)
       const result = await axios.get(`${wpApiBase}/pages?slug=${slug}`)
+
       return result.data[0] as WPPage
     } catch (error) {
       throw error.response.data

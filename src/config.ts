@@ -1,4 +1,4 @@
 const apiBase = '/api'
-const wpApiBase = 'https://clients.udioventures.com/dev/wp-json/wp/v2'
+const wpApiBase = 'https://uls2.unitedlutheranseminary.org/wp-json/wp/v2'
 
 export { apiBase, wpApiBase }
