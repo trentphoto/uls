@@ -15,7 +15,7 @@ import {
   Loader,
   Text,
   FactsCard,
-  Section
+  Buttons
 } from '../../components'
 import './Admissions.css'
 
@@ -62,19 +62,62 @@ class Admissions extends React.Component<Props> {
         {page && !page.loading ? (
           <React.Fragment>
             <Hero.WithImage {...metaData.hero} />
-            <Section>
-              <div className="page-wrapper flex top">
-                <Sidebar data={this.setSubLinks(page.subpages)} />
-                <div id="content">
-                  <Header colored type="h2">
-                    Welcome to ULS Admissions
-                  </Header>
-                  <Text size="medium" color="black">
-                    Hello world.
-                  </Text>
+            <section className="py-5 bg-light">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6">
+                    <Header colored type="h2">
+                      Thinking About A Call to Ministry?
+                    </Header>
+                    <Text size="large" color="black">
+                      Watch our free 5-part video series on Discerning Your
+                      Call.
+                    </Text>
+                    You'll...
+                    <ul>
+                      <li>
+                        Hear from 4 ULS students and 2 ordained staff members on
+                        how they discerned their call process, and their advice
+                        for you
+                      </li>
+                      <li>
+                        Learn what to do when you first feel called to ministry
+                      </li>
+                      <li>Explore the next steps towards attending seminary</li>
+                      <li>And more...</li>
+                    </ul>
+                    <Buttons.Outline size="large" color="white">
+                      Watch Now
+                    </Buttons.Outline>
+                  </div>
+                  <div className="col-md-6">
+                    <iframe
+                      width="540"
+                      height="300"
+                      src="https://www.youtube.com/embed/RDJrPQi9-qw?rel=0&amp;controls=0&amp;showinfo=0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                  </div>
                 </div>
               </div>
-            </Section>
+            </section>
+            <section className="py-5">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-4 mb-5">
+                    <Sidebar data={this.setSubLinks(page.subpages)} />
+                  </div>
+                  <div className="col-md-8">
+                    <Header colored type="h2">
+                      Welcome to ULS Admissions
+                    </Header>
+                    <Text size="medium" color="black">
+                      Hello world.
+                    </Text>
+                  </div>
+                </div>
+              </div>
+            </section>
             <FactsCard {...metaData.facts} colored />
           </React.Fragment>
         ) : (

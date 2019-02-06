@@ -60,10 +60,18 @@ class ThirdLevel extends React.Component<Props> {
         {page && page.subpages ? (
           <React.Fragment>
             {this.renderHero(page.subpages[match.params.slug].acf)}
-            <div className="page-wrapper flex top">
-              <Sidebar data={this.setSubLinks(page.subpages)} />
-              <Content data={page.subpages[match.params.slug]} />
-            </div>
+            <section className="py-5">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-4">
+                    <Sidebar data={this.setSubLinks(page.subpages)} />
+                  </div>
+                  <div className="col-md-8">
+                    <Content data={page.subpages[match.params.slug]} />
+                  </div>
+                </div>
+              </div>
+            </section>
             <Footer />
           </React.Fragment>
         ) : (

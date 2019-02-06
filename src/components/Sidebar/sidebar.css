@@ -1,5 +1,5 @@
 .sidebar {
-  width: 30%;
+  width: 100%;
 }
 
 .sidebar a {
@@ -26,6 +26,8 @@
 
 .sidebar a:hover {
   background-color: #606980;
+  color: white;
+  text-decoration: none;
 }
 
 .sidebar a.active {

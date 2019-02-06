@@ -63,17 +63,25 @@ class About extends React.Component<Props> {
         {page && !page.loading ? (
           <React.Fragment>
             <Hero.WithImage {...metaData.hero} />
-            <div className="page-wrapper flex top">
-              <Sidebar data={this.setSubLinks(page.subpages)} />
-              <div id="content">
-                <Header colored type="h2">
-                  {metaData.content.header}
-                </Header>
-                <Text size="medium" color="black">
-                  {metaData.content.text}
-                </Text>
+
+            <section className="py-5">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-4 mb-5">
+                    <Sidebar data={this.setSubLinks(page.subpages)} />
+                  </div>
+                  <div className="col-md-8">
+                    <Header colored type="h2">
+                      {metaData.content.header}
+                    </Header>
+                    <Text size="medium" color="black">
+                      {metaData.content.text}
+                    </Text>
+                  </div>
+                </div>
               </div>
-            </div>
+            </section>
+
             <FactsCard {...metaData.facts} colored />
             <CampusesSection data={metaData.campuses} />
             <Departments data={metaData.departments} />

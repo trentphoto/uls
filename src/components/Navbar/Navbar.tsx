@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 import './navbar.css'
 
 const Navbar = () => (
-  <div className="navbar">
+  <div className="Nav">
     <div className="page-wrapper">
       <div className="upper-container">
         <div className="saying">Unifying, Learning, Serving.</div>

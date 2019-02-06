@@ -13,7 +13,7 @@ interface metaData {
 
 export const metaData: metaData = {
   hero: {
-    header: 'A Seminary for the 21st Century.',
+    header: 'A Seminary for the Church of the 21st Century.',
     subheader: 'Full-tuition scholarships. Flexible learning options.',
     image:
       'https://unitedlutheranseminary.edu/wp-content/uploads/2019/02/United-Lutheran-Seminary.jpg'
