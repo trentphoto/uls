@@ -1,28 +1,32 @@
 import api from '../../api'
 import { Actions } from './actions'
 import { Dispatch } from 'redux'
+import { PageState } from './types'
 
-export const fetchPage = (slug: string) => async (dispatch: Dispatch) => {
+export const fetchAllPages = () => async (dispatch: Dispatch) => {
   try {
-    dispatch(Actions.fetchPageRequest(slug))
-    const page = await api.wp.getPage(slug)
-    dispatch(Actions.fetchPageSuccess(page))
-    return page
+    dispatch(Actions.fetchAllPagesRequest())
+    const pages = await api.wp.getAllPages()
+    dispatch(Actions.fetchAllPagesSuccess(pages))
+    return pages
   } catch (error) {
-    dispatch(Actions.fetchPageFail(slug, error))
+    dispatch(Actions.fetchAllPagesFail(error))
     return error
   }
 }
 
-export const fetchSubPages = (slug: string, pageID: number) => async (
+export const setCurrentPage = (page: WPPage, pages: PageState['allPages']) => (
   dispatch: Dispatch
 ) => {
-  try {
-    dispatch(Actions.fetchSubPagesRequest(slug))
-    const pages = await api.wp.getSubPages(pageID)
-    dispatch(Actions.fetchSubPagesSuccess(slug, pages))
-  } catch (error) {
-    dispatch(Actions.fetchSubPagesFail(slug, error))
-    return error
+  dispatch(Actions.setPage(page))
+  const subpages = []
+  for (const key in pages) {
+    const data: any = pages[key].data
+    if (data) {
+      if (data.parent === page.id) {
+        subpages.push(data as WPThirdLevel)
+      }
+    }
   }
+  dispatch(Actions.setSubPages(subpages))
 }

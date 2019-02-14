@@ -2,27 +2,19 @@ import { createAction } from '../../utils/createAction'
 import { ActionsUnion } from '../../utils/types'
 import * as types from './types'
 
-const fetchPage = {
-  fetchPageRequest: (slug: string) =>
-    createAction(types.FETCH_PAGE_REQUEST, { slug }),
-  fetchPageSuccess: (page: WPPage) =>
-    createAction(types.FETCH_PAGE_SUCCESS, { page }),
-  fetchPageFail: (slug: string, error: string) =>
-    createAction(types.FETCH_PAGE_FAIL, { error, slug })
-}
-
-const fetchSubPages = {
-  fetchSubPagesRequest: (slug: string) =>
-    createAction(types.FETCH_SUBPAGES_REQUEST, { slug }),
-  fetchSubPagesSuccess: (slug: string, pages: WPThirdLevel[]) =>
-    createAction(types.FETCH_SUBPAGES_SUCCESS, { slug, pages }),
-  fetchSubPagesFail: (slug: string, error: string) =>
-    createAction(types.FETCH_SUBPAGES_FAIL, { error, slug })
+const pages = {
+  fetchAllPagesRequest: () => createAction(types.FETCH_ALL_PAGES_REQUEST),
+  fetchAllPagesSuccess: (pages: WPPage[]) =>
+    createAction(types.FETCH_ALL_PAGES_SUCCESS, { pages }),
+  fetchAllPagesFail: (error: string) =>
+    createAction(types.FETCH_ALL_PAGES_FAIL, { error }),
+  setSubPages: (subpages: WPThirdLevel[]) =>
+    createAction(types.SET_SUBPAGES, { subpages }),
+  setPage: (page: WPPage) => createAction(types.SET_PAGE, { page })
 }
 
 export const Actions = {
-  ...fetchPage,
-  ...fetchSubPages
+  ...pages
 }
 
 export type Actions = ActionsUnion<typeof Actions>

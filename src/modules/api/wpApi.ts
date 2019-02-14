@@ -12,7 +12,7 @@ const wpApiEndpoints = {
   },
   getAllPages: async () => {
     try {
-      const result = await axios.get(`${wpApiBase}/pages`)
+      const result = await axios.get(`${wpApiBase}/pages?per_page=100`)
       return result.data as WPPage[]
     } catch (error) {
       throw error.response.data

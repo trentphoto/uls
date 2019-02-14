@@ -3,12 +3,20 @@ import * as types from './types'
 import * as fromActions from './actions'
 
 const initialState: types.PageState = {
-  sample: {
-    error: null,
-    loading: true,
+  allPages: {
+    sample: {
+      error: null,
+      loading: true,
+      data: null,
+      subpages: {}
+    }
+  },
+  currentPage: {
     data: null,
     subpages: {}
-  }
+  },
+  error: null,
+  loading: true
 }
 
 const pages = (
@@ -16,65 +24,56 @@ const pages = (
   action: fromActions.Actions
 ) => {
   switch (action.type) {
-    case types.FETCH_PAGE_REQUEST:
+    case types.FETCH_ALL_PAGES_REQUEST:
       return {
         ...state,
-        [action.payload.slug]: {
-          ...state[action.payload.slug],
-          loading: true,
-          error: null,
-          data: null
-        }
+        allPages: {},
+        error: null,
+        loading: true
       }
-    case types.FETCH_SUBPAGES_REQUEST:
+    case types.FETCH_ALL_PAGES_FAIL:
       return {
         ...state,
-        [action.payload.slug]: {
-          ...state[action.payload.slug],
-          loading: true,
-          error: null
-        }
+        error: action.payload.error,
+        loading: false
       }
-    case types.FETCH_PAGE_FAIL:
+    case types.FETCH_ALL_PAGES_SUCCESS:
       return {
         ...state,
-        [action.payload.slug]: {
-          ...state[action.payload.slug],
-          error: action.payload.error,
-          loading: false
-        }
+        loading: false,
+        allPages: action.payload.pages.reduce(
+          (map: { [key: string]: any }, page: WPPage) => {
+            map[page.slug] = {
+              data: page,
+              error: null,
+              loading: false,
+              subpages: {}
+            }
+            return map
+          },
+          {}
+        )
       }
-    case types.FETCH_SUBPAGES_FAIL:
+    case types.SET_SUBPAGES:
       return {
         ...state,
-        [action.payload.slug]: {
-          ...state[action.payload.slug],
-          error: action.payload.error,
-          loading: false
-        }
-      }
-    case types.FETCH_PAGE_SUCCESS:
-      return {
-        ...state,
-        [action.payload.page.slug]: {
-          ...state[action.payload.page.slug],
-          data: action.payload.page,
-          loading: false
-        }
-      }
-    case types.FETCH_SUBPAGES_SUCCESS:
-      return {
-        ...state,
-        [action.payload.slug]: {
-          ...state[action.payload.slug],
-          subpages: action.payload.pages.reduce(
+        currentPage: {
+          ...state.currentPage,
+          subpages: action.payload.subpages.reduce(
             (map: { [key: string]: WPThirdLevel }, page: WPThirdLevel) => {
               map[page.slug] = page
               return map
             },
             {}
-          ),
-          loading: false
+          )
+        }
+      }
+    case types.SET_PAGE:
+      return {
+        ...state,
+        currentPage: {
+          ...state.currentPage,
+          data: action.payload.page
         }
       }
     default: {

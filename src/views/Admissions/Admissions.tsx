@@ -2,10 +2,9 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { ILink } from '../../components/Footer/metaData'
 import { ReduxState } from '../../types/redux'
-import { connect } from 'react-redux'
-import { withSEO } from '../../utils/hocs'
-import { Dispatch } from 'redux'
-import { fetchPage, fetchSubPages } from '../../modules/ducks/pages/operations'
+
+import { withSEO, withCurrentPage } from '../../utils/hocs'
+
 import { metaData } from './metaData'
 
 import {
@@ -20,21 +19,19 @@ import {
 import './Admissions.css'
 
 interface Props extends RouteComponentProps {
-  pages: ReduxState['pages']
-  getPage: (slug: string) => Promise<WPPage>
-  getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
+  page: ReduxState['pages']['currentPage']
+  // getPage: (slug: string) => Promise<WPPage>
+  // getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
 }
 
 class Admissions extends React.Component<Props> {
   async componentWillMount() {
-    const { match, getPage, getSubPages, pages } = this.props
-
-    const slug = match.path.replace('/', '')
-
-    if (!pages[slug]) {
-      const page = await getPage(slug)
-      await getSubPages(slug, page.id)
-    }
+    // const { match, getPage, getSubPages, pages } = this.props
+    // const slug = match.path.replace('/', '')
+    // if (!pages[slug]) {
+    //   const page = await getPage(slug)
+    //   await getSubPages(slug, page.id)
+    // }
   }
 
   setSubLinks = (pages: { [key: string]: WPThirdLevel } | undefined) => {
@@ -52,14 +49,15 @@ class Admissions extends React.Component<Props> {
   }
 
   public render() {
-    const { match, pages } = this.props
+    const { page } = this.props
+    console.log(this.props)
 
-    const slug = match.path.replace('/', '')
-    const page = pages[slug]
+    // const slug = match.path.replace('/', '')
+    // const page = pages[slug]
 
     return (
       <div className="admissions page">
-        {page && !page.loading ? (
+        {page && page.data ? (
           <React.Fragment>
             <Hero.WithImage {...metaData.hero} />
             <section className="py-5 bg-light">
@@ -128,17 +126,4 @@ class Admissions extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState) => ({
-  pages: state.pages
-})
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getPage: (slug: string) => fetchPage(slug)(dispatch),
-  getSubPages: (slug: string, pageID: number) =>
-    fetchSubPages(slug, pageID)(dispatch)
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withSEO(Admissions, { title: 'Admissions' }))
+export default withCurrentPage(withSEO(Admissions, { title: 'Admissions' }))

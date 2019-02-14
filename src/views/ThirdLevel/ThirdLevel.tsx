@@ -1,29 +1,29 @@
 import React from 'react'
 import './third-level.css'
-import { withSEO } from '../../utils/hocs'
+import { withSEO, withCurrentPage } from '../../utils/hocs'
 import { Hero, Sidebar, Footer, Loader } from '../../components'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
-import { Dispatch } from 'redux'
-import { fetchPage, fetchSubPages } from '../../modules/ducks/pages/operations'
-import { connect } from 'react-redux'
+// import { Dispatch } from 'redux'
+// import { fetchPage, fetchSubPages } from '../../modules/ducks/pages/operations'
+// import { connect } from 'react-redux'
 import Content from './Content'
 import { ILink } from '../../components/Footer/metaData'
 
 interface Props extends RouteComponentProps<{ slug: string }> {
-  pages: ReduxState['pages']
+  page: ReduxState['pages']['currentPage']
   getPage: (slug: string) => Promise<WPPage>
   getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
 }
 
 class ThirdLevel extends React.Component<Props> {
   async componentWillMount() {
-    const { match, getPage, getSubPages, pages } = this.props
-    const parent = match.url.split('/')[1]
-    if (!pages[parent]) {
-      const page = await getPage(parent)
-      await getSubPages(parent, page.id)
-    }
+    // const { match, getPage, getSubPages, pages } = this.props
+    // const parent = match.url.split('/')[1]
+    // if (!pages[parent]) {
+    //   const page = await getPage(parent)
+    //   await getSubPages(parent, page.id)
+    // }
   }
 
   setSubLinks = (pages: { [key: string]: WPThirdLevel } | undefined) => {
@@ -52,12 +52,12 @@ class ThirdLevel extends React.Component<Props> {
     )
 
   public render() {
-    const { match, pages } = this.props
-    const slug = match.url.split('/')[1]
-    const page = pages[slug]
+    const { match, page } = this.props
+    // const slug = match.url.split('/')[1]
+    // const page = pages[slug]
     return (
       <div className="third-level page">
-        {page && page.subpages ? (
+        {page && page.data ? (
           <React.Fragment>
             {this.renderHero(page.subpages[match.params.slug].acf)}
             <section className="py-5">
@@ -82,17 +82,14 @@ class ThirdLevel extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState) => ({
-  pages: state.pages
-})
+// const mapStateToProps = (state: ReduxState) => ({
+//   pages: state.pages
+// })
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getPage: (slug: string) => fetchPage(slug)(dispatch),
-  getSubPages: (slug: string, pageID: number) =>
-    fetchSubPages(slug, pageID)(dispatch)
-})
+// const mapDispatchToProps = (dispatch: Dispatch) => ({
+//   getPage: (slug: string) => fetchPage(slug)(dispatch),
+//   getSubPages: (slug: string, pageID: number) =>
+//     fetchSubPages(slug, pageID)(dispatch)
+// })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withSEO(ThirdLevel, { title: 'ThirdLevel' }))
+export default withCurrentPage(withSEO(ThirdLevel, { title: 'ThirdLevel' }))

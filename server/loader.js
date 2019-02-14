@@ -18,7 +18,10 @@ import createStore from '../dist/modules/store'
 import App from '../dist/App'
 import manifest from '../build/asset-manifest.json'
 
-import { fetchAllPostsSuccess } from '../dist/modules/ducks/posts/operations'
+import {
+  fetchAllPages,
+  setCurrentPage
+} from '../dist/modules/ducks/pages/operations'
 import api from '../src/modules/api'
 
 // loader
@@ -60,16 +63,13 @@ export default (req, res) => {
       // async redux actions go here
       // const posts = await api.wp.getAllPosts()
       // store.dispatch(fetchAllPostsSuccess(posts))
-      const setTime = () =>
-        new Promise(resolve => {
-          setTimeout(() => {
-            resolve()
-          }, 1000)
-        })
 
-      await setTime()
-
-      console.log(App)
+      await fetchAllPages()(store.dispatch)
+      const state = store.getState()
+      const parent = req.url.split('/')[1]
+      setCurrentPage(state.pages.allPages[parent].data, state.pages.allPages)(
+        store.dispatch
+      )
 
       const context = {}
       const modules = []
@@ -131,7 +131,7 @@ export default (req, res) => {
 
           // note: disable if you desire
           // let's output the title, just to see SSR is working as intended
-          console.log('THE TITLE', helmet.title.toString())
+          // console.log('THE TITLE', helmet.title.toString())
 
           // pass all this into our html formatting function above - injectHTML()
           const html = injectHTML(htmlData, {

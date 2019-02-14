@@ -14,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './theme/block-theme.css'
 import './theme/blocks.css'
+import { withPages } from './utils/hocs'
 
 const App = () => (
   <div className="App">
@@ -28,4 +29,4 @@ const App = () => (
   </div>
 )
 
-export default App
+export default withPages(App)

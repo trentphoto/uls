@@ -1,6 +1,6 @@
 import React from 'react'
 import './About.css'
-import { withSEO } from '../../utils/hocs'
+import { withSEO, withCurrentPage } from '../../utils/hocs'
 import {
   Hero,
   Sidebar,
@@ -17,25 +17,22 @@ import {
 import { metaData } from './metaData'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
-import { Dispatch } from 'redux'
-import { fetchPage, fetchSubPages } from '../../modules/ducks/pages/operations'
-import { connect } from 'react-redux'
 import { ILink } from '../../components/Footer/metaData'
 
 interface Props extends RouteComponentProps {
-  pages: ReduxState['pages']
+  page: ReduxState['pages']['currentPage']
   getPage: (slug: string) => Promise<WPPage>
   getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
 }
 
 class About extends React.Component<Props> {
   async componentWillMount() {
-    const { match, getPage, getSubPages, pages } = this.props
-    const slug = match.path.replace('/', '')
-    if (!pages[slug]) {
-      const page = await getPage(slug)
-      await getSubPages(slug, page.id)
-    }
+    // const { match, getPage, getSubPages, pages } = this.props
+    // const slug = match.path.replace('/', '')
+    // if (!pages[slug]) {
+    //   const page = await getPage(slug)
+    //   await getSubPages(slug, page.id)
+    // }
   }
 
   setSubLinks = (pages: { [key: string]: WPThirdLevel } | undefined) => {
@@ -53,14 +50,14 @@ class About extends React.Component<Props> {
   }
 
   public render() {
-    const { match, pages } = this.props
+    const { page } = this.props
 
-    const slug = match.path.replace('/', '')
-    const page = pages[slug]
+    // const slug = match.path.replace('/', '')
+    // const page = pages[slug]
 
     return (
       <div className="about page">
-        {page && !page.loading ? (
+        {page && page.data ? (
           <React.Fragment>
             <Hero.WithImage {...metaData.hero} />
 
@@ -105,17 +102,4 @@ class About extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState) => ({
-  pages: state.pages
-})
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getPage: (slug: string) => fetchPage(slug)(dispatch),
-  getSubPages: (slug: string, pageID: number) =>
-    fetchSubPages(slug, pageID)(dispatch)
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withSEO(About, { title: 'About' }))
+export default withCurrentPage(withSEO(About, { title: 'About' }))
