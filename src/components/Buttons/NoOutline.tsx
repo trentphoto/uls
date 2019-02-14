@@ -14,7 +14,7 @@ interface Props {
 
 const NoOutline = ({ isLink, children, onClick, color, to }: Props) => {
   const setClasses = () => {
-    let classList = 'btn no-outline'
+    let classList = 'button no-outline'
     switch (color) {
       case 'blue':
         classList += ' blue'
@@ -33,7 +33,7 @@ const NoOutline = ({ isLink, children, onClick, color, to }: Props) => {
       )
     }
     return (
-      <div onClick={onClick} className="btn no-outline">
+      <div onClick={onClick} className="button no-outline">
         {children}
       </div>
     )

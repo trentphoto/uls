@@ -14,13 +14,13 @@ const Filled = ({ isLink, children, onClick }: Props) => {
   const buttonType = () => {
     if (isLink) {
       return (
-        <Link onClick={onClick} className="btn filled" to="/">
+        <Link onClick={onClick} className="button filled" to="/">
           {children}
         </Link>
       )
     }
     return (
-      <div onClick={onClick} className="btn filled">
+      <div onClick={onClick} className="button filled">
         {children}
       </div>
     )

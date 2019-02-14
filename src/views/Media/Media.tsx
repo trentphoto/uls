@@ -11,11 +11,14 @@ interface Props {
 }
 
 const Media = ({ posts }: Props) => (
-  <div className="media page">
+  <div className="media-page page">
     <Hero.WithImage {...metaData.hero} />
-    <div className="page-wrapper">
-      <Articles.ArticleGrid data={posts.data} pageAmount={3} />
-    </div>
+    {Object.keys(posts.data).length !== 0 && (
+      <div className="page-wrapper">
+        <Articles.ArticleSlider data={posts.data} />
+        <Articles.ArticleGrid data={posts.data} pageAmount={3} />
+      </div>
+    )}
     <Footer />
   </div>
 )

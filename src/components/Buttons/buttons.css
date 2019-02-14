@@ -1,29 +1,29 @@
-a.btn {
+a.button {
   text-decoration: none;
 }
 
-.btn {
+.button {
   cursor: pointer;
   transform: translateY(0px);
   transition: all 0.2s;
 }
 
-.btn:hover {
+.button:hover {
   transform: translateY(2px);
 }
 
-.btn.no-outline {
+.button.no-outline {
   color: var(--primary-gold);
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.btn.no-outline.blue {
+.button.no-outline.blue {
   color: var(--primary-blue);
 }
 
-.btn.outline {
+.button.outline {
   color: #fff;
   font-size: 16px;
   border: 1px solid #fff;
@@ -31,13 +31,13 @@ a.btn {
   padding: 8px 25px;
 }
 
-.btn.outline:hover {
+.button.outline:hover {
   color: #000;
   background-color: #fff;
   border: 1px solid #fff;
 }
 
-.btn.outline.large {
+.button.outline.large {
   border-width: 2px;
   padding: 14px 35px;
   font-size: 18px;
@@ -45,12 +45,12 @@ a.btn {
   font-weight: bold;
 }
 
-.btn.outline.white {
+.button.outline.white {
   color: var(--primary-blue);
   border: 1px solid var(--primary-blue);
 }
 
-.btn.filled {
+.button.filled {
   color: #222;
   background-color: #fff;
   padding: 8px 25px;

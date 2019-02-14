@@ -16,7 +16,7 @@ interface Props {
 
 const Outline = ({ isLink, children, onClick, size, to, color }: Props) => {
   const setClasses = () => {
-    let classList = 'btn outline'
+    let classList = 'button outline'
     switch (size) {
       case 'medium':
         classList += ' medium'
