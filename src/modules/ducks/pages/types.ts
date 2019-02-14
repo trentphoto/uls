@@ -1,3 +1,7 @@
+export const FETCH_ALL_PAGES_REQUEST = '@@posts/FETCH_ALL_PAGES_REQUEST'
+export const FETCH_ALL_PAGES_FAIL = '@@posts/FETCH_ALL_PAGES_FAIL'
+export const FETCH_ALL_PAGES_SUCCESS = '@@posts/FETCH_ALL_PAGES_SUCCESS'
+
 export const FETCH_PAGE_REQUEST = '@@posts/FETCH_PAGE_REQUEST'
 export const FETCH_PAGE_FAIL = '@@posts/FETCH_PAGE_FAIL'
 export const FETCH_PAGE_SUCCESS = '@@posts/FETCH_PAGE_SUCCESS'
