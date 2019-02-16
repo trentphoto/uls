@@ -6,7 +6,9 @@ import {
   NotFound,
   AboutRoutes,
   MediaRoutes,
-  AdmissionsRoutes
+  AdmissionsRoutes,
+  StudentsRoutes,
+  FacStaffRoutes
 } from './views'
 import { Navbar } from './components'
 
@@ -24,6 +26,10 @@ const App = () => (
       <Route path="/about" component={AboutRoutes} />
       <Route path="/admissions" component={AdmissionsRoutes} />
       <Route path="/united-media" component={MediaRoutes} />
+
+      {/* persona pages - top right */}
+      <Route path="/students" component={StudentsRoutes} />
+      <Route path="/faculty-staff" component={FacStaffRoutes} />
       <Route component={NotFound} />
     </Switch>
   </div>

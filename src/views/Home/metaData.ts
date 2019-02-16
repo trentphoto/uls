@@ -8,17 +8,19 @@ interface MetaData {
     tabOne: {
       header: string
       desc: string
+      link: string
     }
     tabTwo: {
       header: string
       desc: string
+      link: string
     }
     tabThree: {
       header: string
       desc: string
+      link: string
     }
   }
-  articles: IArticle[]
   facts: {
     header: string
     desc: string
@@ -40,56 +42,22 @@ export const metaData: MetaData = {
     tabOne: {
       header: 'Visit',
       desc:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+        'Discerning a call to ministry? Come to ULS and explore where God might be calling you next!',
+      link: '/admissions/visit'
     },
     tabTwo: {
       header: 'Apply',
-      desc:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+      desc: 'Ready to apply? View applications and get started here.',
+      link: '/admissions/apply'
     },
     tabThree: {
       header: 'Give',
-      desc:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+      desc: 'ULS is supported through generous and faithful partners like you.',
+      link: '/giving'
     }
   },
-  articles: [
-    {
-      title: 'Wittel Farm: Growing Vegetables for God and Neighbors',
-      image:
-        'https://unitedlutheranseminary.edu/wp-content/uploads/2019/01/Wittel-Farm.jpg',
-      date: 'October 21st, 2018',
-      url: ''
-    },
-    {
-      title: "Home from Germany: ULS Student's Semester Abroad",
-      image:
-        'https://unitedlutheranseminary.edu/wp-content/uploads/2019/01/study-abroad-germany-1.jpeg',
-      date: 'October 21st, 2018',
-      url: ''
-    },
-    {
-      title: "Following Her Calling: Anna Mercedes' Call to Ministry",
-      image:
-        'https://unitedlutheranseminary.edu/wp-content/uploads/2019/01/Anna-Mercedes-United-Lutheran-Seminary.jpg',
-      date: 'October 21st, 2018',
-      url: ''
-    },
-    {
-      title: 'New Faculty and Staff Welcome and Congratulations',
-      image: require('../../assets/placeholders/blog/blog-2.jpg'),
-      date: 'October 21st, 2018',
-      url: ''
-    },
-    {
-      title: 'United Lutheran Seminary Receives $30 Million Anonymous Gift',
-      image: require('../../assets/placeholders/blog/blog-3.jpg'),
-      date: 'October 21st, 2018',
-      url: ''
-    }
-  ],
   facts: {
-    header: 'Some Facts',
+    header: 'ULS Quick Facts',
     desc:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultrices ante viverra orci accumsan interdum. Mauris eu leo id orci porta consectetur quis sit amet tortor. Sed in cursus ex, et ultricies purus.',
     facts: [
@@ -100,6 +68,7 @@ export const metaData: MetaData = {
         color: 'blue',
         image: require('../../assets/svgs/facts/people.svg')
       },
+      { type: 'noImg', header: '21', subHeader: 'Faculty', color: 'orange' },
       { type: 'noImg', header: '21', subHeader: 'Faculty', color: 'orange' },
       {
         type: 'centerImg',

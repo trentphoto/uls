@@ -29,11 +29,7 @@ const UpperContainer = () => (
     <div className="page-wrapper flexed">
       <div className="left col">
         <div className="logo">
-          <img src={require('../../assets/svgs/logo-mid.svg')} alt="logo" />
-          <div className="content">
-            <div className="l-header">United Lutheran Seminary</div>
-            <div className="l-text">Gettysburg + Philadelphia</div>
-          </div>
+          <img src={require('../../assets/svgs/logo/icon.svg')} alt="logo" />
         </div>
         <Text size="small" color="black">
           United Lutheran Seminary is the newest graduate and professional

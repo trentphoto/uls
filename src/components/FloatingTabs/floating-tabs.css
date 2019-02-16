@@ -28,6 +28,11 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  transition: 200ms ease all;
+}
+
+.floating-tabs .tab:hover {
+  transform: scale(1.04);
 }
 
 .floating-tabs .tab img {

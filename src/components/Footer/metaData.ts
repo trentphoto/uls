@@ -1,6 +1,7 @@
 export interface ILink {
   title: string
   path: string
+  subpages?: ILink[]
 }
 
 export interface ILinkSection {

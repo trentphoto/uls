@@ -24,6 +24,9 @@ declare interface WPThirdLevel {
   meta: any[]
   acf: ThirdAcf
   _links: Links
+  subpages: {
+    [key: string]: WPThirdLevel
+  }
 }
 
 declare interface Links {

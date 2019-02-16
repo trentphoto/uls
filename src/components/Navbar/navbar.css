@@ -58,23 +58,10 @@
 }
 
 .Nav .lower-container .logo img {
-  width: 32px;
-  height: 41px;
+  width: 340px;
+  height: 100px;
   object-fit: contain;
   margin-right: 15px;
-}
-
-.Nav .lower-container .school {
-  color: var(--primary-blue);
-  font-weight: 700;
-  margin-bottom: 2px;
-  font-size: 13px;
-}
-
-.Nav .lower-container .locations {
-  color: var(--primary-blue);
-  font-weight: 400;
-  font-size: 12px;
 }
 
 .Nav .lower-container .links a {
@@ -95,4 +82,15 @@
   position: absolute;
   bottom: -5px;
   left: 0px;
+}
+
+/* responsive */
+@media (max-width: 991px) {
+  .Nav .lower-container {
+    flex-direction: column;
+  }
+
+  .Nav .lower-container .links {
+    margin-top: 20px;
+  }
 }

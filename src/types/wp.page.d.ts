@@ -22,7 +22,7 @@ declare interface WPPage {
   ping_status: string
   template: string
   meta: any[]
-  acf: any[]
+  acf: ThirdAcf
   _links: Links
 }
 

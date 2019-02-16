@@ -17,13 +17,19 @@ const NoImage = ({ header, subHeader }: Props) => {
           alt="stripes"
         />
       </div>
-      <div className="content-container">
-        <Header type="h1">{header}</Header>
-        {subHeader && (
-          <Text size="large" color="white">
-            {renderHTML(subHeader)}
-          </Text>
-        )}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <Header type="h1">{header}</Header>
+          </div>
+          <div className="col-md-8">
+            {subHeader && (
+              <Text size="large" color="white">
+                {renderHTML(subHeader)}
+              </Text>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

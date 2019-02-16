@@ -22,7 +22,7 @@ const FactsCard = ({ facts, header, desc, colored }: Props) => {
         </Text>
         <FactsGrid data={facts} />
         <img
-          src={require('../../assets/svgs/logo-colored.svg')}
+          src={require('../../assets/svgs/logo/icon.svg')}
           alt="bg"
           className="bg"
         />

@@ -15,15 +15,19 @@ const WithImage = ({ header, subHeader, image }: Props) => {
         <div className="overlay" />
         <img src={image} alt={header} />
       </div>
-      <div className="content-container">
-        <Header centered type="h1">
-          {header}
-        </Header>
-        {subHeader && (
-          <Text centered size="large" color="white">
-            {subHeader}
-          </Text>
-        )}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <Header type="h1">{header}</Header>
+          </div>
+          <div className="col-md-8">
+            {subHeader && (
+              <Text size="large" color="white">
+                {subHeader}
+              </Text>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

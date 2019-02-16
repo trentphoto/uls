@@ -1,20 +1,13 @@
 import React from 'react'
-import './About.css'
 import { withSEO, withCurrentPage } from '../../utils/hocs'
 import {
   Hero,
   Sidebar,
-  Header,
-  FactsCard,
-  CampusesSection,
+  //   Header,
   Footer,
   Loader,
-  Departments,
-  President,
-  Buttons,
   Content
 } from '../../components'
-import { metaData } from './metaData'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
 import { ILink } from '../../components/Footer/metaData'
@@ -26,14 +19,14 @@ interface Props extends RouteComponentProps {
   getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
 }
 
-class About extends React.Component<Props> {
+class FacStaff extends React.Component<Props> {
   setSubLinks = (pages: { [key: string]: WPThirdLevel } | undefined) => {
     if (pages) {
       const subpages: ILink[] = []
       for (const key in pages) {
         subpages.push({
           title: pages[key].title.rendered,
-          path: `about/${pages[key].slug}`
+          path: `faculty-staff/${pages[key].slug}`
         })
       }
       return subpages
@@ -43,9 +36,10 @@ class About extends React.Component<Props> {
 
   public render() {
     const { page } = this.props
+    console.log(page.data)
 
     return (
-      <div className="about page">
+      <div className="page">
         {page && page.data ? (
           <React.Fragment>
             {page.data.acf.background_image ? (
@@ -74,19 +68,6 @@ class About extends React.Component<Props> {
               </div>
             </section>
 
-            <FactsCard {...metaData.facts} colored />
-            <CampusesSection data={metaData.campuses} />
-            <Departments data={metaData.departments} />
-            <President data={metaData.president} />
-            <div className="block">
-              <img src={metaData.tradition.image} alt="Tradition" />
-              <div className="content">
-                <Header type="h2">{metaData.tradition.header}</Header>
-                <Buttons.Outline isLink size="large">
-                  READ MORE
-                </Buttons.Outline>
-              </div>
-            </div>
             <Footer />
           </React.Fragment>
         ) : (
@@ -97,4 +78,4 @@ class About extends React.Component<Props> {
   }
 }
 
-export default withCurrentPage(withSEO(About, { title: 'About' }))
+export default withCurrentPage(withSEO(FacStaff, { title: 'Students' }))

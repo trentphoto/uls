@@ -7,8 +7,9 @@ import { ReduxState } from '../../types/redux'
 // import { Dispatch } from 'redux'
 // import { fetchPage, fetchSubPages } from '../../modules/ducks/pages/operations'
 // import { connect } from 'react-redux'
-import Content from './Content'
+import Content from '../../components/Content/Content'
 import { ILink } from '../../components/Footer/metaData'
+import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps<{ slug: string }> {
   page: ReduxState['pages']['currentPage']
@@ -40,26 +41,30 @@ class ThirdLevel extends React.Component<Props> {
     return []
   }
 
-  renderHero = (data: ThirdAcf) =>
-    data.background_image ? (
+  renderHero = (data: WPThirdLevel) =>
+    data.acf.background_image ? (
       <Hero.WithImage
-        header={data.header}
-        subHeader={data.sub_header}
-        image={data.background_image.sizes.large}
+        header={data.title.rendered}
+        subHeader={data.acf.sub_header}
+        image={siteBase + data.acf.background_image.sizes.large}
       />
     ) : (
-      <Hero.NoImage header={data.header} subHeader={data.sub_header} />
+      <Hero.NoImage
+        header={data.title.rendered}
+        subHeader={data.acf.sub_header}
+      />
     )
 
   public render() {
     const { match, page } = this.props
+
     // const slug = match.url.split('/')[1]
     // const page = pages[slug]
     return (
       <div className="third-level page">
         {page && page.data ? (
           <React.Fragment>
-            {this.renderHero(page.subpages[match.params.slug].acf)}
+            {this.renderHero(page.subpages[match.params.slug])}
             <section className="py-5">
               <div className="container">
                 <div className="row">
@@ -67,7 +72,9 @@ class ThirdLevel extends React.Component<Props> {
                     <Sidebar data={this.setSubLinks(page.subpages)} />
                   </div>
                   <div className="col-md-8">
-                    <Content data={page.subpages[match.params.slug]} />
+                    <Content
+                      data={page.subpages[match.params.slug].content.rendered}
+                    />
                   </div>
                 </div>
               </div>

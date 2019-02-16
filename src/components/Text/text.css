@@ -1,5 +1,6 @@
 p.text {
   margin: 0;
+  line-height: 2rem;
 }
 
 p.centered {

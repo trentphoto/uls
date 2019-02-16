@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header, Text } from '..'
 import './floating-tabs.css'
+import { Link } from 'react-router-dom'
 
 interface FloatingTabProps {
   tabOne: TabProps
@@ -11,6 +12,7 @@ interface FloatingTabProps {
 interface TabProps {
   header: string
   desc: string
+  link: string
 }
 
 const FloatingTabs = ({ tabOne, tabTwo, tabThree }: FloatingTabProps) => {
@@ -27,8 +29,8 @@ const FloatingTabs = ({ tabOne, tabTwo, tabThree }: FloatingTabProps) => {
   )
 }
 
-const Tab = ({ header, desc }: TabProps) => (
-  <div className="tab">
+const Tab = ({ header, desc, link }: TabProps) => (
+  <Link to={link} className="tab">
     <img src={require('../../assets/svgs/location.svg')} alt="Marker" />
     <div className="content">
       <Header type="h4" colored>
@@ -38,7 +40,7 @@ const Tab = ({ header, desc }: TabProps) => (
         {desc}
       </Text>
     </div>
-  </div>
+  </Link>
 )
 
 export default FloatingTabs

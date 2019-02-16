@@ -1,20 +1,13 @@
 import React from 'react'
-import './About.css'
 import { withSEO, withCurrentPage } from '../../utils/hocs'
 import {
   Hero,
   Sidebar,
-  Header,
-  FactsCard,
-  CampusesSection,
+  //   Header,
+  Text,
   Footer,
-  Loader,
-  Departments,
-  President,
-  Buttons,
-  Content
+  Loader
 } from '../../components'
-import { metaData } from './metaData'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
 import { ILink } from '../../components/Footer/metaData'
@@ -26,14 +19,14 @@ interface Props extends RouteComponentProps {
   getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
 }
 
-class About extends React.Component<Props> {
+class Students extends React.Component<Props> {
   setSubLinks = (pages: { [key: string]: WPThirdLevel } | undefined) => {
     if (pages) {
       const subpages: ILink[] = []
       for (const key in pages) {
         subpages.push({
           title: pages[key].title.rendered,
-          path: `about/${pages[key].slug}`
+          path: `students/${pages[key].slug}`
         })
       }
       return subpages
@@ -67,26 +60,18 @@ class About extends React.Component<Props> {
                   <div className="col-md-4 mb-5">
                     <Sidebar data={this.setSubLinks(page.subpages)} />
                   </div>
-                  <div className="col-md-8">
-                    <Content data={page.data.content.rendered} />
+                  <div className="col-md-8" id="content">
+                    {/* <Header colored type="h2">
+                      header here
+                    </Header> */}
+                    <Text size="medium" color="black">
+                      {page.data.content.rendered}
+                    </Text>
                   </div>
                 </div>
               </div>
             </section>
 
-            <FactsCard {...metaData.facts} colored />
-            <CampusesSection data={metaData.campuses} />
-            <Departments data={metaData.departments} />
-            <President data={metaData.president} />
-            <div className="block">
-              <img src={metaData.tradition.image} alt="Tradition" />
-              <div className="content">
-                <Header type="h2">{metaData.tradition.header}</Header>
-                <Buttons.Outline isLink size="large">
-                  READ MORE
-                </Buttons.Outline>
-              </div>
-            </div>
             <Footer />
           </React.Fragment>
         ) : (
@@ -97,4 +82,4 @@ class About extends React.Component<Props> {
   }
 }
 
-export default withCurrentPage(withSEO(About, { title: 'About' }))
+export default withCurrentPage(withSEO(Students, { title: 'Students' }))

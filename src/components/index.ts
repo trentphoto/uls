@@ -14,6 +14,7 @@ import Sidebar from './Sidebar'
 import Loader from './Loader'
 import President from './President'
 import Departments from './Departments'
+import Content from './Content'
 
 export {
   Header,
@@ -31,5 +32,6 @@ export {
   Sidebar,
   Loader,
   President,
-  Departments
+  Departments,
+  Content
 }

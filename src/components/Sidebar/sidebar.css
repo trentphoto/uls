@@ -8,10 +8,9 @@
   cursor: pointer;
   transition: all 0.2s;
   display: block;
-  text-indent: 30px;
   font-size: 15px;
-  font-weight: bold;
-  padding: 14px 0;
+  letter-spacing: 1px;
+  padding: 14px 20px;
   text-decoration: none;
   text-transform: uppercase;
 }

@@ -5,15 +5,11 @@
   width: 100%;
   position: relative;
   z-index: 1;
+  min-height: 400px;
 }
 
 .hero.no-image {
-  height: 375px;
-  background-color: #444f69;
-}
-
-.hero.with-image {
-  height: 575px;
+  background-color: var(--primary-blue);
 }
 
 .hero .bg-image,
@@ -24,6 +20,10 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.hero .container {
+  padding: 3rem 0;
 }
 
 .hero .bg-image {
@@ -37,11 +37,6 @@
   object-position: center;
 }
 
-.hero.no-image .content-container p {
-  text-align: center;
-  margin-top: 12px;
-}
-
 .hero.no-image .bg-stripes img {
   width: 100%;
   height: 100%;
@@ -52,33 +47,4 @@
 .hero .bg-image .overlay {
   background-color: #1e1e1e;
   opacity: 0.5;
-}
-
-.hero.with-image .content-container {
-  display: flex;
-  width: 90%;
-  max-width: 610px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero.no-image .content-container {
-  display: flex;
-  width: 90%;
-  max-width: 610px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero.with-image .content-container h1 {
-  margin-bottom: 25px;
-}
-
-.hero.with-image .content-container p {
-  width: 100%;
-  max-width: 540px;
-}
-
-.home.page .hero.with-image .content-container {
-  margin-top: -100px;
 }

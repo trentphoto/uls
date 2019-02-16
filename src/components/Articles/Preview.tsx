@@ -16,7 +16,7 @@ const Preview = ({ pageAmount, data }: Props) => {
     <div className="articles-preview">
       <div className="page-wrapper">
         <Header type="h1" colored>
-          Recent News
+          Around the Community
         </Header>
         <ArticleGrid pageAmount={pageAmount} data={data} />
       </div>

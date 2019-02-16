@@ -4,6 +4,7 @@ import './sidebar.css'
 import { ILink } from '../Footer/metaData'
 import { guid } from '../../utils/generateID'
 import { Location } from 'history'
+import renderHTML from 'react-render-html'
 
 interface Props {
   data: ILink[]
@@ -25,7 +26,7 @@ const Sidebar = ({ data }: Props) => {
           activeClassName="active"
           to={link.path}
         >
-          {link.title}
+          {renderHTML(link.title)}
         </NavLink>
       ))}
     </div>

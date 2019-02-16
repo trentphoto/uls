@@ -8,7 +8,7 @@ const Navbar = () => (
       <div className="upper-container">
         <div className="saying">Unifying, Learning, Serving.</div>
         <div className="links">
-          <NavLink to="/current-students">Current Students</NavLink>
+          <NavLink to="/students">Current Students</NavLink>
           <NavLink to="/future-students">Future Students</NavLink>
           <NavLink to="/faculty-staff">Faculty / Staff</NavLink>
           <NavLink to="/almuni">Alumni</NavLink>
@@ -17,11 +17,10 @@ const Navbar = () => (
       <div className="divider" />
       <div className="lower-container">
         <Link to="/" className="logo">
-          <img src={require('../../assets/svgs/logo-colored.svg')} alt="logo" />
-          <div className="text-container">
-            <div className="school">United Lutheran Seminary</div>
-            <div className="locations">Gettysburg + Philadelphia</div>
-          </div>
+          <img
+            src={require('../../assets/svgs/logo/oneline-tagline.svg')}
+            alt="logo"
+          />
         </Link>
         <div className="links">
           <NavLink exact to="/">
