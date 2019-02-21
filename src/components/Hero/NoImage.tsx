@@ -18,11 +18,11 @@ const NoImage = ({ header, subHeader }: Props) => {
         />
       </div>
       <div className="container">
-        <div className="row">
+        <div className="row align-items-center">
           <div className="col-md-4">
             <Header type="h1">{header}</Header>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-8 px-5">
             {subHeader && (
               <Text size="large" color="white">
                 {renderHTML(subHeader)}

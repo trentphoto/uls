@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './navbar.css'
 
 const Navbar = () => (
@@ -11,7 +12,7 @@ const Navbar = () => (
           <NavLink to="/students">Current Students</NavLink>
           <NavLink to="/future-students">Future Students</NavLink>
           <NavLink to="/faculty-staff">Faculty / Staff</NavLink>
-          <NavLink to="/almuni">Alumni</NavLink>
+          <NavLink to="/alumni">Alumni</NavLink>
         </div>
       </div>
       <div className="divider" />
@@ -24,12 +25,25 @@ const Navbar = () => (
         </Link>
         <div className="links">
           <NavLink exact to="/">
+            <FontAwesomeIcon icon="home" size="lg" className="mr-2" />
             Home
           </NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/admissions">Admissions</NavLink>
-          <NavLink to="/academics">Academics</NavLink>
-          <NavLink to="/united-media">United Media</NavLink>
+          <NavLink to="/about">
+            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            About
+          </NavLink>
+          <NavLink to="/admissions">
+            <FontAwesomeIcon icon="check-circle" size="lg" className="mr-2" />
+            Admissions
+          </NavLink>
+          <NavLink to="/academics">
+            <FontAwesomeIcon icon="book-open" size="lg" className="mr-2" />
+            Academics
+          </NavLink>
+          <NavLink to="/united-media">
+            <FontAwesomeIcon icon="image" size="lg" className="mr-2" />
+            United Media
+          </NavLink>
         </div>
       </div>
     </div>

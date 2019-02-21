@@ -72,6 +72,8 @@
   font-weight: 700;
   text-transform: uppercase;
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .Nav .lower-container a.active:after {

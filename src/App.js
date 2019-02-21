@@ -7,8 +7,8 @@ import {
   AboutRoutes,
   MediaRoutes,
   AdmissionsRoutes,
-  StudentsRoutes,
-  FacStaffRoutes
+  AcademicsRoutes,
+  Lvl2Routes
 } from './views'
 import { Navbar } from './components'
 
@@ -18,6 +18,18 @@ import './theme/block-theme.css'
 import './theme/blocks.css'
 import { withPages } from './utils/hocs'
 
+// fontawesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faHome,
+  faUser,
+  faCheckCircle,
+  faBookOpen,
+  faImage,
+  faInfoCircle
+} from '@fortawesome/free-solid-svg-icons'
+library.add(faHome, faInfoCircle, faUser, faCheckCircle, faBookOpen, faImage)
+
 const App = () => (
   <div className="App">
     <Navbar />
@@ -25,11 +37,13 @@ const App = () => (
       <Route exact={true} path="/" component={Home} />
       <Route path="/about" component={AboutRoutes} />
       <Route path="/admissions" component={AdmissionsRoutes} />
+      <Route path="/academics" component={AcademicsRoutes} />
       <Route path="/united-media" component={MediaRoutes} />
 
       {/* persona pages - top right */}
-      <Route path="/students" component={StudentsRoutes} />
-      <Route path="/faculty-staff" component={FacStaffRoutes} />
+      <Route path="/students" component={Lvl2Routes} />
+      <Route path="/alumni" component={Lvl2Routes} />
+      <Route path="/faculty-staff" component={Lvl2Routes} />
       <Route component={NotFound} />
     </Switch>
   </div>
