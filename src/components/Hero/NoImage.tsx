@@ -19,7 +19,7 @@ const NoImage = ({ header, subHeader }: Props) => {
       </div>
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-md-4">
+          <div className={subHeader ? 'col-md-4' : ''}>
             <Header type="h1">{header}</Header>
           </div>
           <div className="col-md-8 px-5">

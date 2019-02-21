@@ -8,10 +8,17 @@ interface HeaderProps {
   type: headers
   colored?: boolean
   centered?: boolean
+  underline?: boolean
   children: any
 }
 
-const Header = ({ type, children, colored, centered }: HeaderProps) => {
+const Header = ({
+  type,
+  children,
+  colored,
+  centered,
+  underline
+}: HeaderProps) => {
   const determineHeaderType = () => {
     switch (type) {
       case 'h1':
@@ -26,11 +33,13 @@ const Header = ({ type, children, colored, centered }: HeaderProps) => {
         return <h2>{renderHTML(`${children}`)}</h2>
     }
   }
-  return (
-    <header className={`${colored && 'colored'} ${centered && 'centered'}`}>
-      {determineHeaderType()}
-    </header>
-  )
+  const renderHeaderProps = () => {
+    return {
+      className: `${colored && 'colored'} ${centered &&
+        'centered'} ${underline && 'underline'}`
+    }
+  }
+  return <header {...renderHeaderProps()}>{determineHeaderType()}</header>
 }
 
 export default Header

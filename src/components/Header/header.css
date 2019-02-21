@@ -32,7 +32,8 @@ header h2 {
   font-size: 60px;
   position: relative;
 }
-header h2:after {
+
+header h2.underline:after {
   content: '';
   display: block;
   background-color: var(--primary-gold);
