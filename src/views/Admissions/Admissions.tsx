@@ -50,7 +50,6 @@ class Admissions extends React.Component<Props> {
 
   public render() {
     const { page } = this.props
-    console.log(this.props)
 
     // const slug = match.path.replace('/', '')
     // const page = pages[slug]

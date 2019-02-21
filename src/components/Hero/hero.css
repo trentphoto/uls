@@ -48,3 +48,26 @@
   background-color: #1e1e1e;
   opacity: 0.5;
 }
+
+@media (max-width: 1200px) {
+  .hero .col-md-7,
+  .hero .col-md-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hero {
+    min-height: 550px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .container {
+    width: 95%;
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+  }
+}

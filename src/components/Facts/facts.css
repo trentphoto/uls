@@ -118,3 +118,30 @@
   text-align: center;
   margin-left: 15px;
 }
+
+@media (max-width: 600px) {
+  .facts-card .facts-grid .fact {
+    min-width: 208px;
+    height: 285px;
+  }
+
+  .facts-grid .lower-img .header,
+  .facts-grid .no-img .header {
+    font-size: 54px;
+  }
+
+  .facts-grid .lower-img .sub-header,
+  .facts-grid .no-img .sub-header,
+  .facts-grid .two-headers .sub-header {
+    font-size: 21px;
+  }
+
+  .facts-grid .two-headers .header {
+    margin-bottom: -8px;
+    margin-right: -4px;
+  }
+
+  .facts-grid .two-headers img {
+    height: 82px;
+  }
+}

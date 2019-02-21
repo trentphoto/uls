@@ -33,6 +33,10 @@
   flex-wrap: wrap;
 }
 
+.article .content-container .upper {
+  width: 100%;
+}
+
 .article .content-container .divider {
   width: 36px;
   height: 2px;
@@ -124,4 +128,20 @@
 
 .articles-slider .arrow.right {
   transform: rotate(180deg);
+}
+
+@media (max-width: 960px) {
+  .articles-preview .articles {
+    flex-wrap: wrap;
+  }
+
+  .articles-preview .articles .article {
+    width: calc(100% / 2 - 30px);
+  }
+}
+
+@media (max-width: 700px) {
+  .articles-preview .articles .article {
+    width: 100%;
+  }
 }

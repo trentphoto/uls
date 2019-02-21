@@ -17,10 +17,10 @@ const WithImage = ({ header, subHeader, image }: Props) => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-7">
             <Header type="h1">{header}</Header>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-5">
             {subHeader && (
               <Text size="large" color="white">
                 {subHeader}
