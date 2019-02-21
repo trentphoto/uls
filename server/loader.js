@@ -67,9 +67,12 @@ export default (req, res) => {
       await fetchAllPages()(store.dispatch)
       const state = store.getState()
       const parent = req.url.split('/')[1]
-      setCurrentPage(state.pages.allPages[parent].data, state.pages.allPages)(
-        store.dispatch
-      )
+      if (parent) {
+        setCurrentPage(state.pages.allPages[parent].data, state.pages.allPages)(
+          store.dispatch
+        )
+      } else {
+      }
 
       const context = {}
       const modules = []
