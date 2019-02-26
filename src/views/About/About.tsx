@@ -1,6 +1,6 @@
 import React from 'react'
 import './About.css'
-import { withSEO, withCurrentPage } from '../../utils/hocs'
+import { withSEO, withCurrentRoute } from '../../utils/hocs'
 import {
   Hero,
   Sidebar,
@@ -21,7 +21,7 @@ import { ILink } from '../../components/Footer/metaData'
 import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps {
-  page: ReduxState['pages']['currentPage']
+  page: ReduxState['pages']['currentRoute']
   getPage: (slug: string) => Promise<WPPage>
   getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
@@ -32,6 +32,7 @@ class About extends React.Component<Props> {
       const subpages: ILink[] = []
       for (const key in pages) {
         subpages.push({
+          id: pages[key].slug,
           title: pages[key].title.rendered,
           path: `about/${pages[key].slug}`
         })
@@ -46,18 +47,18 @@ class About extends React.Component<Props> {
 
     return (
       <div className="about page">
-        {page && page.data ? (
+        {page && page.root ? (
           <React.Fragment>
-            {page.data.acf.background_image ? (
+            {page.root.acf.background_image ? (
               <Hero.WithImage
-                header={page.data.title.rendered}
-                subHeader={page.data.acf.sub_header}
-                image={siteBase + page.data.acf.background_image.sizes.large}
+                header={page.root.title.rendered}
+                subHeader={page.root.acf.sub_header}
+                image={siteBase + page.root.acf.background_image.sizes.large}
               />
             ) : (
               <Hero.NoImage
-                header={page.data.title.rendered}
-                subHeader={page.data.acf.sub_header}
+                header={page.root.title.rendered}
+                subHeader={page.root.acf.sub_header}
               />
             )}
 
@@ -65,10 +66,10 @@ class About extends React.Component<Props> {
               <div className="container">
                 <div className="row">
                   <div className="col-md-4 mb-5">
-                    <Sidebar data={this.setSubLinks(page.subpages)} />
+                    <Sidebar />
                   </div>
                   <div className="col-md-8">
-                    <Content data={page.data.content.rendered} />
+                    <Content data={page.root.content.rendered} />
                   </div>
                 </div>
               </div>
@@ -97,4 +98,4 @@ class About extends React.Component<Props> {
   }
 }
 
-export default withCurrentPage(withSEO(About, { title: 'About' }))
+export default withCurrentRoute(withSEO(About, { title: 'About' }))

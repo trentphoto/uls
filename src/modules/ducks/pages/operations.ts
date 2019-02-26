@@ -15,7 +15,7 @@ export const fetchAllPages = () => async (dispatch: Dispatch) => {
   }
 }
 
-export const setCurrentPage = (
+export const setCurrentRoute = (
   page: WPPage,
   pages: PageState['allPages'],
   slug: string[]

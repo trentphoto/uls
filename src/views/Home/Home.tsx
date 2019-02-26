@@ -1,5 +1,5 @@
 import React from 'react'
-import { withSEO, withPosts, withCurrentPage } from '../../utils/hocs'
+import { withSEO, withPosts, withCurrentRoute } from '../../utils/hocs'
 import {
   Hero,
   FloatingTabs,
@@ -33,4 +33,4 @@ const Home = ({ posts }: Props) => (
   </div>
 )
 
-export default withCurrentPage(withPosts(withSEO(Home, { title: 'Home' })))
+export default withCurrentRoute(withPosts(withSEO(Home, { title: 'Home' })))

@@ -1,5 +1,5 @@
 import React from 'react'
-import { withSEO, withCurrentPage } from '../../utils/hocs'
+import { withSEO, withCurrentRoute } from '../../utils/hocs'
 import { Hero, Sidebar, Footer, Loader, Content } from '../../components'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
@@ -7,7 +7,7 @@ import { ILink } from '../../components/Footer/metaData'
 import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps {
-  page: ReduxState['pages']['currentPage']
+  page: ReduxState['pages']['currentRoute']
   getPage: (slug: string) => Promise<WPPage>
   getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
@@ -19,6 +19,7 @@ class SecondLevelDefault extends React.Component<Props> {
 
       for (const key in pages) {
         subpages.push({
+          id: pages[key].slug,
           title: pages[key].title.rendered,
           path: `/${this.props.match.path.split('/')[1]}/${pages[key].slug}`
         })
@@ -33,18 +34,18 @@ class SecondLevelDefault extends React.Component<Props> {
 
     return (
       <div className="about page">
-        {page && page.data ? (
+        {page && page.root ? (
           <React.Fragment>
-            {page.data.acf.background_image ? (
+            {page.root.acf.background_image ? (
               <Hero.WithImage
-                header={page.data.title.rendered}
-                subHeader={page.data.acf.sub_header}
-                image={siteBase + page.data.acf.background_image.sizes.large}
+                header={page.root.title.rendered}
+                subHeader={page.root.acf.sub_header}
+                image={siteBase + page.root.acf.background_image.sizes.large}
               />
             ) : (
               <Hero.NoImage
-                header={page.data.title.rendered}
-                subHeader={page.data.acf.sub_header}
+                header={page.root.title.rendered}
+                subHeader={page.root.acf.sub_header}
               />
             )}
 
@@ -55,7 +56,7 @@ class SecondLevelDefault extends React.Component<Props> {
                     <Sidebar data={this.setSubLinks(page.subpages)} />
                   </div>
                   <div className="col-md-8">
-                    <Content data={page.data.content.rendered} />
+                    <Content data={page.root.content.rendered} />
                   </div>
                 </div>
               </div>
@@ -71,6 +72,6 @@ class SecondLevelDefault extends React.Component<Props> {
   }
 }
 
-export default withCurrentPage(
+export default withCurrentRoute(
   withSEO(SecondLevelDefault, { title: 'Lvl 2 Page' })
 )

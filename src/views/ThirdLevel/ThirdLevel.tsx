@@ -1,18 +1,18 @@
 import React from 'react'
 import './third-level.css'
-import { withSEO, withCurrentPage } from '../../utils/hocs'
+import { withSEO, withCurrentRoute } from '../../utils/hocs'
 import { Hero, Sidebar, Footer, Loader } from '../../components'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
 // import { Dispatch } from 'redux'
 // import { fetchPage, fetchSubPages } from '../../modules/ducks/pages/operations'
 // import { connect } from 'react-redux'
-import Content from '../../components/Content/Content'
+// import Content from '../../components/Content/Content'
 import { ILink } from '../../components/Footer/metaData'
 import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps<{ slug: string }> {
-  page: ReduxState['pages']['currentPage']
+  page: ReduxState['pages']['currentRoute']
   getPage: (slug: string) => Promise<WPPage>
   getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
@@ -32,6 +32,7 @@ class ThirdLevel extends React.Component<Props> {
       const subpages: ILink[] = []
       for (const key in pages) {
         subpages.push({
+          id: pages[key].slug,
           title: pages[key].title.rendered,
           path: `${pages[key].slug}`
         })
@@ -56,32 +57,36 @@ class ThirdLevel extends React.Component<Props> {
     )
 
   public render() {
-    const { match, page } = this.props
+    const { page } = this.props
 
     // const slug = match.url.split('/')[1]
     // const page = pages[slug]
     return (
       <div className="third-level page">
-        {page && page.data ? (
-          <React.Fragment>
-            {this.renderHero(page.subpages[match.params.slug])}
-            <section className="py-5">
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-4">
-                    <Sidebar data={this.setSubLinks(page.subpages)} />
-                  </div>
-                  <div className="col-md-8">
-                    <Content
-                      data={page.subpages[match.params.slug].content.rendered}
-                    />
-                  </div>
-                </div>
-              </div>
-            </section>
+        {page && page.root ? (
+          <div>
+            <Sidebar />
             <Footer />
-          </React.Fragment>
+          </div>
         ) : (
+          // <React.Fragment>
+          //   {this.renderHero(page.subpages[match.params.slug])}
+          //   <section className="py-5">
+          //     <div className="container">
+          //       <div className="row">
+          //         <div className="col-md-4">
+          //           <Sidebar data={this.setSubLinks(page.subpages)} />
+          //         </div>
+          //         <div className="col-md-8">
+          //           <Content
+          //             data={page.subpages[match.params.slug].content.rendered}
+          //           />
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </section>
+          //   <Footer />
+          // </React.Fragment>
           <Loader />
         )}
       </div>
@@ -99,4 +104,4 @@ class ThirdLevel extends React.Component<Props> {
 //     fetchSubPages(slug, pageID)(dispatch)
 // })
 
-export default withCurrentPage(withSEO(ThirdLevel, { title: 'ThirdLevel' }))
+export default withCurrentRoute(withSEO(ThirdLevel, { title: 'ThirdLevel' }))

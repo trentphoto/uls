@@ -1,5 +1,5 @@
 import React from 'react'
-import { withSEO, withCurrentPage } from '../../utils/hocs'
+import { withSEO, withCurrentRoute } from '../../utils/hocs'
 import {
   Hero,
   Sidebar,
@@ -14,7 +14,7 @@ import { ILink } from '../../components/Footer/metaData'
 import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps {
-  page: ReduxState['pages']['currentPage']
+  page: ReduxState['pages']['currentRoute']
   getPage: (slug: string) => Promise<WPPage>
   getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
@@ -25,6 +25,7 @@ class Students extends React.Component<Props> {
       const subpages: ILink[] = []
       for (const key in pages) {
         subpages.push({
+          id: pages[key].slug,
           title: pages[key].title.rendered,
           path: `students/${pages[key].slug}`
         })
@@ -39,18 +40,18 @@ class Students extends React.Component<Props> {
 
     return (
       <div className="about page">
-        {page && page.data ? (
+        {page && page.root ? (
           <React.Fragment>
-            {page.data.acf.background_image ? (
+            {page.root.acf.background_image ? (
               <Hero.WithImage
-                header={page.data.title.rendered}
-                subHeader={page.data.acf.sub_header}
-                image={siteBase + page.data.acf.background_image.sizes.large}
+                header={page.root.title.rendered}
+                subHeader={page.root.acf.sub_header}
+                image={siteBase + page.root.acf.background_image.sizes.large}
               />
             ) : (
               <Hero.NoImage
-                header={page.data.title.rendered}
-                subHeader={page.data.acf.sub_header}
+                header={page.root.title.rendered}
+                subHeader={page.root.acf.sub_header}
               />
             )}
 
@@ -65,7 +66,7 @@ class Students extends React.Component<Props> {
                       header here
                     </Header> */}
                     <Text size="medium" color="black">
-                      {page.data.content.rendered}
+                      {page.root.content.rendered}
                     </Text>
                   </div>
                 </div>
@@ -82,4 +83,4 @@ class Students extends React.Component<Props> {
   }
 }
 
-export default withCurrentPage(withSEO(Students, { title: 'Students' }))
+export default withCurrentRoute(withSEO(Students, { title: 'Students' }))

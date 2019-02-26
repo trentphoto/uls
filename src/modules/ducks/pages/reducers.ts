@@ -11,8 +11,8 @@ const initialState: types.PageState = {
       subpages: {}
     }
   },
-  currentPage: {
-    data: null,
+  currentRoute: {
+    root: null,
     subpages: {}
   },
   error: null,
@@ -57,17 +57,17 @@ const pages = (
     case types.SET_SUBPAGES:
       return {
         ...state,
-        currentPage: {
-          ...state.currentPage,
+        currentRoute: {
+          ...state.currentRoute,
           subpages: action.payload.subpages
         }
       }
     case types.SET_PAGE:
       return {
         ...state,
-        currentPage: {
-          ...state.currentPage,
-          data: action.payload.page
+        currentRoute: {
+          ...state.currentRoute,
+          root: action.payload.page
         }
       }
     default: {

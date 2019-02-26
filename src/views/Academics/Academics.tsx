@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router'
 import { ILink } from '../../components/Footer/metaData'
 import { ReduxState } from '../../types/redux'
 
-import { withSEO, withCurrentPage } from '../../utils/hocs'
+import { withSEO, withCurrentRoute } from '../../utils/hocs'
 
 import { metaData } from './metaData'
 
@@ -17,7 +17,7 @@ import {
 } from '../../components'
 
 interface Props extends RouteComponentProps {
-  page: ReduxState['pages']['currentPage']
+  page: ReduxState['pages']['currentRoute']
   // getPage: (slug: string) => Promise<WPPage>
   // getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
@@ -28,6 +28,7 @@ class Academics extends React.Component<Props> {
       const subpages: ILink[] = []
       for (const key in pages) {
         subpages.push({
+          id: pages[key].slug,
           title: pages[key].title.rendered,
           path: `academics/${pages[key].slug}`
         })
@@ -46,7 +47,7 @@ class Academics extends React.Component<Props> {
 
     return (
       <div className="admissions page">
-        {page && page.data ? (
+        {page && page.root ? (
           <React.Fragment>
             <Hero.WithImage {...metaData.hero} />
             <section className="py-5">
@@ -59,7 +60,7 @@ class Academics extends React.Component<Props> {
                     <Header colored type="h2">
                       Integrative. Experiential. Empowering.
                     </Header>
-                    <Content data={page.data.content.rendered} />
+                    <Content data={page.root.content.rendered} />
                   </div>
                 </div>
               </div>
@@ -74,4 +75,4 @@ class Academics extends React.Component<Props> {
   }
 }
 
-export default withCurrentPage(withSEO(Academics, { title: 'Academics' }))
+export default withCurrentRoute(withSEO(Academics, { title: 'Academics' }))

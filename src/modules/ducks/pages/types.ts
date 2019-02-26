@@ -6,8 +6,8 @@ export const SET_PAGE = '@@pages/SET_PAGE'
 export const SET_SUBPAGES = '@@pages/SET_SUBPAGES'
 
 export interface PageState {
-  currentPage: {
-    data: WPPage | null
+  currentRoute: {
+    root: WPPage | null
     subpages: {
       [key: string]: WPSubPage
     }
