@@ -8,7 +8,7 @@ const pages = {
     createAction(types.FETCH_ALL_PAGES_SUCCESS, { pages }),
   fetchAllPagesFail: (error: string) =>
     createAction(types.FETCH_ALL_PAGES_FAIL, { error }),
-  setSubPages: (subpages: WPThirdLevel[]) =>
+  setSubPages: (subpages: { [key: string]: WPSubPage }) =>
     createAction(types.SET_SUBPAGES, { subpages }),
   setPage: (page: WPPage) => createAction(types.SET_PAGE, { page })
 }

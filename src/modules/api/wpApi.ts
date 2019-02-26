@@ -31,7 +31,7 @@ const wpApiEndpoints = {
   getSubPages: async (id: number) => {
     try {
       const result = await axios.get(`${wpApiBase}/pages?parent=${id}`)
-      return result.data as WPThirdLevel[]
+      return result.data as WPSubPage[]
     } catch (error) {
       throw error.response.data
     }

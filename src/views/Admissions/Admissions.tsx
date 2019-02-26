@@ -21,7 +21,7 @@ import './Admissions.css'
 interface Props extends RouteComponentProps {
   page: ReduxState['pages']['currentPage']
   // getPage: (slug: string) => Promise<WPPage>
-  // getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
+  // getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
 
 class Admissions extends React.Component<Props> {
@@ -34,7 +34,7 @@ class Admissions extends React.Component<Props> {
     // }
   }
 
-  setSubLinks = (pages: { [key: string]: WPThirdLevel } | undefined) => {
+  setSubLinks = (pages: { [key: string]: WPSubPage } | undefined) => {
     if (pages) {
       const subpages: ILink[] = []
       for (const key in pages) {

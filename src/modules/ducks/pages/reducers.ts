@@ -59,13 +59,7 @@ const pages = (
         ...state,
         currentPage: {
           ...state.currentPage,
-          subpages: action.payload.subpages.reduce(
-            (map: { [key: string]: WPThirdLevel }, page: WPThirdLevel) => {
-              map[page.slug] = page
-              return map
-            },
-            {}
-          )
+          subpages: action.payload.subpages
         }
       }
     case types.SET_PAGE:

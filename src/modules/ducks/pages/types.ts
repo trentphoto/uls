@@ -9,7 +9,7 @@ export interface PageState {
   currentPage: {
     data: WPPage | null
     subpages: {
-      [key: string]: WPThirdLevel
+      [key: string]: WPSubPage
     }
   }
   allPages: {
@@ -18,7 +18,7 @@ export interface PageState {
       error: string | null
       data: WPPage | null
       subpages: {
-        [key: string]: WPThirdLevel
+        [key: string]: WPSubPage
       }
     }
   }

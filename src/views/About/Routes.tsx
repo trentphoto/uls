@@ -9,7 +9,17 @@ const AboutRoutes = ({ match }: Props) => {
   return (
     <Switch>
       <Route exact path={match.url} component={About} />
-      <Route path={`${match.path}/:slug`} component={ThirdLevel} />
+      <Route exact path={`${match.path}/:slug`} component={ThirdLevel} />
+      <Route
+        exact
+        path={`${match.path}/:third/:fourth`}
+        component={ThirdLevel}
+      />
+      <Route
+        exact
+        path={`${match.path}/:third/:fourth/:fifth`}
+        component={ThirdLevel}
+      />
     </Switch>
   )
 }

@@ -9,7 +9,11 @@ export const withCurrentPage = (WrappedComponent: any) => {
   interface Props extends RouteComponentProps<{}> {
     pages: ReduxState['pages']['allPages']
     currentPage: ReduxState['pages']['currentPage']
-    setPage: (page: WPPage, pages: ReduxState['pages']['allPages']) => void
+    setPage: (
+      page: WPPage,
+      pages: ReduxState['pages']['allPages'],
+      slug: string[]
+    ) => void
   }
 
   class WithCurrentPage extends React.Component<Props> {
@@ -25,12 +29,13 @@ export const withCurrentPage = (WrappedComponent: any) => {
       const { match, currentPage, pages, setPage } = this.props
       // used to get parent route
 
-      const slug = match.url.split('/')[1]
-      if (Object.keys(pages).length !== 0 && pages[slug]) {
-        if (currentPage.data && currentPage.data.slug !== slug) {
-          setPage(pages[slug].data as WPPage, pages)
+      const slug = match.url.split('/')
+      console.log(slug)
+      if (Object.keys(pages).length !== 0 && pages[slug[1]]) {
+        if (currentPage.data && currentPage.data.slug !== slug[1]) {
+          setPage(pages[slug[1]].data as WPPage, pages, slug)
         } else if (currentPage.data === null) {
-          setPage(pages[slug].data as WPPage, pages)
+          setPage(pages[slug[1]].data as WPPage, pages, slug)
         }
       }
     }
@@ -46,8 +51,11 @@ export const withCurrentPage = (WrappedComponent: any) => {
   })
 
   const mapDispatchToProps = (dispatch: Dispatch) => ({
-    setPage: (page: WPPage, pages: ReduxState['pages']['allPages']) =>
-      setCurrentPage(page, pages)(dispatch)
+    setPage: (
+      page: WPPage,
+      pages: ReduxState['pages']['allPages'],
+      slug: string[]
+    ) => setCurrentPage(page, pages, slug)(dispatch)
   })
 
   return connect(

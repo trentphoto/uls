@@ -14,7 +14,7 @@ import { siteBase } from '../../config'
 interface Props extends RouteComponentProps<{ slug: string }> {
   page: ReduxState['pages']['currentPage']
   getPage: (slug: string) => Promise<WPPage>
-  getSubPages: (slug: string, pageID: number) => Promise<WPThirdLevel>
+  getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
 
 class ThirdLevel extends React.Component<Props> {
@@ -27,7 +27,7 @@ class ThirdLevel extends React.Component<Props> {
     // }
   }
 
-  setSubLinks = (pages: { [key: string]: WPThirdLevel } | undefined) => {
+  setSubLinks = (pages: { [key: string]: WPSubPage } | undefined) => {
     if (pages) {
       const subpages: ILink[] = []
       for (const key in pages) {
@@ -41,7 +41,7 @@ class ThirdLevel extends React.Component<Props> {
     return []
   }
 
-  renderHero = (data: WPThirdLevel) =>
+  renderHero = (data: WPSubPage) =>
     data.acf.background_image ? (
       <Hero.WithImage
         header={data.title.rendered}
