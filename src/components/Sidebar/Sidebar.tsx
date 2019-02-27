@@ -1,5 +1,10 @@
 import React from 'react'
-import { NavLink, match } from 'react-router-dom'
+import {
+  NavLink,
+  match,
+  withRouter,
+  RouteComponentProps
+} from 'react-router-dom'
 import './sidebar.css'
 import { ILink } from '../Footer/metaData'
 import { guid } from '../../utils/generateID'
@@ -9,13 +14,13 @@ import { connect } from 'react-redux'
 import { ReduxState } from '../../types/redux'
 // import Routes from '../../views/Lvl2/Routes'
 
-interface Props {
+interface Props extends RouteComponentProps {
   data?: ILink[]
   routes: ReduxState['pages']['currentRoute']['subpages']
   root: WPPage | null
 }
 
-const Sidebar = ({ data, routes, root }: Props) => {
+const Sidebar = ({ data, routes, root, history }: Props) => {
   const checkActive = (match: match, location: Location, path: string) => {
     const slug = location.pathname.split('/').pop()
     return slug === path ? true : false
@@ -34,12 +39,10 @@ const Sidebar = ({ data, routes, root }: Props) => {
       }
     }
 
-    console.log('LINKS', links)
     return links
   }
   const showSubLinks = (root: string) => {
     const slug = location.pathname.split('/').slice(2)
-    console.log(slug)
     if (slug[0] === root && slug.length > 0) {
       return slug.reduce((acc: any, currVal: string, currIndex: number) => {
         switch (currIndex) {
@@ -77,7 +80,6 @@ const Sidebar = ({ data, routes, root }: Props) => {
     parentKey: string,
     key: string
   ) => {
-    console.log(current, parentKey, key)
     return current.map((parent: ILink) => {
       if (key === parent.id) {
         const subRoutes = []
@@ -86,7 +88,9 @@ const Sidebar = ({ data, routes, root }: Props) => {
           subRoutes.push({
             id: meta.slug,
             title: meta.title.rendered,
-            path: `/${root && root.slug}/${routes[parentKey].slug}/${meta.slug}`
+            path: `/${root && root.slug}/${routes[parentKey].slug}/${
+              routes[parentKey].subpages[key].slug
+            }/${meta.slug}`
           })
         }
         return { ...parent, subpages: subRoutes }
@@ -98,21 +102,22 @@ const Sidebar = ({ data, routes, root }: Props) => {
   return (
     <div className="sidebar">
       {convertRoutesToLinks().map((link: ILink) => (
-        <LinkOrDiv key={guid()} link={link}>
+        <LinkOrDiv level="two" key={guid()} link={link}>
           <React.Fragment>
             {link.subpages &&
               link.subpages.map((fourthLevel: ILink) => (
-                <LinkOrDiv key={guid()} link={fourthLevel}>
+                <LinkOrDiv level="three" key={guid()} link={fourthLevel}>
                   <React.Fragment>
                     {fourthLevel.subpages &&
                       fourthLevel.subpages.map((fifthLevel: ILink) => (
                         <NavLink
                           isActive={(match: match, location: Location) =>
-                            checkActive(match, location, fifthLevel.path)
+                            checkActive(match, location, fifthLevel.id)
                           }
                           key={guid()}
                           activeClassName="active"
                           to={fifthLevel.path}
+                          className="four"
                         >
                           {renderHTML(fifthLevel.title)}
                         </NavLink>
@@ -129,29 +134,31 @@ const Sidebar = ({ data, routes, root }: Props) => {
 
 interface LinkOrDivProps {
   link: ILink
+  level: 'two' | 'three'
   children: any
 }
 
-const LinkOrDiv = ({ link, children }: LinkOrDivProps) => {
+const LinkOrDiv = ({ link, children, level }: LinkOrDivProps) => {
   const checkActive = (match: match, location: Location, path: string) => {
     const slug = location.pathname.split('/').pop()
     return slug === path ? true : false
   }
   return (
     <React.Fragment>
-      {link.subpages ? (
-        <div>
-          {renderHTML(link.title)}
+      {link.subpages && link.subpages.length > 0 ? (
+        <div className={`link ${level}`}>
+          <div className="link-title">{renderHTML(link.title)}</div>
           {children}
         </div>
       ) : (
         <NavLink
           isActive={(match: match, location: Location) =>
-            checkActive(match, location, link.path)
+            checkActive(match, location, link.id)
           }
           key={guid()}
           activeClassName="active"
           to={link.path}
+          className={level}
         >
           {renderHTML(link.title)}
         </NavLink>
@@ -165,4 +172,4 @@ const mapStateToProps = (state: ReduxState) => ({
   root: state.pages.currentRoute.root
 })
 
-export default connect(mapStateToProps)(Sidebar)
+export default withRouter(connect(mapStateToProps)(Sidebar))

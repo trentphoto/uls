@@ -30,8 +30,6 @@ export const withCurrentRoute = (WrappedComponent: any) => {
       // used to get parent route
 
       const slug = match.url.split('/')
-
-      console.log(slug)
       if (Object.keys(pages).length !== 0 && pages[slug[1]]) {
         const page = pages[slug[1]].data
 

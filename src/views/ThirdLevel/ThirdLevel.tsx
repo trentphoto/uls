@@ -1,18 +1,18 @@
 import React from 'react'
 import './third-level.css'
 import { withSEO, withCurrentRoute } from '../../utils/hocs'
-import { Hero, Sidebar, Footer, Loader } from '../../components'
+import { Hero, Sidebar, Footer, Loader, Content } from '../../components'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
 // import { Dispatch } from 'redux'
 // import { fetchPage, fetchSubPages } from '../../modules/ducks/pages/operations'
 // import { connect } from 'react-redux'
 // import Content from '../../components/Content/Content'
-import { ILink } from '../../components/Footer/metaData'
+// import { ILink } from '../../components/Footer/metaData'
 import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps<{ slug: string }> {
-  page: ReduxState['pages']['currentRoute']
+  pages: ReduxState['pages']['allPages']
   getPage: (slug: string) => Promise<WPPage>
   getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
@@ -27,22 +27,7 @@ class ThirdLevel extends React.Component<Props> {
     // }
   }
 
-  setSubLinks = (pages: { [key: string]: WPSubPage } | undefined) => {
-    if (pages) {
-      const subpages: ILink[] = []
-      for (const key in pages) {
-        subpages.push({
-          id: pages[key].slug,
-          title: pages[key].title.rendered,
-          path: `${pages[key].slug}`
-        })
-      }
-      return subpages
-    }
-    return []
-  }
-
-  renderHero = (data: WPSubPage) =>
+  renderHero = (data: WPPage) =>
     data.acf.background_image ? (
       <Hero.WithImage
         header={data.title.rendered}
@@ -57,36 +42,31 @@ class ThirdLevel extends React.Component<Props> {
     )
 
   public render() {
-    const { page } = this.props
+    const { pages, match } = this.props
 
-    // const slug = match.url.split('/')[1]
-    // const page = pages[slug]
+    // const slug = ma
+    const slug = match.url.split('/').pop() as string
+    const page = pages[slug]
     return (
       <div className="third-level page">
-        {page && page.root ? (
-          <div>
-            <Sidebar />
+        {page && page.data ? (
+          <React.Fragment>
+            {this.renderHero(page.data)}
+            <section className="py-5">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-4">
+                    <Sidebar />
+                  </div>
+                  <div className="col-md-8">
+                    <Content data={page.data.content.rendered} />
+                  </div>
+                </div>
+              </div>
+            </section>
             <Footer />
-          </div>
+          </React.Fragment>
         ) : (
-          // <React.Fragment>
-          //   {this.renderHero(page.subpages[match.params.slug])}
-          //   <section className="py-5">
-          //     <div className="container">
-          //       <div className="row">
-          //         <div className="col-md-4">
-          //           <Sidebar data={this.setSubLinks(page.subpages)} />
-          //         </div>
-          //         <div className="col-md-8">
-          //           <Content
-          //             data={page.subpages[match.params.slug].content.rendered}
-          //           />
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </section>
-          //   <Footer />
-          // </React.Fragment>
           <Loader />
         )}
       </div>

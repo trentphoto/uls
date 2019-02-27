@@ -2,17 +2,57 @@
   width: 100%;
 }
 
+.sidebar div.link {
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 14px 0px;
+  padding-bottom: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-left: 20px;
+  background-color: #303e5b;
+}
+
 .sidebar a {
   background-color: var(--primary-blue);
   color: #fff;
   cursor: pointer;
   transition: all 0.2s;
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 1px;
   padding: 14px 20px;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.sidebar .link-title {
+  padding-bottom: 20px;
+}
+
+.sidebar div.link .three {
+  background-color: #263148;
+  /* text-indent: 40px; */
+  padding-left: 30px;
+  margin-left: -20px;
+}
+
+.sidebar div.link .four {
+  background-color: #1e2738;
+  /* text-indent: 60px */
+  margin-left: -30px;
+  padding-left: 40px;
+}
+
+.sidebar div.link .three:hover,
+.sidebar div.link .four:hover {
+  background-color: #606980;
+  color: white;
+  text-decoration: none;
 }
 
 /* .sidebar a:first-of-type {
@@ -29,6 +69,12 @@
   text-decoration: none;
 }
 
-.sidebar a.active {
+.sidebar a.active,
+.sidebar div.link .three.active,
+.sidebar div.link .four.active {
+  background-color: var(--primary-gold);
+}
+
+.sidebar div.link a.active {
   background-color: var(--primary-gold);
 }
