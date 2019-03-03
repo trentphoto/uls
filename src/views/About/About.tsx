@@ -98,4 +98,4 @@ class About extends React.Component<Props> {
   }
 }
 
-export default withCurrentRoute(withSEO(About, { title: 'About' }))
+export default withCurrentRoute(withSEO(About))

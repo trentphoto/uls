@@ -28,7 +28,6 @@ export const withCurrentRoute = (WrappedComponent: any) => {
     updateCurrentRoute = () => {
       const { match, currentRoute, pages, setPage } = this.props
       // used to get parent route
-
       const slug = match.url.split('/')
       if (Object.keys(pages).length !== 0 && pages[slug[1]]) {
         const page = pages[slug[1]].data
