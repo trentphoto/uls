@@ -32,7 +32,7 @@ class ThirdLevel extends React.Component<Props> {
       <Hero.WithImage
         header={data.title.rendered}
         subHeader={data.acf.sub_header}
-        image={siteBase + data.acf.background_image.sizes.large}
+        image={siteBase + data.acf.background_image}
       />
     ) : (
       <Hero.NoImage

@@ -1,6 +1,5 @@
 import React from 'react'
 import { RouteComponentProps } from 'react-router'
-import { ILink } from '../../components/Footer/metaData'
 import { ReduxState } from '../../types/redux'
 
 import { withSEO, withCurrentRoute } from '../../utils/hocs'
@@ -23,21 +22,6 @@ interface Props extends RouteComponentProps {
 }
 
 class Academics extends React.Component<Props> {
-  setSubLinks = (pages: { [key: string]: WPSubPage } | undefined) => {
-    if (pages) {
-      const subpages: ILink[] = []
-      for (const key in pages) {
-        subpages.push({
-          id: pages[key].slug,
-          title: pages[key].title.rendered,
-          path: `academics/${pages[key].slug}`
-        })
-      }
-      return subpages
-    }
-    return []
-  }
-
   public render() {
     const { page } = this.props
     console.log(this.props)
@@ -54,7 +38,7 @@ class Academics extends React.Component<Props> {
               <div className="container">
                 <div className="row">
                   <div className="col-md-4 mb-5">
-                    <Sidebar data={this.setSubLinks(page.subpages)} />
+                    <Sidebar />
                   </div>
                   <div className="col-md-8">
                     <Header colored type="h2">

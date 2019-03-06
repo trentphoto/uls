@@ -101,6 +101,19 @@ const Sidebar = ({ data, routes, root, history }: Props) => {
 
   return (
     <div className="sidebar">
+      {root && (
+        <NavLink
+          isActive={(match: match, location: Location) =>
+            checkActive(match, location, root.slug)
+          }
+          key={guid()}
+          activeClassName="active-top"
+          to={`/${root.slug}`}
+          className="top-link"
+        >
+          {renderHTML(root.title.rendered)}
+        </NavLink>
+      )}
       {convertRoutesToLinks().map((link: ILink) => (
         <LinkOrDiv level="two" key={guid()} link={link}>
           <React.Fragment>
@@ -141,13 +154,23 @@ interface LinkOrDivProps {
 const LinkOrDiv = ({ link, children, level }: LinkOrDivProps) => {
   const checkActive = (match: match, location: Location, path: string) => {
     const slug = location.pathname.split('/').pop()
+    console.log(slug === path)
     return slug === path ? true : false
   }
   return (
     <React.Fragment>
       {link.subpages && link.subpages.length > 0 ? (
         <div className={`link ${level}`}>
-          <div className="link-title">{renderHTML(link.title)}</div>
+          <NavLink
+            to={link.path}
+            exact
+            className="link-title"
+            // isActive={(match: match, location: Location) =>
+            //   checkActive(match, location, link.id)
+            // }
+          >
+            {renderHTML(link.title)}
+          </NavLink>
           {children}
         </div>
       ) : (
@@ -155,6 +178,7 @@ const LinkOrDiv = ({ link, children, level }: LinkOrDivProps) => {
           isActive={(match: match, location: Location) =>
             checkActive(match, location, link.id)
           }
+          exact
           key={guid()}
           activeClassName="active"
           to={link.path}

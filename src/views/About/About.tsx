@@ -17,7 +17,6 @@ import {
 import { metaData } from './metaData'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
-import { ILink } from '../../components/Footer/metaData'
 import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps {
@@ -27,21 +26,6 @@ interface Props extends RouteComponentProps {
 }
 
 class About extends React.Component<Props> {
-  setSubLinks = (pages: { [key: string]: WPSubPage } | undefined) => {
-    if (pages) {
-      const subpages: ILink[] = []
-      for (const key in pages) {
-        subpages.push({
-          id: pages[key].slug,
-          title: pages[key].title.rendered,
-          path: `about/${pages[key].slug}`
-        })
-      }
-      return subpages
-    }
-    return []
-  }
-
   public render() {
     const { page } = this.props
 
@@ -53,7 +37,7 @@ class About extends React.Component<Props> {
               <Hero.WithImage
                 header={page.root.title.rendered}
                 subHeader={page.root.acf.sub_header}
-                image={siteBase + page.root.acf.background_image.sizes.large}
+                image={siteBase + page.root.acf.background_image}
               />
             ) : (
               <Hero.NoImage

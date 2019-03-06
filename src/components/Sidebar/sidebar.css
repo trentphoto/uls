@@ -9,7 +9,6 @@
   display: block;
   font-size: 14px;
   letter-spacing: 1px;
-  padding: 14px 0px;
   padding-bottom: 0;
   text-decoration: none;
   text-transform: uppercase;
@@ -30,20 +29,43 @@
   text-transform: uppercase;
 }
 
-.sidebar .link-title {
-  padding-bottom: 20px;
+.sidebar .top-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sidebar .top-link:before {
+  content: '';
+  margin-top: -2px;
+  margin-right: 8px;
+  display: block;
+  background-image: url('../../assets/vectors/info.png');
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+}
+
+.sidebar div.link.two .link-title {
+  background-color: #303e5b;
+  padding-left: 20px;
+  margin-left: -20px;
+}
+
+.sidebar div.link.two div.link.three .link-title {
+  background-color: #303e5b;
+  margin-left: -30px;
+  padding-left: 30px;
 }
 
 .sidebar div.link .three {
   background-color: #263148;
-  /* text-indent: 40px; */
   padding-left: 30px;
   margin-left: -20px;
 }
 
 .sidebar div.link .four {
   background-color: #1e2738;
-  /* text-indent: 60px */
   margin-left: -30px;
   padding-left: 40px;
 }
@@ -55,26 +77,19 @@
   text-decoration: none;
 }
 
-/* .sidebar a:first-of-type {
-  padding-top: 24px;
-}
-
-.sidebar a:last-of-type {
-  padding-bottom: 24px;
-} */
-
-.sidebar a:hover {
+.sidebar a:hover,
+.sidebar div.link.two .link-title:hover,
+.sidebar div.link.two div.link.three .link-title:hover {
   background-color: #606980;
   color: white;
   text-decoration: none;
 }
 
 .sidebar a.active,
+.sidebar div.link a.active,
 .sidebar div.link .three.active,
-.sidebar div.link .four.active {
-  background-color: var(--primary-gold);
-}
-
-.sidebar div.link a.active {
+.sidebar div.link .four.active,
+.sidebar div.link.two .link-title.active,
+.sidebar div.link.two div.link.three .link-title.active {
   background-color: var(--primary-gold);
 }
