@@ -33,7 +33,7 @@ class Academics extends React.Component<Props> {
       <div className="admissions page">
         {page && page.root ? (
           <React.Fragment>
-            <Hero.WithImage {...metaData.hero} />
+            <Hero.WithImage {...metaData.hero} overlay />
             <section className="py-5">
               <div className="container">
                 <div className="row">

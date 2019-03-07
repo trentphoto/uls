@@ -12,7 +12,7 @@ interface Props {
 
 const Media = ({ posts }: Props) => (
   <div className="media-page page">
-    <Hero.WithImage {...metaData.hero} />
+    <Hero.WithImage {...metaData.hero} overlay />
     {Object.keys(posts.data).length !== 0 && (
       <div className="page-wrapper">
         <Articles.ArticleSlider data={posts.data} />

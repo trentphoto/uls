@@ -7,6 +7,10 @@ header.colored {
   color: var(--primary-blue);
 }
 
+header.dark {
+  color: var(--dark-dark-gray);
+}
+
 header.centered {
   margin: 0 auto;
 }

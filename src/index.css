@@ -15,6 +15,7 @@ body {
   --primary-gold: #F78D2A;
   --light-gray: #e5e8f0;
   --dark-gray: #525459;
+  --dark-dark-gray: #2e2f32;
 }
 
 input:-webkit-autofill,

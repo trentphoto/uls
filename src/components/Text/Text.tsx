@@ -12,7 +12,7 @@ interface TextProps {
    * @param large 21px For sub headers
    */
   size: TextSizes
-  color: 'white' | 'black' | 'colored' | 'grey'
+  color: 'white' | 'black' | 'colored' | 'grey' | 'dark-gray'
   weight?: 'light' | 'normal' | 'bold' | 'semi-bold'
   style?: 'italic' | 'normal'
   centered?: boolean
@@ -42,6 +42,8 @@ const Text = ({
         classes.push('black')
       case 'grey':
         classes.push('grey')
+      case 'dark-gray':
+        classes.push('dark-gray')
       default:
         break
     }

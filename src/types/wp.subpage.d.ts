@@ -70,53 +70,55 @@ declare interface VersionHistory {
 declare interface ThirdAcf {
   header: string
   sub_header: string
-  background_image: BackgroundImage | false
+  background_image: string | false
+  background_image_overlay: boolean
+  textdark: boolean
 }
 
-declare interface BackgroundImage {
-  ID: number
-  id: number
-  title: string
-  filename: string
-  filesize: number
-  url: string
-  link: string
-  alt: string
-  author: string
-  description: string
-  caption: string
-  name: string
-  status: string
-  uploaded_to: number
-  date: string
-  modified: string
-  menu_order: number
-  mime_type: string
-  type: string
-  subtype: string
-  icon: string
-  width: number
-  height: number
-  sizes: Sizes
-}
+// declare interface BackgroundImage {
+//   ID: number
+//   id: number
+//   title: string
+//   filename: string
+//   filesize: number
+//   url: string
+//   link: string
+//   alt: string
+//   author: string
+//   description: string
+//   caption: string
+//   name: string
+//   status: string
+//   uploaded_to: number
+//   date: string
+//   modified: string
+//   menu_order: number
+//   mime_type: string
+//   type: string
+//   subtype: string
+//   icon: string
+//   width: number
+//   height: number
+//   sizes: Sizes
+// }
 
-declare interface Sizes {
-  thumbnail: string
-  'thumbnail-width': number
-  'thumbnail-height': number
-  medium: string
-  'medium-width': number
-  'medium-height': number
-  medium_large: string
-  'medium_large-width': number
-  'medium_large-height': number
-  large: string
-  'large-width': number
-  'large-height': number
-  'post-thumbnail': string
-  'post-thumbnail-width': number
-  'post-thumbnail-height': number
-}
+// declare interface Sizes {
+//   thumbnail: string
+//   'thumbnail-width': number
+//   'thumbnail-height': number
+//   medium: string
+//   'medium-width': number
+//   'medium-height': number
+//   medium_large: string
+//   'medium_large-width': number
+//   'medium_large-height': number
+//   large: string
+//   'large-width': number
+//   'large-height': number
+//   'post-thumbnail': string
+//   'post-thumbnail-width': number
+//   'post-thumbnail-height': number
+// }
 
 declare interface Content {
   rendered: string

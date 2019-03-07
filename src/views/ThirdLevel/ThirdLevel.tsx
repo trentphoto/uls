@@ -33,6 +33,8 @@ class ThirdLevel extends React.Component<Props> {
         header={data.title.rendered}
         subHeader={data.acf.sub_header}
         image={siteBase + data.acf.background_image}
+        overlay={data.acf.background_image_overlay}
+        textDark={data.acf.textdark}
       />
     ) : (
       <Hero.NoImage
