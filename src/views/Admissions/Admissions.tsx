@@ -90,7 +90,6 @@ class Admissions extends React.Component<Props> {
                   </div>
                   <div className="col-md-6">
                     <iframe
-                      width="540"
                       height="300"
                       src="https://www.youtube.com/embed/RDJrPQi9-qw?rel=0&amp;controls=0&amp;showinfo=0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

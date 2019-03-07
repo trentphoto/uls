@@ -124,3 +124,21 @@
     margin-bottom: 20px;
   }
 }
+
+@media (max-width: 400px) {
+  .upcoming-slider .slider .text.medium {
+    font-size: 14px;
+  }
+
+  .upcoming-slider .slider .right.col .container {
+    max-width: 82%;
+  }
+
+  .upcoming-slider .slider .arrow.left {
+    left: 2px;
+  }
+
+  .upcoming-slider .slider .arrow.right {
+    right: 2px;
+  }
+}

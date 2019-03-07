@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, Header, Buttons } from '..'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { guid } from '../../utils/generateID'
+import moment from 'moment'
 
 const arrow = require('../../assets/svgs/arrow-gray.svg')
 const placeholder = require('../../assets/placeholders/blog/blog-2.jpg')
@@ -85,7 +86,7 @@ class ArticleSlider extends React.Component<Props, State> {
               {slide.title.rendered}
             </Header>
             <Text className="author" size="small" color="grey" style="italic">
-              {`${slide.date} - ${slide.author}`}
+              {`${moment(slide.date).format('MMMM Do YYYY')} - ${slide.author}`}
             </Text>
             <Buttons.NoOutline
               onClick={() =>

@@ -161,14 +161,7 @@ const LinkOrDiv = ({ link, children, level }: LinkOrDivProps) => {
     <React.Fragment>
       {link.subpages && link.subpages.length > 0 ? (
         <div className={`link ${level}`}>
-          <NavLink
-            to={link.path}
-            exact
-            className="link-title"
-            // isActive={(match: match, location: Location) =>
-            //   checkActive(match, location, link.id)
-            // }
-          >
+          <NavLink to={link.path} exact className="link-title">
             {renderHTML(link.title)}
           </NavLink>
           {children}

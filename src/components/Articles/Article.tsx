@@ -2,6 +2,7 @@ import React from 'react'
 import { Header, Text, Buttons } from '..'
 import './articles.css'
 import { withRouter, RouteComponentProps } from 'react-router'
+import moment from 'moment'
 
 interface Props extends RouteComponentProps {
   data: WPPost
@@ -26,7 +27,7 @@ const Article = ({ data, history }: Props) => {
       <div className="content-container">
         <div className="upper">
           <Text weight="bold" size="extra-small" color="black">
-            {data.date}
+            {moment(data.date).format('MMMM Do YYYY')}
           </Text>
           <div className="divider" />
           <Header colored type="h3">

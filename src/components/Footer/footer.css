@@ -152,3 +152,51 @@ footer .bottom-bar {
   align-items: center;
   padding: 15px 0;
 }
+
+@media (max-width: 780px) {
+  footer .upper-container .page-wrapper.flexed {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  footer .upper-container .page-wrapper.flexed .left.col,
+  footer .upper-container .page-wrapper.flexed .right.col {
+    width: 100%;
+    flex-basis: inherit;
+    flex-grow: inherit;
+  }
+
+  footer .upper-container .page-wrapper.flexed .right.col {
+    margin-top: 25px;
+  }
+
+  footer .upper-container .logo {
+    width: 100%;
+  }
+
+  footer .upper-container .location {
+    margin-left: 36px;
+  }
+}
+
+@media (max-width: 680px) {
+  footer .lower-container .links {
+    flex-wrap: wrap;
+  }
+
+  footer .lower-container .links section {
+    width: 50%;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 475px) {
+  footer .upper-container .contact {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  footer .upper-container .contact .method {
+    margin: 0;
+  }
+}

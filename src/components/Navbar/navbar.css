@@ -50,7 +50,8 @@
   width: 100%;
 }
 
-.Nav .lower-container .logo {
+.Nav .lower-container .logo,
+.mobile-nav .logo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -64,7 +65,8 @@
   margin-right: 15px;
 }
 
-.Nav .lower-container .links a {
+.Nav .lower-container .links a,
+.drawer .mobile-links a {
   color: #444f69;
   font-size: 15px;
   text-decoration: none;
@@ -86,6 +88,104 @@
   left: 0px;
 }
 
+/* mobile nav */
+
+.mobile-nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  background-color: #fff;
+  z-index: 10000000;
+  display: none;
+}
+
+.mobile-nav .flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.mobile-nav .logo img {
+  width: 240px;
+  height: 70px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+
+.mobile-nav .hamburger {
+  padding: 4px;
+  margin-right: -4px;
+  cursor: pointer;
+}
+
+.mobile-nav .hamburger .bun,
+.mobile-nav .hamburger .bun:before,
+.mobile-nav .hamburger .bun:after {
+  width: 30px;
+  height: 2px;
+  background-color: #222;
+  border-radius: 2px;
+}
+
+.mobile-nav .hamburger .bun {
+  position: relative;
+}
+
+.mobile-nav .hamburger .bun:before,
+.mobile-nav .hamburger .bun:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+}
+
+.mobile-nav .hamburger .bun:before {
+  bottom: 7px;
+}
+
+.mobile-nav .hamburger .bun:after {
+  top: 7px;
+}
+
+.drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1000000;
+  transform: translateX(100%);
+  transition: all 0.3s;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer .mobile-links {
+  padding-top: 120px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.drawer .mobile-links a {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
 /* responsive */
 @media (max-width: 991px) {
   .Nav .lower-container {
@@ -94,5 +194,15 @@
 
   .Nav .lower-container .links {
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 776px) {
+  .Nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
   }
 }

@@ -60,6 +60,7 @@
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
     "md5-file": "^4.0.0",
+    "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "prettier": "^1.15.3",
     "pretty-quick": "^1.8.0",
@@ -83,6 +84,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/lodash": "^4.14.121",
+    "@types/moment": "^2.13.0",
     "@types/node": "^10.12.15",
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
