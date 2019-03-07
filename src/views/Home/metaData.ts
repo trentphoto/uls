@@ -112,7 +112,7 @@ export const metaData: MetaData = {
       description:
         'Located within two hours of Baltimore and Washington D.C., the Gettysburg campus of United Lutheran Seminary is situated in the heart of one of our country’s most charming and historically important towns.',
       image: require('../../assets/images/gettysburg.jpg'),
-      path: '/gettsyburg',
+      path: '/gettsyburg-campus',
       alignment: 'right'
     },
     {
@@ -120,7 +120,7 @@ export const metaData: MetaData = {
       description:
         'Located in the historic Mt. Airy neighborhood, students love not only the picturesque campus, but also the wide-variety of opportunities that are available right in the neighborhood. You can also get right into the heart of Philadelphia and beyond using one of the two train stations or public transportation that are blocks from campus.',
       image: require('../../assets/images/philadelphia.jpg'),
-      path: '/philadelphia',
+      path: '/philadelphia-campus',
       alignment: 'left'
     }
   ]

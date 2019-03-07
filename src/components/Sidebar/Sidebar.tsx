@@ -12,7 +12,6 @@ import { Location } from 'history'
 import renderHTML from 'react-render-html'
 import { connect } from 'react-redux'
 import { ReduxState } from '../../types/redux'
-// import Routes from '../../views/Lvl2/Routes'
 
 interface Props extends RouteComponentProps {
   data?: ILink[]
@@ -154,7 +153,6 @@ interface LinkOrDivProps {
 const LinkOrDiv = ({ link, children, level }: LinkOrDivProps) => {
   const checkActive = (match: match, location: Location, path: string) => {
     const slug = location.pathname.split('/').pop()
-    console.log(slug === path)
     return slug === path ? true : false
   }
   return (

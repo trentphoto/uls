@@ -155,13 +155,14 @@
 .drawer {
   position: fixed;
   left: 0;
-  right: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: #fff;
   z-index: 1000000;
   transform: translateX(100%);
   transition: all 0.3s;
+  overflow: auto;
 }
 
 .drawer.open {

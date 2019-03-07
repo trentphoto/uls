@@ -20,7 +20,11 @@ const Campus = ({ data }: Props) => {
           </div>
           <div className="btn-wrapper">
             <div className="btn-line" />
-            <Buttons.Outline to={data.path} isLink size="large">
+            <Buttons.Outline
+              to={`/about/campuses${data.path}`}
+              isLink
+              size="large"
+            >
               EXPLORE
             </Buttons.Outline>
           </div>
