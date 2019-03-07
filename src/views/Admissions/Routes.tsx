@@ -8,7 +8,13 @@ interface Props extends RouteComponentProps {}
 const AdmissionsRoutes = ({ match }: Props) => (
   <Switch>
     <Route exact path={match.url} component={Admissions} />
-    <Route path={`${match.path}/:slug`} component={ThirdLevel} />
+    <Route exact path={`${match.path}/:slug`} component={ThirdLevel} />
+    <Route exact path={`${match.path}/:third/:fourth`} component={ThirdLevel} />
+    <Route
+      exact
+      path={`${match.path}/:third/:fourth/:fifth`}
+      component={ThirdLevel}
+    />
   </Switch>
 )
 
