@@ -1,61 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SecondaryLink, HoverData } from './metadata'
 
-interface State {
-  drawerOpen: boolean
-}
+const Mobilebar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [secondaryLinks, setSecondaryLinks] = useState<SecondaryLink[] | null>(
+    null
+  )
 
-class Mobilebar extends React.Component<{}, State> {
-  state: State = {
-    drawerOpen: false
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen)
+    setSecondaryLinks(null)
   }
-  toggleDrawer = () => {
-    this.setState({ drawerOpen: !this.state.drawerOpen })
+
+  const toggleSecondaryLinks = (e: React.MouseEvent<HTMLDivElement>) => {
+    setSecondaryLinks(HoverData[e.currentTarget.id].secondaryLinks)
   }
-  render() {
-    const { drawerOpen } = this.state
-    return (
-      <React.Fragment>
-        <div className="mobile-nav">
-          <div className="flex-container">
-            <Link to="/" className="logo">
-              <img
-                src={require('../../assets/svgs/logo/oneline-tagline.svg')}
-                alt="logo"
-              />
-            </Link>
-            <div onClick={this.toggleDrawer} className="hamburger">
-              <div className="bun" />
-            </div>
+
+  return (
+    <React.Fragment>
+      <div className="mobile-nav">
+        <div className="flex-container">
+          <Link to="/" className="logo">
+            <img
+              src={require('../../assets/svgs/logo/oneline-tagline.svg')}
+              alt="logo"
+            />
+          </Link>
+          <div onClick={toggleDrawer} className="hamburger">
+            <div className="bun" />
           </div>
         </div>
-        <div className={drawerOpen ? 'drawer open' : 'drawer'}>
-          <div className="mobile-links">
-            <NavLink onClick={this.toggleDrawer} exact to="/">
-              <FontAwesomeIcon icon="home" size="lg" className="mr-2" />
-              Home
-            </NavLink>
-            <NavLink onClick={this.toggleDrawer} to="/about">
-              <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
-              About
-            </NavLink>
-            <NavLink onClick={this.toggleDrawer} to="/admissions">
-              <FontAwesomeIcon icon="check-circle" size="lg" className="mr-2" />
-              Admissions
-            </NavLink>
-            <NavLink onClick={this.toggleDrawer} to="/academics">
-              <FontAwesomeIcon icon="book-open" size="lg" className="mr-2" />
-              Academics
-            </NavLink>
-            <NavLink onClick={this.toggleDrawer} to="/united-media">
-              <FontAwesomeIcon icon="image" size="lg" className="mr-2" />
-              United Media
-            </NavLink>
+      </div>
+      <div className={drawerOpen ? 'drawer open' : 'drawer'}>
+        <div
+          className={
+            secondaryLinks ? 'sec-mobile-links open' : 'sec-mobile-links'
+          }
+        >
+          <div onClick={() => setSecondaryLinks(null)} className="back">
+            <img src={require('../../assets/svgs/arrow-gray.svg')} alt="" />
+            Back
+          </div>
+          {secondaryLinks &&
+            secondaryLinks.map((link: SecondaryLink) => (
+              <NavLink
+                key={link.label}
+                onClick={toggleDrawer}
+                exact
+                to={link.path}
+              >
+                <FontAwesomeIcon icon="home" size="lg" className="mr-2" />
+                {link.label}
+              </NavLink>
+            ))}
+        </div>
+        <div
+          className={secondaryLinks ? 'mobile-links closed' : 'mobile-links'}
+        >
+          <NavLink onClick={toggleDrawer} exact to="/">
+            <FontAwesomeIcon icon="home" size="lg" className="mr-2" />
+            Home
+          </NavLink>
+          <div id="about" className="link" onClick={toggleSecondaryLinks}>
+            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            About
+          </div>
+          <div id="admissions" className="link" onClick={toggleSecondaryLinks}>
+            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            Admissions
+          </div>
+          <div id="academics" className="link" onClick={toggleSecondaryLinks}>
+            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            Academics
+          </div>
+          <div
+            id="communityLife"
+            className="link"
+            onClick={toggleSecondaryLinks}
+          >
+            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            Community Life
           </div>
         </div>
-      </React.Fragment>
-    )
-  }
+      </div>
+    </React.Fragment>
+  )
 }
+
 export default Mobilebar
