@@ -7,7 +7,7 @@ import HoverBar from './HoverBar'
 import { HoverData } from './metadata'
 
 const Navbar = () => {
-  const [hovered, setHovered] = useState<string | null>('about')
+  const [hovered, setHovered] = useState<string | null>(null)
 
   const onMouseOver = (e: React.MouseEvent<HTMLAnchorElement>) =>
     setHovered(e.currentTarget.id)
