@@ -47,7 +47,7 @@ class FacStaff extends React.Component<Props> {
               <Hero.WithImage
                 header={page.root.title.rendered}
                 subHeader={page.root.acf.sub_header}
-                image={siteBase + page.root.acf.background_image.sizes.large}
+                image={siteBase + page.root.acf.background_image}
               />
             ) : (
               <Hero.NoImage

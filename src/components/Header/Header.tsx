@@ -7,6 +7,7 @@ type headers = 'h1' | 'h2' | 'h3' | 'h4'
 interface HeaderProps {
   type: headers
   colored?: boolean
+  dark?: boolean
   centered?: boolean
   underline?: boolean
   children: any
@@ -16,6 +17,7 @@ const Header = ({
   type,
   children,
   colored,
+  dark,
   centered,
   underline
 }: HeaderProps) => {
@@ -35,8 +37,9 @@ const Header = ({
   }
   const renderHeaderProps = () => {
     return {
-      className: `${colored && 'colored'} ${centered &&
-        'centered'} ${underline && 'underline'}`
+      className: `${colored ? 'colored' : ''} ${dark ? 'dark' : ''} ${
+        centered ? 'centered' : ''
+      } ${underline ? 'underline' : ''}`
     }
   }
   return <header {...renderHeaderProps()}>{determineHeaderType()}</header>

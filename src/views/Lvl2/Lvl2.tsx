@@ -41,6 +41,7 @@ class SecondLevelDefault extends React.Component<Props> {
                 header={page.root.title.rendered}
                 subHeader={page.root.acf.sub_header}
                 image={siteBase + page.root.acf.background_image}
+                overlay
               />
             ) : (
               <Hero.NoImage
