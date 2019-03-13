@@ -32,9 +32,16 @@ const Navbar = () => {
               <div className="saying">Unifying, Learning, Serving.</div>
               <div className="links">
                 <NavLink to="/students">Current Students</NavLink>
-                <NavLink to="/future-students">Future Students</NavLink>
                 <NavLink to="/faculty-staff">Faculty / Staff</NavLink>
                 <NavLink to="/alumni">Alumni</NavLink>
+                <NavLink to="/giving">
+                  <FontAwesomeIcon
+                    icon="hand-holding-heart"
+                    size="lg"
+                    className="mr-2"
+                  />
+                  Giving
+                </NavLink>
               </div>
             </div>
             <div className="divider" />
