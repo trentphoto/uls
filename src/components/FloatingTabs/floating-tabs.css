@@ -32,7 +32,7 @@
 }
 
 .floating-tabs .tab:hover {
-  transform: scale(1.04);
+  /* transform: scale(1.01); */
 }
 
 .floating-tabs .tab img {
@@ -44,6 +44,29 @@
 
 .floating-tabs .tab p {
   margin-top: 8px;
+}
+
+.floating-tabs .tab:hover h4:after {
+  transform: scaleX(1);
+}
+
+.floating-tabs .tab h4 {
+  font-size: 24px;
+  color: var(--primary-blue);
+  font-family: Minion;
+  margin-top: 4px;
+}
+
+.floating-tabs .tab h4:after {
+  content: '';
+  display: block;
+  width: 70%;
+  height: 2px;
+  background-color: var(--primary-gold);
+  transform-origin: left;
+  transform: scaleX(0.2);
+  margin-top: 8px;
+  transition: all 0.3s;
 }
 
 @media (max-width: 960px) {
