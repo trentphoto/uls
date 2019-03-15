@@ -52,9 +52,8 @@ const data = (page: WPPage | null, seo?: SEO) => (
 const withSEO = (WrappedComponent: any, seo?: SEO) => {
   // ...and returns another component...
   class Wrapper extends React.Component<Props> {
-    componentDidUpdate(prevProps: Props) {
-      const { location } = this.props
-      if (location.pathname !== prevProps.location.pathname) {
+    componentDidMount() {
+      if (window) {
         window.scrollTo(0, 0)
       }
     }
