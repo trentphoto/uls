@@ -13,7 +13,7 @@ class ScrollToTop extends React.Component<Props> {
       const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)
       // if we're scrolled more than 300px
       if (top > 550) {
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
       }
     }
   }

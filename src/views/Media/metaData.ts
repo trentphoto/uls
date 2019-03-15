@@ -128,7 +128,7 @@ export const metaData: MetaData = {
       description:
         'Located within two hours of Baltimore and Washington D.C., the Gettysburg campus of United Lutheran Seminary is situated in the heart of one of our country’s most charming and historically important towns.',
       image: require('../../assets/images/gettysburg.jpg'),
-      path: '/gettsyburg',
+      path: '/gettysburg',
       alignment: 'right'
     },
     {

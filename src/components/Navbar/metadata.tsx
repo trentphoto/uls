@@ -1,7 +1,5 @@
-import * as React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 export interface HoverComponent {
+  hideSecondaryLinks?: boolean
   secondaryLinks: SecondaryLink[]
   primaryLinks: PrimaryLink[]
 }
@@ -24,32 +22,32 @@ export interface PrimaryLink {
 const aboutMeta: HoverComponent = {
   primaryLinks: [
     {
-      path: '/about/campuses',
+      path: '/about/locations',
       label: 'Locations',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      icon: 'school',
       description:
         "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
     },
     {
-      path: '/about/campuses',
+      path: '/about/history',
       label: 'History',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      icon: 'landmark',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Learn about our rich history of world-class theological education beginning in 1826.'
     },
     {
-      path: '/about/campuses',
+      path: '/about/departments',
       label: 'Departments',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      icon: 'folder-open',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Find individual departments here, such as IT, Communications, or Human Resources.'
     },
     {
-      path: '/about/campuses',
+      path: '/about/welcome-equity',
       label: 'Welcome & Equity',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      icon: 'book-open',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'We strive to be a welcoming community for all people - no exceptions.'
     }
   ],
   secondaryLinks: [
@@ -58,23 +56,23 @@ const aboutMeta: HoverComponent = {
       label: 'Locations'
     },
     {
-      path: '/about/campuses',
+      path: '/about/history',
       label: 'History'
     },
     {
-      path: '/about/campuses',
+      path: '/about/welcome-equity',
       label: 'Welcome & Equity'
     },
     {
-      path: '/about/campuses',
+      path: '/about/board-of-trustees',
       label: 'Board of Trustees'
     },
     {
-      path: '/about/campuses',
+      path: '/about/president',
       label: 'President'
     },
     {
-      path: '/about/campuses',
+      path: '/about/departments',
       label: 'Departments'
     }
   ]
@@ -86,58 +84,53 @@ const aboutMeta: HoverComponent = {
 const admissionsMeta: HoverComponent = {
   primaryLinks: [
     {
-      path: '/about/campuses',
-      label: 'Admissions',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/admissions/visit',
+      label: 'Visit',
+      icon: 'globe-americas',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Come take a tour of one or both of our beautiful, historic campuses.'
     },
     {
-      path: '/about/campuses',
-      label: 'History',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
-      description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+      path: '/admissions/apply',
+      label: 'Apply',
+      icon: 'check-circle',
+      description: 'Take the next step in your calling in ministry.'
     },
     {
-      path: '/about/campuses',
-      label: 'Departments',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/admissions/financial-aid',
+      label: 'Financial Aid',
+      icon: 'dollar-sign',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Learn about the different kinds of financial aid available to students.'
     },
     {
-      path: '/about/campuses',
-      label: 'Welcome & Equity',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/admissions/weekend',
+      label: 'The Weekend',
+      icon: 'seedling',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'The Weekend is our discernment retreat where you can experience seminary life yourself!'
     }
   ],
   secondaryLinks: [
     {
-      path: '/about/campuses',
-      label: 'Locations'
+      path: '/admissions/visit',
+      label: 'Visit'
     },
     {
-      path: '/about/campuses',
-      label: 'History'
+      path: '/admissions/apply',
+      label: 'Apply'
     },
     {
-      path: '/about/campuses',
-      label: 'Welcome & Equity'
+      path: '/admissions/financial-aid',
+      label: 'Financial Aid'
     },
     {
-      path: '/about/campuses',
-      label: 'Board of Trustees'
+      path: '/admissions/weekend',
+      label: 'The Weekend'
     },
     {
-      path: '/about/campuses',
-      label: 'President'
-    },
-    {
-      path: '/about/campuses',
-      label: 'Departments'
+      path: '/admissions/faq',
+      label: 'FAQ'
     }
   ]
 }
@@ -148,58 +141,58 @@ const admissionsMeta: HoverComponent = {
 const academicsMeta: HoverComponent = {
   primaryLinks: [
     {
-      path: '/about/campuses',
-      label: 'Academics',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/academics/degree-programs',
+      label: 'Degree Programs',
+      icon: 'graduation-cap',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Explore our degree programs that will equip you in your calling.'
     },
     {
-      path: '/about/campuses',
-      label: 'History',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/academics/certificate-programs',
+      label: 'Certificate Programs',
+      icon: 'certificate',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'In-depth study in areas such as theology, bible, history and practice of ministry, urban ministry, and more.'
     },
     {
-      path: '/about/campuses',
-      label: 'Departments',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/academics/lifelong-learning',
+      label: 'Lifelong Learning',
+      icon: 'info-circle',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Further your theological education with events, lectures, partnerships, and more.'
     },
     {
-      path: '/about/campuses',
-      label: 'Welcome & Equity',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/academics/institutes',
+      label: 'Institutes',
+      icon: 'info-circle',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Explore institutes at ULS dedicated to a particular field of study.'
     }
   ],
   secondaryLinks: [
     {
-      path: '/about/campuses',
-      label: 'Locations'
+      path: '/academics/degree-programs',
+      label: 'Degree Programs'
     },
     {
-      path: '/about/campuses',
-      label: 'History'
+      path: '/academics/certificate-programs',
+      label: 'Certificate Programs'
     },
     {
-      path: '/about/campuses',
-      label: 'Welcome & Equity'
+      path: '/academics/lifelong-learning',
+      label: 'Lifelong Learning'
     },
     {
-      path: '/about/campuses',
-      label: 'Board of Trustees'
+      path: '/academics/institutes',
+      label: 'Institutes'
     },
     {
-      path: '/about/campuses',
-      label: 'President'
+      path: '/academics/accreditation',
+      label: 'Accreditation'
     },
     {
-      path: '/about/campuses',
-      label: 'Departments'
+      path: '/academics/catalog',
+      label: 'Academic Catalog'
     }
   ]
 }
@@ -208,60 +201,40 @@ const academicsMeta: HoverComponent = {
  * COMMUNITY LIFE METADATA
  */
 const communityMeta: HoverComponent = {
+  hideSecondaryLinks: true,
   primaryLinks: [
     {
-      path: '/about/campuses',
-      label: 'Community',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
-      description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+      path: '/community-life/united-media',
+      label: 'United Media',
+      icon: 'video',
+      description: 'Stories and news from around the ULS community.'
     },
     {
-      path: '/about/campuses',
-      label: 'History',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
-      description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+      path: '/community-life/calendar-of-events',
+      label: 'Calendar of Events',
+      icon: 'calendar-day',
+      description: 'Upcoming ULS events.'
     },
     {
-      path: '/about/campuses',
-      label: 'Departments',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
+      path: '/community-life/community',
+      label: 'Community Updates',
+      icon: 'users',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
-    },
-    {
-      path: '/about/campuses',
-      label: 'Welcome & Equity',
-      icon: <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />,
-      description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        'Prayer requests and happenings in the life of our community.'
     }
   ],
   secondaryLinks: [
     {
-      path: '/united-media',
-      label: 'Unitied Media'
+      path: '/community-life/united-media',
+      label: 'United Media'
     },
     {
-      path: '/about/campuses',
-      label: 'History'
+      path: '/community-life/calendar-of-events',
+      label: 'Calendar of Events'
     },
     {
-      path: '/about/campuses',
-      label: 'Welcome & Equity'
-    },
-    {
-      path: '/about/campuses',
-      label: 'Board of Trustees'
-    },
-    {
-      path: '/about/campuses',
-      label: 'President'
-    },
-    {
-      path: '/about/campuses',
-      label: 'Departments'
+      path: '/community-life/community',
+      label: 'Community Updates'
     }
   ]
 }

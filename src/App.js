@@ -26,9 +26,44 @@ import {
   faCheckCircle,
   faBookOpen,
   faImage,
-  faInfoCircle
+  faInfoCircle,
+  faGlobeAmericas,
+  faPaperPlane,
+  faSeedling,
+  faDollarSign,
+  faMap,
+  faLandmark,
+  faFolderOpen,
+  faSchool,
+  faGraduationCap,
+  faCertificate,
+  faVideo,
+  faUsers,
+  faCalendarDay,
+  faHandHoldingHeart
 } from '@fortawesome/free-solid-svg-icons'
-library.add(faHome, faInfoCircle, faUser, faCheckCircle, faBookOpen, faImage)
+library.add(
+  faHome,
+  faUser,
+  faCheckCircle,
+  faBookOpen,
+  faImage,
+  faInfoCircle,
+  faGlobeAmericas,
+  faPaperPlane,
+  faSeedling,
+  faDollarSign,
+  faMap,
+  faLandmark,
+  faFolderOpen,
+  faSchool,
+  faGraduationCap,
+  faCertificate,
+  faVideo,
+  faUsers,
+  faCalendarDay,
+  faHandHoldingHeart
+)
 
 const App = () => (
   <div className="App">
@@ -44,6 +79,7 @@ const App = () => (
       <Route path="/students" component={Lvl2Routes} />
       <Route path="/alumni" component={Lvl2Routes} />
       <Route path="/faculty-staff" component={Lvl2Routes} />
+      <Route path="/giving" component={Lvl2Routes} />
       <Route component={NotFound} />
     </Switch>
   </div>
