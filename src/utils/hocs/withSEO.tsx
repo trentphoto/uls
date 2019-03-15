@@ -52,12 +52,12 @@ const data = (page: WPPage | null, seo?: SEO) => (
 const withSEO = (WrappedComponent: any, seo?: SEO) => {
   // ...and returns another component...
   class Wrapper extends React.Component<Props> {
-    // componentDidUpdate(prevProps: Props) {
-    //   if (!_.isEqual(prevProps.pages, this.props.pages)) {
-    //     console.log('here')
-    //     this.forceUpdate()
-    //   }
-    // }
+    componentDidUpdate(prevProps: Props) {
+      const { location } = this.props
+      if (location.pathname !== prevProps.location.pathname) {
+        window.scrollTo(0, 0)
+      }
+    }
     render() {
       const { match, pages } = this.props
       const slug = match.url.split('/').pop() as string

@@ -4,7 +4,7 @@ import compression from 'compression'
 import express from 'express'
 import morgan from 'morgan'
 import path from 'path'
-import forceDomain from 'forcedomain'
+// import forceDomain from 'forcedomain'
 import Loadable from 'react-loadable'
 import cookieParser from 'cookie-parser'
 
