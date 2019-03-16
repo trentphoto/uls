@@ -12,6 +12,7 @@ import { Location } from 'history'
 import renderHTML from 'react-render-html'
 import { connect } from 'react-redux'
 import { ReduxState } from '../../types/redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface Props extends RouteComponentProps {
   data?: ILink[]
@@ -110,6 +111,7 @@ const Sidebar = ({ data, routes, root, history }: Props) => {
           to={`/${root.slug}`}
           className="top-link"
         >
+          <FontAwesomeIcon icon="home" size="lg" className="mb-1 mr-2" />
           {renderHTML(root.title.rendered)}
         </NavLink>
       )}
