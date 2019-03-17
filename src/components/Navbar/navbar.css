@@ -320,9 +320,18 @@
   transform: scaleX(1);
 }
 
+.hover-bar .flex-lower a:hover .hover-bar-icon {
+  transform: translateY(-5px);
+}
+
+.hover-bar .flex-lower a:hover .label {
+  transform: translateY(-2px);
+}
+
 .hover-bar .flex-lower svg {
   color: var(--primary-blue);
   font-size: 1.7em;
+  transition: all 0.3s;
 }
 
 .hover-bar .flex-lower .label {
@@ -330,6 +339,7 @@
   color: var(--primary-blue);
   font-family: Minion;
   margin-top: 4px;
+  transition: all 0.3s;
 }
 
 .hover-bar .flex-lower .label:after {

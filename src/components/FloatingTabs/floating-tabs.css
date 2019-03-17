@@ -11,7 +11,7 @@
   padding: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: calc(100% - 80px);
 }
 
@@ -21,6 +21,7 @@
   height: 100px;
   opacity: 0.3;
   margin: 0 45px;
+  align-self: center;
 }
 
 .floating-tabs .tab {

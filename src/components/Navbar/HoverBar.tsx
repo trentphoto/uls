@@ -35,7 +35,11 @@ const HoverBar = ({ data, id, mouseEnter, mouseLeave }: Props) => {
                 to={link.path}
                 className="link-content"
               >
-                <FontAwesomeIcon icon={link.icon} size="lg" className="mr-2" />
+                <FontAwesomeIcon
+                  icon={link.icon}
+                  size="lg"
+                  className="hover-bar-icon mr-2"
+                />
                 <div className="label">{link.label}</div>
                 <p>{link.description}</p>
               </NavLink>

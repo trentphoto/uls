@@ -1,6 +1,6 @@
 import React from 'react'
 import FactsGrid from './FactsGrid'
-import { Header, Text } from '..'
+import { Header } from '..'
 import './facts.css'
 
 interface Props {
@@ -17,9 +17,9 @@ const FactsCard = ({ facts, header, desc, colored }: Props) => {
         <Header colored type="h1">
           {header}
         </Header>
-        <Text className="sub-desc" size="large" color="black">
+        {/* <Text className="sub-desc" size="large" color="black">
           {desc}
-        </Text>
+        </Text> */}
         <FactsGrid data={facts} />
         <img
           src={require('../../assets/svgs/logo/icon.svg')}

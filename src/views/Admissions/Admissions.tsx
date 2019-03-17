@@ -13,8 +13,7 @@ import {
   Header,
   Loader,
   Text,
-  FactsCard,
-  Buttons
+  FactsCard
 } from '../../components'
 import './Admissions.css'
 
@@ -60,7 +59,10 @@ class Admissions extends React.Component<Props> {
         {page && page.root ? (
           <React.Fragment>
             <Hero.WithImage {...metaData.hero} overlay />
-            <section className="py-5 bg-light">
+
+            {/* Discerning Your Call Series - Lead Magnet - update */}
+
+            {/* <section className="py-5 bg-light">
               <div className="container">
                 <div className="row">
                   <div className="col-md-6">
@@ -97,7 +99,7 @@ class Admissions extends React.Component<Props> {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
             <section className="py-5">
               <div className="container">
                 <div className="row">

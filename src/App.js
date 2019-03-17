@@ -40,7 +40,9 @@ import {
   faVideo,
   faUsers,
   faCalendarDay,
-  faHandHoldingHeart
+  faHandHoldingHeart,
+  faChalkboardTeacher,
+  faBuilding
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
   faHome,
@@ -62,7 +64,9 @@ library.add(
   faVideo,
   faUsers,
   faCalendarDay,
-  faHandHoldingHeart
+  faHandHoldingHeart,
+  faChalkboardTeacher,
+  faBuilding
 )
 
 const App = () => (
