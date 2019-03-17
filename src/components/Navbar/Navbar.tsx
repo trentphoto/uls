@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className="upper-container">
               <div className="saying">Unifying, Learning, Serving.</div>
               <div className="links">
-                <NavLink to="/students">Current Students</NavLink>
+                <NavLink to="/students">Students</NavLink>
                 <NavLink to="/faculty-staff">Faculty / Staff</NavLink>
                 <NavLink to="/alumni">Alumni</NavLink>
                 <NavLink to="/giving">
