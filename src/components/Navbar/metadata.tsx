@@ -1,3 +1,5 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
 export interface HoverComponent {
   hideSecondaryLinks?: boolean
   secondaryLinks: SecondaryLink[]
@@ -12,7 +14,7 @@ export interface SecondaryLink {
 export interface PrimaryLink {
   path: string
   label: string
-  icon: any
+  icon: IconProp
   description: string
 }
 
@@ -157,16 +159,16 @@ const academicsMeta: HoverComponent = {
     {
       path: '/academics/lifelong-learning',
       label: 'Lifelong Learning',
-      icon: 'info-circle',
+      icon: 'chalkboard-teacher',
       description:
         'Further your theological education with events, lectures, partnerships, and more.'
     },
     {
       path: '/academics/institutes',
       label: 'Institutes',
-      icon: 'info-circle',
+      icon: 'building',
       description:
-        'Explore institutes at ULS dedicated to a particular field of study.'
+        'Urban Theological Institute, Asian Theological Summer Institute, Town & Country Church Institute, and more.'
     }
   ],
   secondaryLinks: [

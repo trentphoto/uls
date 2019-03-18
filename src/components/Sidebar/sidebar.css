@@ -36,7 +36,7 @@
   background-color: #263148;
 }
 
-.sidebar .top-link:before {
+/* .sidebar .top-link:before {
   content: '';
   margin-top: -2px;
   margin-right: 8px;
@@ -45,7 +45,7 @@
   width: 18px;
   height: 18px;
   background-size: contain;
-}
+} */
 
 .sidebar div.link.two .link-title {
   background-color: #303e5b;

@@ -12,6 +12,7 @@ import { Location } from 'history'
 import renderHTML from 'react-render-html'
 import { connect } from 'react-redux'
 import { ReduxState } from '../../types/redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface Props extends RouteComponentProps {
   data?: ILink[]
@@ -98,6 +99,31 @@ const Sidebar = ({ data, routes, root, history }: Props) => {
     })
   }
 
+  type IconRoutes = 'about' | 'admissions' | 'academics'
+
+  const setHeaderIcon = (slug: IconRoutes) => {
+    switch (slug) {
+      case 'about':
+        return (
+          <FontAwesomeIcon icon="info-circle" size="lg" className="mb-1 mr-2" />
+        )
+      case 'academics':
+        return (
+          <FontAwesomeIcon icon="book-open" size="lg" className="mb-1 mr-2" />
+        )
+      case 'admissions':
+        return (
+          <FontAwesomeIcon
+            icon="check-circle"
+            size="lg"
+            className="mb-1 mr-2"
+          />
+        )
+      default:
+        return null
+    }
+  }
+
   return (
     <div className="sidebar">
       {root && (
@@ -110,6 +136,7 @@ const Sidebar = ({ data, routes, root, history }: Props) => {
           to={`/${root.slug}`}
           className="top-link"
         >
+          {setHeaderIcon(root.slug as any)}
           {renderHTML(root.title.rendered)}
         </NavLink>
       )}

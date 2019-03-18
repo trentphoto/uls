@@ -27,8 +27,19 @@ class ThirdLevel extends React.Component<Props> {
     // }
   }
 
-  renderHero = (data: WPPage) =>
-    data.acf.background_image ? (
+  renderHero = (data: WPPage) => {
+    if (data.acf.background_video) {
+      return (
+        <Hero.WithVideo
+          header={data.title.rendered}
+          subHeader={data.acf.sub_header}
+          video={data.acf.background_video}
+          overlay={data.acf.background_image_overlay}
+          textDark={data.acf.textdark}
+        />
+      )
+    }
+    return data.acf.background_image ? (
       <Hero.WithImage
         header={data.title.rendered}
         subHeader={data.acf.sub_header}
@@ -42,6 +53,7 @@ class ThirdLevel extends React.Component<Props> {
         subHeader={data.acf.sub_header}
       />
     )
+  }
 
   public render() {
     const { pages, match } = this.props

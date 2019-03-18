@@ -57,19 +57,23 @@ export const metaData: MetaData = {
     }
   },
   facts: {
-    header: 'ULS Quick Facts',
-    desc:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultrices ante viverra orci accumsan interdum. Mauris eu leo id orci porta consectetur quis sit amet tortor. Sed in cursus ex, et ultricies purus.',
+    header: 'ULS by the Numbers',
+    desc: '',
     facts: [
       {
         type: 'lowerImg',
-        header: '325',
+        header: '300+',
         subHeader: 'Students',
         color: 'blue',
         image: require('../../assets/svgs/facts/people.svg')
       },
-      { type: 'noImg', header: '21', subHeader: 'Faculty', color: 'orange' },
-      { type: 'noImg', header: '21', subHeader: 'Faculty', color: 'orange' },
+      { type: 'noImg', header: '19', subHeader: 'Faculty', color: 'orange' },
+      {
+        type: 'noImg',
+        header: '28',
+        subHeader: 'Denominations represented on campus',
+        color: 'blue'
+      },
       {
         type: 'centerImg',
         headerOne: '1',
@@ -81,8 +85,8 @@ export const metaData: MetaData = {
       },
       {
         type: 'lowerImg',
-        header: '7',
-        subHeader: 'Degrees',
+        header: '6',
+        subHeader: 'Degrees Programs',
         color: 'blue',
         image: require('../../assets/svgs/facts/degrees.svg')
       }

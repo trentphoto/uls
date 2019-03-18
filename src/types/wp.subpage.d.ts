@@ -72,6 +72,7 @@ declare interface ThirdAcf {
   sub_header: string
   background_image: string | false
   background_image_overlay: boolean
+  background_video?: string
   textdark: boolean
 }
 

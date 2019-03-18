@@ -1,14 +1,16 @@
 import React from 'react'
-import renderHTML from 'react-render-html'
+import renderShortcodes from '../../utils/shortcodes'
 
 interface Props {
   data: string
 }
 
 const Content = ({ data }: Props) => {
+  const content = `[link path="/about" label="About"] ${data} [link path="/" label="Home"]`
+
   return (
     <>
-      <div id="content">{renderHTML(data)}</div>
+      <div id="content">{renderShortcodes(content)}</div>
     </>
   )
 }
