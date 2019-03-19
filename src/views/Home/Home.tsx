@@ -7,8 +7,7 @@ import {
   FactsCard,
   Events,
   CampusesSection,
-  Footer,
-  Calendar
+  Footer
 } from '../../components'
 import { metaData } from './metaData'
 import { ReduxState } from '../../types/redux'
@@ -22,7 +21,6 @@ const Home = ({ posts }: Props) => (
   <div className="home page">
     <Hero.WithImage {...metaData.hero} />
     <FloatingTabs {...metaData.tabs} />
-    <Calendar />
     <div className="grey-bg top">
       <Articles.Preview data={posts.data} pageAmount={3} />
     </div>

@@ -28,6 +28,7 @@ class ThirdLevel extends React.Component<Props> {
   }
 
   renderHero = (data: WPPage) => {
+    console.log(data.acf.background_video)
     if (data.acf.background_video) {
       return (
         <Hero.WithVideo

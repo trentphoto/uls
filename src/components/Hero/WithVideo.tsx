@@ -15,7 +15,7 @@ const WithVideo = ({ header, subHeader, video, overlay, textDark }: Props) => {
     <div className="hero with-image">
       <div className="bg-image">
         {overlay && <div className="overlay" />}
-        <video width="320" height="240" autoPlay loop>
+        <video key={video} width="320" height="240" autoPlay loop>
           <source src={video} type="video/mp4" />
         </video>
       </div>
