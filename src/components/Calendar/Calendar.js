@@ -301,7 +301,7 @@ class Calendar extends Component {
       )
     }
     return (
-      <div className="row App">
+      <div className="row calendar-app">
         <div className="col-md-12 col-lg-7 order-2 order-lg-1 pl-4 pr-4">
           {loader}
 
