@@ -4,7 +4,7 @@ import renderShortcodes, {
   parseParams,
   replaceShortCodes
 } from './renderShortcodes'
-import { ReactRouterShortCode } from './shortcodes'
+import { InlineLinkShortCode } from './shortcodes'
 
 const data = {
   withCode: '<p>this is content with a [link path="/about" label="About"]</p>',
@@ -43,7 +43,7 @@ describe('render shortcodes', () => {
       <React.Fragment>
         <React.Fragment>
           <p>this is content with a </p>
-          <ReactRouterShortCode
+          <InlineLinkShortCode
             data={{
               code: 'link',
               original: '[link path="/about" label="About"]',
@@ -52,7 +52,7 @@ describe('render shortcodes', () => {
           />
         </React.Fragment>
         and another link to
-        <ReactRouterShortCode
+        <InlineLinkShortCode
           data={{
             code: 'link',
             original: '[link path="/" label="Home"]',
@@ -74,7 +74,7 @@ describe('replace shortcodes', () => {
     expect(replaceShortCodes(data.codes, data.withCode, 0, null)).toEqual(
       <React.Fragment>
         <p>this is content with a </p>
-        <ReactRouterShortCode
+        <InlineLinkShortCode
           data={{
             code: 'link',
             original: '[link path="/about" label="About"]',

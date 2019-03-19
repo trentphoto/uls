@@ -6,7 +6,12 @@ interface Props {
 }
 
 const Content = ({ data }: Props) => {
-  const content = `[link path="/about" label="About"] ${data} [link path="/" label="Home"]`
+  /**
+   * ONLY AN EXAMPLE
+   *
+   * Remove once in production
+   */
+  const content = `[button path="/admissions" label="Admissions"] ${data} [link path="/" label="Home"]`
 
   return (
     <>

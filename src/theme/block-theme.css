@@ -124,3 +124,23 @@ ol {
 #content a:hover:not(.wp-block-button__link) {
   background-color: var(--light-gray);
 }
+
+/* Button styling created by shortcode */
+#content .shortcode-btn {
+  border: 2px solid var(--primary-blue);
+  box-shadow: none;
+  color: var(--primary-blue);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 12px 40px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: break-word;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  transition: all 200ms;
+}

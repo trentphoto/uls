@@ -1,11 +1,28 @@
 import * as React from 'react'
 import renderHTML from 'react-render-html'
-import { ReactRouterShortCode } from './shortcodes'
+import { InlineLinkShortCode, ButtonShortCode } from './shortcodes'
 
 interface ShortCode {
   code: string
   params: { [key: string]: string }
   original: string
+}
+
+/**
+ *
+ * Add new shortcodes here
+ *
+ * @param code - ShortCode
+ */
+export const selectShortCode = (code: ShortCode) => {
+  switch (code.code) {
+    case 'link':
+      return <InlineLinkShortCode data={code as any} />
+    case 'button':
+      return <ButtonShortCode data={code as any} />
+    default:
+      return null
+  }
 }
 
 export const parseParams = (data: string) => {
@@ -60,7 +77,7 @@ export const replaceShortCodes = (
         <>
           {jsx}
           {renderHTML(before[0].replace('[', ''))}
-          <ReactRouterShortCode data={code as any} />
+          {selectShortCode(code)}
           {renderHTML(after[0].replace(']', ''))}
         </>
       )
@@ -83,7 +100,7 @@ const renderContentBefore = (data: string, code: any, jsx: any) => {
       <>
         {jsx}
         {renderHTML(before[1])}
-        <ReactRouterShortCode data={code as any} />
+        {selectShortCode(code)}
       </>
     )
     return { data: newData, jsx: newJSX }
