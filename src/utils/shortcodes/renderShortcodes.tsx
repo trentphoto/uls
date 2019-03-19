@@ -125,7 +125,6 @@ const renderShortcodes = (data: string) => {
       })
   )
   if (codes.length !== 0) {
-    console.log(codes)
     return replaceShortCodes(codes, data, 0, null)
   }
   return renderHTML(data)
