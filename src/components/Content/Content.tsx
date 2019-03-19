@@ -11,11 +11,12 @@ const Content = ({ data }: Props) => {
    *
    * Remove once in production
    */
-  const content = `[button path="/admissions" label="Admissions"] ${data} [link path="/" label="Home"]`
+  // const content = `[button path="/admissions" label="Admissions"] ${data} [link path="/" label="Home"]`
 
+  // console.log(data)
   return (
     <>
-      <div id="content">{renderShortcodes(content)}</div>
+      <div id="content">{renderShortcodes(data)}</div>
     </>
   )
 }

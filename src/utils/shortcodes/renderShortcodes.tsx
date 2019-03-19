@@ -27,7 +27,7 @@ export const selectShortCode = (code: ShortCode) => {
 
 export const parseParams = (data: string) => {
   const regexForKey = /\s(.*?)=/g
-  const regexForValue = /"(.*?)"/g
+  const regexForValue = /&#8221;(.*?)&#8221;/g
   const keys: string[] = []
   const values: string[] = []
   let params = null
@@ -66,6 +66,7 @@ export const replaceShortCodes = (
   }
 
   const code = codes[index]
+  // console.log(jsx, codes, data, index)
   if (index === codes.length - 1) {
     const beforeRegex = /[\s\S]*\[/g
     const before = new RegExp(beforeRegex).exec(data)
@@ -76,9 +77,11 @@ export const replaceShortCodes = (
       const newJSX = (
         <>
           {jsx}
-          {renderHTML(before[0].replace('[', ''))}
-          {selectShortCode(code)}
-          {renderHTML(after[0].replace(']', ''))}
+          <div id="shortcode-renderer">
+            {renderHTML(before[0].replace('[', ''))}
+            {selectShortCode(code)}
+            {renderHTML(after[0].replace(']', ''))}
+          </div>
         </>
       )
       return replaceShortCodes(codes, data, (index += 1), newJSX)
@@ -91,15 +94,15 @@ export const replaceShortCodes = (
 }
 
 const renderContentBefore = (data: string, code: any, jsx: any) => {
-  const beforeRegex = /^(.*?)\[/
+  const beforeRegex = /[\s\S]*?\[/
   const before = new RegExp(beforeRegex).exec(data)
-
   if (before) {
-    const newData = data.replace(before[1] + code.original, '')
+    const parsed = before[0].replace('[', '')
+    const newData = data.replace(parsed + code.original, '')
     const newJSX = (
       <>
         {jsx}
-        {renderHTML(before[1])}
+        {renderHTML(parsed)}
         {selectShortCode(code)}
       </>
     )
@@ -122,6 +125,7 @@ const renderShortcodes = (data: string) => {
       })
   )
   if (codes.length !== 0) {
+    console.log(codes)
     return replaceShortCodes(codes, data, 0, null)
   }
   return renderHTML(data)

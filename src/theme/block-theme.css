@@ -3,11 +3,16 @@
 }
 
 #content p,
+#shortcode-renderer,
 ul,
 ol {
   font-size: 20px;
   line-height: 42px;
   color: #444;
+}
+
+#content p {
+  /* display: inline */
 }
 
 #content strong {
