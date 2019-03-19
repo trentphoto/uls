@@ -12,7 +12,7 @@ ol {
 }
 
 #content p {
-  /* display: inline */
+  display: inline;
 }
 
 #content strong {
@@ -114,6 +114,16 @@ ol {
   padding: 0.5em;
   border: 1px solid currentColor;
   word-break: break-all;
+}
+
+#content br {
+  margin: 25px 0;
+}
+
+#content a.wp-block-button__link {
+  display: block;
+  margin: 25px 0;
+  max-width: 200px;
 }
 
 /* link styling for links that are not buttons - aka inline text links */
