@@ -15,8 +15,10 @@ import Loader from './Loader'
 import President from './President'
 import Departments from './Departments'
 import Content from './Content'
+import Calendar from './Calendar'
 
 export {
+  Calendar,
   Header,
   Text,
   Navbar,
