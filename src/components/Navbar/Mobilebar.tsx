@@ -59,20 +59,42 @@ const Mobilebar = () => {
         <div
           className={secondaryLinks ? 'mobile-links closed' : 'mobile-links'}
         >
+          <div className="small-links">
+            <NavLink onClick={toggleDrawer} exact to="/students">
+              {/* <FontAwesomeIcon icon="home" size="lg" className="mr-2" /> */}
+              Students
+            </NavLink>
+            <NavLink onClick={toggleDrawer} exact to="/faculty-staff">
+              {/* <FontAwesomeIcon icon="home" size="lg" className="mr-2" /> */}
+              Faculty / Staff
+            </NavLink>
+            <NavLink onClick={toggleDrawer} exact to="/alumni">
+              {/* <FontAwesomeIcon icon="home" size="lg" className="mr-2" /> */}
+              Alumni
+            </NavLink>
+            <NavLink onClick={toggleDrawer} exact to="/giving">
+              <FontAwesomeIcon
+                icon="hand-holding-heart"
+                size="lg"
+                className="mr-2"
+              />
+              Giving
+            </NavLink>
+          </div>
           <NavLink onClick={toggleDrawer} exact to="/">
             <FontAwesomeIcon icon="home" size="lg" className="mr-2" />
             Home
           </NavLink>
           <div id="about" className="link" onClick={toggleSecondaryLinks}>
-            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="school" size="lg" className="mr-2" />
             About
           </div>
           <div id="admissions" className="link" onClick={toggleSecondaryLinks}>
-            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="globe-americas" size="lg" className="mr-2" />
             Admissions
           </div>
           <div id="academics" className="link" onClick={toggleSecondaryLinks}>
-            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="graduation-cap" size="lg" className="mr-2" />
             Academics
           </div>
           <div
@@ -80,7 +102,7 @@ const Mobilebar = () => {
             className="link"
             onClick={toggleSecondaryLinks}
           >
-            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="video" size="lg" className="mr-2" />
             Community Life
           </div>
         </div>
