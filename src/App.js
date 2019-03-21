@@ -44,6 +44,7 @@ import {
   faChalkboardTeacher,
   faBuilding
 } from '@fortawesome/free-solid-svg-icons'
+import Cal from './views/Cal'
 library.add(
   faHome,
   faUser,
@@ -78,6 +79,7 @@ const App = () => (
       <Route path="/admissions" component={AdmissionsRoutes} />
       <Route path="/academics" component={AcademicsRoutes} />
       <Route path="/united-media" component={MediaRoutes} />
+      <Route path="/cal" component={Cal} />
 
       {/* persona pages - top right */}
       <Route path="/students" component={Lvl2Routes} />

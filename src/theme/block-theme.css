@@ -11,10 +11,6 @@ ol {
   color: #444;
 }
 
-#content p {
-  display: inline;
-}
-
 #content strong {
   font-weight: 700;
 }
