@@ -24,11 +24,11 @@ export interface PrimaryLink {
 const aboutMeta: HoverComponent = {
   primaryLinks: [
     {
-      path: '/about/locations',
-      label: 'Locations',
+      path: '/about/campuses',
+      label: 'Campuses',
       icon: 'school',
       description:
-        "We're one seminary with three locations: Gettysburg, Philadelphia, and our unique Distributed Learning program."
+        "We're one seminary with two campuses — Gettysburg and Philadelphia."
     },
     {
       path: '/about/history',
@@ -55,7 +55,7 @@ const aboutMeta: HoverComponent = {
   secondaryLinks: [
     {
       path: '/about/campuses',
-      label: 'Locations'
+      label: 'Campuses'
     },
     {
       path: '/about/history',
