@@ -218,7 +218,6 @@ class Calendar extends Component {
   handleCardHover = item => {
     // highlight the corresponding dates on the datepicker
     this.setState({ highlightedDates: { highlighted: item.range } })
-    console.log(this.state)
   }
 
   // if the highlighted dates are in the next month, highlight the next/previous button

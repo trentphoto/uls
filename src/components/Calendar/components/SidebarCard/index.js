@@ -1,4 +1,5 @@
 import React from 'react'
+import './SidebarCard.css'
 
 const sidebarCard = props => {
   return (

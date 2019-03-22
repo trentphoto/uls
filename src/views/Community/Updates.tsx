@@ -4,22 +4,13 @@ import { ReduxState } from '../../types/redux'
 
 import { withSEO, withCurrentRoute } from '../../utils/hocs'
 
-import { metaData } from './metaData'
-
-import {
-  Hero,
-  Sidebar,
-  Header,
-  Loader,
-  Content,
-  Footer
-} from '../../components'
+import { Sidebar, Header, Loader, Content, Footer } from '../../components'
 
 interface Props extends RouteComponentProps {
   page: ReduxState['pages']['currentRoute']
 }
 
-class CommunityLife extends React.Component<Props> {
+class Calendar extends React.Component<Props> {
   public render() {
     const { page } = this.props
 
@@ -27,7 +18,6 @@ class CommunityLife extends React.Component<Props> {
       <div className="admissions page">
         {page && page.root ? (
           <React.Fragment>
-            <Hero.WithImage {...metaData.hero} overlay />
             <section className="py-5">
               <div className="container">
                 <div className="row">
@@ -36,7 +26,7 @@ class CommunityLife extends React.Component<Props> {
                   </div>
                   <div className="col-md-8">
                     <Header colored type="h2">
-                      Integrative. Experiential. Empowering.
+                      {page.root.title.rendered}
                     </Header>
                     <Content data={page.root.content.rendered} />
                   </div>
@@ -53,6 +43,4 @@ class CommunityLife extends React.Component<Props> {
   }
 }
 
-export default withCurrentRoute(
-  withSEO(CommunityLife, { title: 'Community Life' })
-)
+export default withCurrentRoute(withSEO(Calendar, { title: 'Community Life' }))
