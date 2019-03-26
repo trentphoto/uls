@@ -4,9 +4,7 @@ import { wpApiBase } from '../../config'
 const wpApiEndpoints = {
   getAllPosts: async () => {
     try {
-      const result = await axios.get(
-        `${wpApiBase}/posts?per_page=100&categories=2`
-      )
+      const result = await axios.get(`${wpApiBase}/posts?per_page=100`)
       return result.data as WPPost[]
     } catch (error) {
       throw error.response.data

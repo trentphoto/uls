@@ -4,6 +4,7 @@ import Community from './Community'
 import Calendar from './Calendar'
 import Updates from './Updates'
 import Store from './Store'
+import Presidential from './Presidential'
 
 interface Props extends RouteComponentProps {}
 
@@ -16,6 +17,11 @@ const CommunityRoutes = ({ match, location }: Props) => (
       component={Calendar}
     />
     <Route exact path={`${match.path}/store`} component={Store} />
+    <Route
+      exact
+      path={`${match.path}/presidents-newsletter`}
+      component={Presidential}
+    />
     <Route exact path={`${match.path}/community-updates`} component={Updates} />
   </Switch>
 )
