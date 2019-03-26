@@ -6,11 +6,12 @@ import './hero.css'
 interface Props {
   header: string
   subHeader?: string
+  small?: boolean
 }
 
-const NoImage = ({ header, subHeader }: Props) => {
+const NoImage = ({ header, subHeader, small }: Props) => {
   return (
-    <div className="hero no-image">
+    <div className={`hero no-image ${small ? 'hero-small' : ''}`}>
       <div className="bg-stripes">
         <img
           src={require('../../assets/images/hero-stripes.png')}

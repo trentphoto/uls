@@ -51,7 +51,7 @@ const Mobilebar = () => {
                 exact
                 to={link.path}
               >
-                <FontAwesomeIcon icon="home" size="lg" className="mr-2" />
+                {/* <FontAwesomeIcon icon="home" size="lg" className="mr-2" /> */}
                 {link.label}
               </NavLink>
             ))}
@@ -86,15 +86,15 @@ const Mobilebar = () => {
             Home
           </NavLink>
           <div id="about" className="link" onClick={toggleSecondaryLinks}>
-            <FontAwesomeIcon icon="school" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="info-circle" size="lg" className="mr-2" />
             About
           </div>
           <div id="admissions" className="link" onClick={toggleSecondaryLinks}>
-            <FontAwesomeIcon icon="globe-americas" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="check-circle" size="lg" className="mr-2" />
             Admissions
           </div>
           <div id="academics" className="link" onClick={toggleSecondaryLinks}>
-            <FontAwesomeIcon icon="graduation-cap" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="book-open" size="lg" className="mr-2" />
             Academics
           </div>
           <div
@@ -102,7 +102,7 @@ const Mobilebar = () => {
             className="link"
             onClick={toggleSecondaryLinks}
           >
-            <FontAwesomeIcon icon="video" size="lg" className="mr-2" />
+            <FontAwesomeIcon icon="image" size="lg" className="mr-2" />
             Community Life
           </div>
         </div>

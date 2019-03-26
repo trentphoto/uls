@@ -1,7 +1,6 @@
 import React from 'react'
 import { withSEO, withPosts } from '../../utils/hocs'
 import { Hero, Articles, Footer } from '../../components'
-import { metaData } from './metaData'
 import { ReduxState } from '../../types/redux'
 
 import './Media.css'
@@ -12,7 +11,11 @@ interface Props {
 
 const Media = ({ posts }: Props) => (
   <div className="media-page page">
-    <Hero.WithImage {...metaData.hero} overlay />
+    <Hero.NoImage
+      header="UNITED Media"
+      subHeader="Positive stories from around the ULS Community."
+      small
+    />
     {Object.keys(posts.data).length !== 0 && (
       <div className="page-wrapper">
         <Articles.ArticleSlider data={posts.data} />

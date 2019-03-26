@@ -74,6 +74,7 @@ declare interface WpTerm {
 
 declare interface AcfPost {
   thumbnail_image: ThumbnailImage | false
+  image: string | false
 }
 
 declare interface ThumbnailImage {
