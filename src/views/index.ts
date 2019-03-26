@@ -4,6 +4,7 @@ import Home from './Home'
 import MediaRoutes from './Media'
 import AdmissionsRoutes from './Admissions'
 import AcademicsRoutes from './Academics'
+import CommunityRoutes from './Community'
 import StudentsRoutes from './Students'
 import FacStaffRoutes from './FacStaff'
 import Lvl2Routes from './Lvl2'
@@ -13,6 +14,7 @@ export {
   AboutRoutes,
   AdmissionsRoutes,
   AcademicsRoutes,
+  CommunityRoutes,
   StudentsRoutes,
   FacStaffRoutes,
   Home,

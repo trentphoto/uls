@@ -8,7 +8,8 @@ import {
   MediaRoutes,
   AdmissionsRoutes,
   AcademicsRoutes,
-  Lvl2Routes
+  Lvl2Routes,
+  CommunityRoutes
 } from './views'
 import { Navbar } from './components'
 
@@ -44,7 +45,6 @@ import {
   faChalkboardTeacher,
   faBuilding
 } from '@fortawesome/free-solid-svg-icons'
-import Cal from './views/Cal'
 library.add(
   faHome,
   faUser,
@@ -79,9 +79,9 @@ const App = () => (
       <Route path="/admissions" component={AdmissionsRoutes} />
       <Route path="/academics" component={AcademicsRoutes} />
       <Route path="/united-media" component={MediaRoutes} />
-      <Route path="/cal" component={Cal} />
 
       {/* persona pages - top right */}
+      <Route path="/community" component={CommunityRoutes} />
       <Route path="/students" component={Lvl2Routes} />
       <Route path="/alumni" component={Lvl2Routes} />
       <Route path="/faculty-staff" component={Lvl2Routes} />

@@ -11,7 +11,6 @@ import {
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
 import { ILink } from '../../components/Footer/metaData'
-import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps {
   page: ReduxState['pages']['currentRoute']
@@ -46,7 +45,7 @@ class Students extends React.Component<Props> {
               <Hero.WithImage
                 header={page.root.title.rendered}
                 subHeader={page.root.acf.sub_header}
-                image={siteBase + page.root.acf.background_image}
+                image={page.root.acf.background_image}
                 overlay={page.root.acf.background_image_overlay}
               />
             ) : (

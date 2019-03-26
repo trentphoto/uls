@@ -17,7 +17,6 @@ import {
 import { metaData } from './metaData'
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
-import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps {
   page: ReduxState['pages']['currentRoute']
@@ -37,7 +36,7 @@ class About extends React.Component<Props> {
               <Hero.WithImage
                 header={page.root.title.rendered}
                 subHeader={page.root.acf.sub_header}
-                image={siteBase + page.root.acf.background_image}
+                image={page.root.acf.background_image}
               />
             ) : (
               <Hero.NoImage

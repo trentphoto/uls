@@ -9,7 +9,6 @@ import { ReduxState } from '../../types/redux'
 // import { connect } from 'react-redux'
 // import Content from '../../components/Content/Content'
 // import { ILink } from '../../components/Footer/metaData'
-import { siteBase } from '../../config'
 
 interface Props extends RouteComponentProps<{ slug: string }> {
   pages: ReduxState['pages']['allPages']
@@ -43,7 +42,7 @@ class ThirdLevel extends React.Component<Props> {
       <Hero.WithImage
         header={data.title.rendered}
         subHeader={data.acf.sub_header}
-        image={siteBase + data.acf.background_image}
+        image={data.acf.background_image}
         overlay={data.acf.background_image_overlay}
         textDark={data.acf.textdark}
       />
