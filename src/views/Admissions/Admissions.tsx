@@ -12,8 +12,8 @@ import {
   Sidebar,
   Header,
   Loader,
-  Text,
-  FactsCard
+  FactsCard,
+  Content
 } from '../../components'
 import './Admissions.css'
 
@@ -110,9 +110,7 @@ class Admissions extends React.Component<Props> {
                     <Header colored type="h2">
                       Welcome to ULS Admissions
                     </Header>
-                    <Text size="medium" color="black">
-                      Hello world.
-                    </Text>
+                    <Content data={page.root.content.rendered} />
                   </div>
                 </div>
               </div>
