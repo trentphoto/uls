@@ -2,6 +2,8 @@ import React from 'react'
 import { Header, Text } from '..'
 import './floating-tabs.css'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface FloatingTabProps {
   tabOne: TabProps
@@ -13,6 +15,7 @@ interface TabProps {
   header: string
   desc: string
   link: string
+  icon: IconProp
 }
 
 const FloatingTabs = ({ tabOne, tabTwo, tabThree }: FloatingTabProps) => {
@@ -29,9 +32,10 @@ const FloatingTabs = ({ tabOne, tabTwo, tabThree }: FloatingTabProps) => {
   )
 }
 
-const Tab = ({ header, desc, link }: TabProps) => (
+const Tab = ({ header, desc, link, icon }: TabProps) => (
   <Link to={link} className="tab">
-    <img src={require('../../assets/svgs/location.svg')} alt="Marker" />
+    {/* <img src={require('../../assets/svgs/location.svg')} alt="Marker" /> */}
+    <FontAwesomeIcon icon={icon} size="lg" className="icon" />
     <div className="content">
       <Header type="h4" colored>
         {header}

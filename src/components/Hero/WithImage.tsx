@@ -8,11 +8,19 @@ interface Props {
   image: string
   overlay?: boolean
   textDark?: boolean
+  small?: boolean
 }
 
-const WithImage = ({ header, subHeader, image, overlay, textDark }: Props) => {
+const WithImage = ({
+  header,
+  subHeader,
+  image,
+  overlay,
+  textDark,
+  small
+}: Props) => {
   return (
-    <div className="hero with-image">
+    <div className={`hero with-image ${small ? 'hero-small' : ''}`}>
       <div className="bg-image">
         {overlay && <div className="overlay" />}
         <img src={image} alt={header} />

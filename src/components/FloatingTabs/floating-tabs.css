@@ -2,7 +2,7 @@
   border-radius: 4px;
   box-shadow: 0 3px 34px rgba(0, 0, 0, 0.25);
   background-color: var(--pure-white);
-  margin-top: -100px !important;
+  margin-top: -50px !important;
   margin-bottom: 120px !important;
   z-index: 4;
 }
@@ -36,11 +36,12 @@
   /* transform: scale(1.01); */
 }
 
-.floating-tabs .tab img {
+.floating-tabs .tab .icon {
   width: 33px;
   height: 48px;
   object-fit: contain;
   margin-right: 14px;
+  color: var(--primary-blue);
 }
 
 .floating-tabs .tab p {
@@ -55,7 +56,7 @@
   font-size: 24px;
   color: var(--primary-blue);
   font-family: Minion;
-  margin-top: 4px;
+  margin-top: 13px;
 }
 
 .floating-tabs .tab h4:after {

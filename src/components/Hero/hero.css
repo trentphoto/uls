@@ -8,6 +8,10 @@
   min-height: 400px;
 }
 
+.hero.hero-small {
+  min-height: 0 !important;
+}
+
 .hero.no-image {
   background-color: var(--primary-blue);
 }

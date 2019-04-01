@@ -5,7 +5,7 @@ import { guid } from '../../utils/generateID'
 import moment from 'moment'
 
 const arrow = require('../../assets/svgs/arrow-gray.svg')
-const placeholder = require('../../assets/placeholders/blog/blog-2.jpg')
+const placeholder = require('../../assets/placeholders/bg.png')
 
 interface Props extends RouteComponentProps {
   data: { [key: string]: WPPost }
@@ -64,11 +64,8 @@ class ArticleSlider extends React.Component<Props, State> {
     return (
       <div className="articles-slider">
         <div className="slide">
-          {slide.acf.thumbnail_image ? (
-            <img
-              src={slide.acf.thumbnail_image.sizes.large}
-              alt={slide.acf.thumbnail_image.name}
-            />
+          {slide.acf.image ? (
+            <img src={slide.acf.image} alt={slide.title.rendered} />
           ) : (
             <img src={placeholder} alt="Placeholder" />
           )}

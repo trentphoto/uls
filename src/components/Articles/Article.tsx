@@ -7,7 +7,7 @@ import moment from 'moment'
 interface Props extends RouteComponentProps {
   data: WPPost
 }
-const placeholder = require('../../assets/placeholders/blog/blog-2.jpg')
+const placeholder = require('../../assets/placeholders/bg.png')
 const Article = ({ data, history }: Props) => {
   return (
     <div
@@ -15,11 +15,8 @@ const Article = ({ data, history }: Props) => {
       onClick={() => history.push(`/united-media/${data.slug}`)}
     >
       <div className="img-wrapper">
-        {data.acf.thumbnail_image ? (
-          <img
-            src={data.acf.thumbnail_image.sizes.large}
-            alt={data.acf.thumbnail_image.name}
-          />
+        {data.acf.image ? (
+          <img src={data.acf.image} alt={data.title.rendered} />
         ) : (
           <img src={placeholder} alt="Placeholder" />
         )}

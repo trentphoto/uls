@@ -199,51 +199,8 @@ const academicsMeta: HoverComponent = {
   ]
 }
 
-/**
- * COMMUNITY LIFE METADATA
- */
-const communityMeta: HoverComponent = {
-  hideSecondaryLinks: true,
-  primaryLinks: [
-    {
-      path: '/community-life/united-media',
-      label: 'United Media',
-      icon: 'video',
-      description: 'Stories and news from around the ULS community.'
-    },
-    {
-      path: '/community-life/calendar-of-events',
-      label: 'Calendar of Events',
-      icon: 'calendar-day',
-      description: 'Upcoming ULS events.'
-    },
-    {
-      path: '/community-life/community',
-      label: 'Community Updates',
-      icon: 'users',
-      description:
-        'Prayer requests and happenings in the life of our community.'
-    }
-  ],
-  secondaryLinks: [
-    {
-      path: '/community-life/united-media',
-      label: 'United Media'
-    },
-    {
-      path: '/community-life/calendar-of-events',
-      label: 'Calendar of Events'
-    },
-    {
-      path: '/community-life/community',
-      label: 'Community Updates'
-    }
-  ]
-}
-
 export const HoverData: { [key: string]: HoverComponent } = {
   about: aboutMeta,
   admissions: admissionsMeta,
-  academics: academicsMeta,
-  communityLife: communityMeta
+  academics: academicsMeta
 }

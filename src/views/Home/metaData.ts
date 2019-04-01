@@ -1,3 +1,5 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
 interface MetaData {
   hero: {
     header: string
@@ -9,16 +11,19 @@ interface MetaData {
       header: string
       desc: string
       link: string
+      icon: IconProp
     }
     tabTwo: {
       header: string
       desc: string
       link: string
+      icon: IconProp
     }
     tabThree: {
       header: string
       desc: string
       link: string
+      icon: IconProp
     }
   }
   facts: {
@@ -43,17 +48,20 @@ export const metaData: MetaData = {
       header: 'Visit',
       desc:
         'Discerning a call to ministry? Come to ULS and explore where God might be calling you next!',
-      link: '/admissions/visit'
+      link: '/admissions/visit',
+      icon: 'globe-americas'
     },
     tabTwo: {
       header: 'Apply',
       desc: 'Ready to apply? View applications and get started here.',
-      link: '/admissions/apply'
+      link: '/admissions/apply',
+      icon: 'check-circle'
     },
     tabThree: {
       header: 'Give',
       desc: 'ULS is supported through generous and faithful partners like you.',
-      link: '/giving'
+      link: '/giving',
+      icon: 'hand-holding-heart'
     }
   },
   facts: {
@@ -97,7 +105,7 @@ export const metaData: MetaData = {
       title: 'Sample Campus Event',
       startDate: 'SAT. OCTOBER 21ST',
       endDate: 'SUN. OCTOBER 22ND',
-      img: require('../../assets/placeholders/article-1.jpg'),
+      img: require('../../assets/placeholders/bg.png'),
       desc:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue mauris.'
     },
@@ -105,7 +113,7 @@ export const metaData: MetaData = {
       title: 'Lutherbowl',
       startDate: 'SAT. OCTOBER 21ST',
       endDate: 'SUN. OCTOBER 22ND',
-      img: require('../../assets/placeholders/article-2.jpg'),
+      img: require('../../assets/placeholders/bg.png'),
       desc:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue mauris.'
     }
