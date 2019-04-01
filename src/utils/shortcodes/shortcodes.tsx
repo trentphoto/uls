@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
+import renderHTML from 'react-render-html'
 
 interface RRProps {
   data: {
@@ -18,13 +19,13 @@ interface ButtonProps {
 }
 
 export const InlineLinkShortCode = ({ data }: RRProps) => {
-  return <Link to={data.params.path}>{data.params.label}</Link>
+  return <Link to={data.params.path}>{renderHTML(data.params.label)}</Link>
 }
 
 export const ButtonShortCode = ({ data }: ButtonProps) => {
   return (
     <Link className="wp-block-button__link" to={data.params.path}>
-      {data.params.label}
+      {renderHTML(data.params.label)}
     </Link>
   )
 }
