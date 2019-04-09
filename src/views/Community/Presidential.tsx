@@ -10,16 +10,20 @@ import {
   Loader
 } from '../../components'
 import { ReduxState } from '../../types/redux'
+import { RouteComponentProps } from 'react-router'
 
-interface Props {
+interface Props extends RouteComponentProps {
   posts: ReduxState['posts']['all']
-  page: ReduxState['pages']['currentRoute']
+  pages: ReduxState['pages']['allPages']
 }
 
-const Presidential = ({ posts, page }: Props) => {
+const Presidential = ({ match, posts, pages }: Props) => {
+  // const slug = ma
+  const slug = match.url.split('/').pop() as string
+  const page = pages[slug]
   return (
     <div className="presidents-newsletter-page page">
-      {page && page.root ? (
+      {page && page.data ? (
         <React.Fragment>
           <section className="py-5">
             <div className="container">
@@ -29,9 +33,9 @@ const Presidential = ({ posts, page }: Props) => {
                 </div>
                 <div className="col-md-8">
                   <Header colored type="h2">
-                    {page.root.title.rendered}
+                    {page.data.title.rendered}
                   </Header>
-                  <Content data={page.root.content.rendered} />
+                  <Content data={page.data.content.rendered} />
                 </div>
               </div>
             </div>

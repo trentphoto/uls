@@ -1,0 +1,69 @@
+.staff-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 40px;
+}
+
+.staff-list .staff-member {
+  box-shadow: 0 10px 35px 0 rgba(96, 96, 96, 0.08),
+    0 2px 9px 0 rgba(62, 57, 107, 0.06);
+  position: relative;
+  display: flex;
+  min-height: 180px;
+  width: 100%;
+  transition: 300ms ease all;
+  margin-bottom: 40px;
+  background: white;
+  line-height: 16px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.staff-list .staff-member:hover {
+  box-shadow: 0 16px 32px 0 rgba(105, 105, 106, 0.28), 0 0 0 transparent;
+  transform: translateY(-5px);
+}
+
+.staff-photo {
+  overflow: hidden;
+  min-width: 160px;
+  height: 200px;
+  left: 0;
+  top: 0;
+  border: 0;
+  margin: 0;
+  max-width: 170px;
+}
+
+@media (max-width: 400px) {
+  .staff-photo {
+    min-width: 80px;
+  }
+}
+
+.staff-photo img {
+  margin: 0;
+  color: var(--primary-blue);
+  width: 100%;
+}
+
+.staff-member-right {
+  margin-left: 0;
+  padding: 10px 15px;
+}
+
+.staff-member-right p {
+  font-size: 12px;
+  line-height: 16px;
+  margin: 10px 0;
+  text-transform: none;
+}
+
+.staff-member-right .staff-member-name {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.staff-member-right a {
+  color: var(--primary-blue);
+}

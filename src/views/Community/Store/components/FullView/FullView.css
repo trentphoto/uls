@@ -1,0 +1,161 @@
+.FullView {
+  visibility: hidden;
+  display: grid;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+  z-index: 1000000;
+}
+
+.FullView__close {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  padding: 20px;
+  font-size: 40px;
+  cursor: pointer;
+  color: var(--uls-blue);
+}
+
+.FullView__left,
+.FullView__right {
+  background-color: white;
+  transition: 300ms ease all;
+  border: 10px solid var(--uls-blue);
+}
+
+.FullView__left {
+  flex-direction: column;
+  justify-content: flex-start;
+  transform: translateX(-100%);
+  min-height: 400px;
+  max-height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.image-gallery-image img {
+  height: auto;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  max-width: 580px;
+}
+
+.image-gallery-slide-wrapper {
+  height: calc(100vh - 125px);
+}
+
+.FullView__right {
+  transform: translateX(100%);
+  padding: 3rem;
+  padding-right: 20%;
+}
+
+.FullView__left_open {
+  transform: translateX(0);
+}
+
+.FullView__right_open {
+  transform: translateX(0);
+}
+
+.FullView_open {
+  visibility: visible;
+}
+
+.FullView__btn-group .btn {
+  border-radius: 40px !important;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms ease all;
+}
+
+.FullView__btn-group .btn.active {
+  background-color: var(--uls-blue) !important;
+  color: white !important;
+  border: none;
+  transform: scale(0.9);
+  z-index: 10;
+}
+
+.FullView__AddToCartBtn {
+  border-radius: 0;
+  background-color: var(--uls-blue);
+  color: white;
+  font-weight: bold;
+  padding: 10px 70px;
+}
+
+@media (min-width: 740px) {
+  .FullView {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-template-rows: 1fr;
+    height: 100vh;
+  }
+
+  .FullView__left {
+    border-right-width: 5px;
+    max-height: 100vh;
+    min-width: 355px;
+    grid-template-rows: calc(100vh - 150px) 150px;
+    grid-row: 1;
+  }
+
+  .FullView__right {
+    grid-column: 2;
+    border-left-width: 5px;
+  }
+
+  .FullView__image-gallery {
+    flex-direction: row;
+    overflow: hidden;
+  }
+}
+
+@keyframes translateLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes translateRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes translateRightClose {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}

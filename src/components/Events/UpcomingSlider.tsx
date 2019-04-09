@@ -57,11 +57,14 @@ export default class UpcomingSlider extends Component<
   render() {
     const { slides } = this.props
     const { currentIndex } = this.state
+    console.log(slides[currentIndex])
     return (
       <div className="upcoming-slider page-wrapper">
         <div className="slider">
           <div className="left col">
-            <img src={slides[currentIndex].img} alt="" className="main" />
+            {slides[currentIndex].img && (
+              <img src={slides[currentIndex].img} alt="" className="main" />
+            )}
           </div>
           <div className="right col">
             <div className="container">

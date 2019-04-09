@@ -15,16 +15,20 @@ import {
 } from '../../components'
 
 interface Props extends RouteComponentProps {
-  page: ReduxState['pages']['currentRoute']
+  pages: ReduxState['pages']['allPages']
 }
 
 class CalendarPage extends React.Component<Props> {
   public render() {
-    const { page } = this.props
+    const { pages, match } = this.props
+
+    // const slug = ma
+    const slug = match.url.split('/').pop() as string
+    const page = pages[slug]
 
     return (
       <div className="admissions page">
-        {page && page.root ? (
+        {page && page.data ? (
           <React.Fragment>
             <section className="py-5">
               <div className="container">
@@ -34,9 +38,9 @@ class CalendarPage extends React.Component<Props> {
                   </div>
                   <div className="col-md-8">
                     <Header colored type="h2">
-                      {page.root.title.rendered}
+                      {page.data.title.rendered}
                     </Header>
-                    <Content data={page.root.content.rendered} />
+                    <Content data={page.data.content.rendered} />
                   </div>
                 </div>
               </div>

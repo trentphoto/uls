@@ -19,10 +19,12 @@ interface ButtonProps {
 }
 
 export const InlineLinkShortCode = ({ data }: RRProps) => {
+  window.scrollTo(0, 0)
   return <Link to={data.params.path}>{renderHTML(data.params.label)}</Link>
 }
 
 export const ButtonShortCode = ({ data }: ButtonProps) => {
+  window.scrollTo(0, 0)
   return (
     <Link className="wp-block-button__link" to={data.params.path}>
       {renderHTML(data.params.label)}

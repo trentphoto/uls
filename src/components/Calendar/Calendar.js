@@ -12,7 +12,7 @@ import CardList from './components/CardList'
 import SidebarCard from './components/SidebarCard'
 
 const url =
-  'https://unitedlutheranseminary.edu/wp-json/wp/v2/calendar?_embed&per_page=50&calendar_categories=55' // return limit of 50 per page; only return category 54, 'calendar: current'
+  'https://uls2.unitedlutheranseminary.org/wp-json/wp/v2/calendar?_embed&per_page=50' // return limit of 50 per page; only return category 54, 'calendar: current'
 
 Date.prototype.addDays = function(days) {
   let date = new Date(this.valueOf())
@@ -116,6 +116,13 @@ class Calendar extends Component {
 
       // then create list of all dates for the isDisabledDate function
       let dates = []
+      const dates2 = res.data.map(item => {
+        const range = this.getRange(
+          new Date(item.acf.start_date.replace(/-/g, '/')),
+          new Date(item.acf.end_date.replace(/-/g, '/'))
+        )
+        dates = dates.concat(range)
+      })
       // then deduplicate this list
       // first convert the original array to strings
       const datesStrings = dates.map(i => i.getTime())
@@ -129,7 +136,6 @@ class Calendar extends Component {
       this.setState({ datepickerMonth: ordered_eventsArr[0].startDate })
     })
   }
-
   filterByMonth = date => {
     this.setState({
       currentFilter: { month: date.getMonth(), year: date.getFullYear() }
@@ -177,7 +183,7 @@ class Calendar extends Component {
 
   handleDayClick = date => {
     document
-      .querySelector('.site-header')
+      .querySelector('.admissions.page')
       .scrollIntoView({ behavior: 'smooth' })
     const clickedDate = new Date(date)
     if (this.state.selectedDay) {
@@ -256,8 +262,10 @@ class Calendar extends Component {
 
   // handle disabled dates
   isDisabledDate = date => {
+    // console.log('called', this.state.dates)
     let disabled = true
     this.state.dates.map(i => {
+      // console.log(i, date)
       if (this.matchDatesAsStrings(i, date)) {
         disabled = false
       }
@@ -277,6 +285,7 @@ class Calendar extends Component {
   }
 
   render() {
+    // console.log(this.state.dates)
     let loader
     if (this.state.loading) {
       loader = <Loader />

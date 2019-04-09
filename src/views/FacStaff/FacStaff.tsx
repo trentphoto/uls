@@ -11,6 +11,7 @@ import {
 import { RouteComponentProps } from 'react-router'
 import { ReduxState } from '../../types/redux'
 import { ILink } from '../../components/Footer/metaData'
+import './faculty.css'
 
 interface Props extends RouteComponentProps {
   page: ReduxState['pages']['currentRoute']

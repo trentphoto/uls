@@ -9,7 +9,8 @@ import {
   AdmissionsRoutes,
   AcademicsRoutes,
   Lvl2Routes,
-  CommunityRoutes
+  CommunityRoutes,
+  FacStaffRoutes
 } from './views'
 import { Navbar } from './components'
 
@@ -84,7 +85,7 @@ const App = () => (
       <Route path="/community" component={CommunityRoutes} />
       <Route path="/students" component={Lvl2Routes} />
       <Route path="/alumni" component={Lvl2Routes} />
-      <Route path="/faculty-staff" component={Lvl2Routes} />
+      <Route path="/faculty-staff" component={FacStaffRoutes} />
       <Route path="/giving" component={Lvl2Routes} />
       <Route component={NotFound} />
     </Switch>
