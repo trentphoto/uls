@@ -31,7 +31,25 @@ const Navbar = () => {
             <div className="upper-container">
               <div className="saying">Unifying, Learning, Serving.</div>
               <div className="links">
-                <NavLink to="/community">Community</NavLink>
+                <div className="dd">
+                  <NavLink className="root" to="/community">
+                    Community
+                  </NavLink>
+                  <ul className="dd-list">
+                    <li className="dd-item">
+                      <NavLink to="/community/calendar-of-events">
+                        <FontAwesomeIcon icon="calendar-day" size="lg" />
+                        Calendar
+                      </NavLink>
+                    </li>
+                    <li className="dd-item">
+                      <NavLink to="/community/community-updates">
+                        <FontAwesomeIcon icon="calendar-day" size="lg" />
+                        Community Updates
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
                 <NavLink to="/students">Students</NavLink>
                 <NavLink to="/faculty-staff">Faculty / Staff</NavLink>
                 <NavLink to="/alumni">Alumni</NavLink>

@@ -16,14 +16,21 @@ import {
   Content
 } from '../../components'
 import './Admissions.css'
+import LeadMagnet from '../../components/LeadMagnet'
 
+interface State {
+  popupIsActive: boolean
+}
 interface Props extends RouteComponentProps {
   page: ReduxState['pages']['currentRoute']
   // getPage: (slug: string) => Promise<WPPage>
   // getSubPages: (slug: string, pageID: number) => Promise<WPSubPage>
 }
 
-class Admissions extends React.Component<Props> {
+class Admissions extends React.Component<Props, State> {
+  state: State = {
+    popupIsActive: false
+  }
   async componentWillMount() {
     // const { match, getPage, getSubPages, pages } = this.props
     // const slug = match.path.replace('/', '')
@@ -48,6 +55,10 @@ class Admissions extends React.Component<Props> {
     return []
   }
 
+  togglePopup = () => {
+    this.setState({ popupIsActive: !this.state.popupIsActive })
+  }
+
   public render() {
     const { page } = this.props
 
@@ -59,7 +70,9 @@ class Admissions extends React.Component<Props> {
         {page && page.root ? (
           <React.Fragment>
             <Hero.WithImage {...metaData.hero} overlay />
-
+            {this.state.popupIsActive && (
+              <LeadMagnet toggleForm={this.togglePopup} />
+            )}
             {/* Discerning Your Call Series - Lead Magnet - update */}
 
             {/* <section className="py-5 bg-light">
@@ -111,6 +124,12 @@ class Admissions extends React.Component<Props> {
                       Welcome to ULS Admissions
                     </Header>
                     <Content data={page.root.content.rendered} />
+                    <div
+                      onClick={this.togglePopup}
+                      className="wp-block-button__link"
+                    >
+                      Send My Welcome Packet
+                    </div>
                   </div>
                 </div>
               </div>
